@@ -4,6 +4,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
 import { NgForm } from '@angular/forms';
+import {MdSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,7 @@ export class AppComponent {
   items: FirebaseListObservable<any[]>;
   msgVal: string = '';
 
-  constructor(public afAuth: AngularFireAuth, public af: AngularFireDatabase) {
+  constructor(public afAuth: AngularFireAuth, public af: AngularFireDatabase, public snackBar: MdSnackBar) {
     this.items = af.list('/messages', {
       query: {
         limitToLast: 50
@@ -27,7 +28,7 @@ export class AppComponent {
     this.user = this.afAuth.authState;
 
   }
-  
+
   logout() {
     this.afAuth.auth.signOut();
   }
@@ -44,7 +45,9 @@ export class AppComponent {
         .auth
         .createUserWithEmailAndPassword(formData.value.email, formData.value.password)
         .then(value => {
-          console.log('Nice, it worked!');
+          this.snackBar.open('Welcome mate!', null,{
+            duration: 3000
+          });
         })
         .catch(err => {
           console.log('Something went wrong:', err.message);
@@ -59,7 +62,9 @@ export class AppComponent {
         .auth
         .signInWithEmailAndPassword(formData.value.email, formData.value.password)
         .then(value => {
-          console.log('Nice, it worked!');
+          this.snackBar.open('Welcome back mate!', null,{
+            duration: 3000
+          });
         })
         .catch(err => {
           console.log('Something went wrong:', err.message);
