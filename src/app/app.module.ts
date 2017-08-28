@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '@angular/material';
 import { AppComponent } from './app.component';
-import { AuthService } from './services/auth.service';
 import { MessagingService } from "./messaging.service";
 
 import { AngularFireModule } from 'angularfire2';
@@ -29,7 +28,7 @@ import { environment } from '../environments/environment';
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
-  providers: [AuthService, MessagingService],
+  providers: [MessagingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
