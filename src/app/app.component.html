@@ -15,12 +15,30 @@
 
   <div class="row columns">
 
-    <input type="text" id="message" *ngIf="(user | async)?.uid" placeholder="What is it that you do?" (keyup.enter)="Send($event.target.value)" [(ngModel)]="msgVal" />
+    <md-input-container>
+      <textarea mdInput placeholder="Write a simple message" (keyup.enter)="send($event.target.value)" [(ngModel)]="msgVal"></textarea>
+    </md-input-container>
+
   </div>
 
 
   <md-list>
-    <md-list-item *ngFor="let item of items | async">{{item.message}}</md-list-item>
+    <md-list-item *ngFor="let item of items | async">
+      {{item.message}}
+
+      <button md-icon-button [mdMenuTriggerFor]="menu"><md-icon>more_horiz</md-icon></button>
+      <md-menu #menu="mdMenu">
+        <button md-menu-item>
+            <md-icon>edit</md-icon>
+              <span> Edit </span>
+              </button>
+        <button md-menu-item (click)="delete(item)">
+          <md-icon> voicemail </md-icon>
+          <span> Detele</span>
+        </button>
+      </md-menu>
+
+    </md-list-item>
   </md-list>
 
 </div>

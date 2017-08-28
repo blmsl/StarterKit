@@ -33,9 +33,13 @@ export class AppComponent {
     this.afAuth.auth.signOut();
   }
 
-  Send(desc: string) {
+  send(desc: string) {
     this.items.push({ message: desc });
     this.msgVal = '';
+  }
+
+  delete(message: any) {
+    this.af.object('/messages/' + message.$key).remove();
   }
 
   createUserWithEmailAndPassword(formData: NgForm) {
