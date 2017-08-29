@@ -1,4 +1,4 @@
-<div *ngIf="(user | async)?.uid">
+<div *ngIf="(user | async)?.uid" fxFlexFill fxLayout="column">
 
   <md-toolbar color="primary">
     <span>My Application</span>
@@ -13,33 +13,38 @@
 
   </md-toolbar>
 
-  <div class="row columns">
+  <md-sidenav-container fxFlex>
+    <md-sidenav mode="side" opened="true">
+      <md-list>
+        <md-list-item *ngFor="let user of users | async">
+          {{user.email}}
+        </md-list-item>
+      </md-list>
+    </md-sidenav>
 
     <md-input-container>
       <textarea mdInput placeholder="Write a simple message" (keyup.enter)="send($event.target.value)" [(ngModel)]="msgVal"></textarea>
     </md-input-container>
+    <md-list>
+      <md-list-item *ngFor="let item of items | async">
+        {{item.message}}
 
-  </div>
+        <button md-icon-button [mdMenuTriggerFor]="menu"><md-icon>more_horiz</md-icon></button>
+        <md-menu #menu="mdMenu">
+          <button md-menu-item>
+              <md-icon>edit</md-icon>
+                <span> Edit </span>
+                </button>
+          <button md-menu-item (click)="delete(item)">
+            <md-icon> voicemail </md-icon>
+            <span> Detele</span>
+          </button>
+        </md-menu>
 
+      </md-list-item>
+    </md-list>
+  </md-sidenav-container>
 
-  <md-list>
-    <md-list-item *ngFor="let item of items | async">
-      {{item.message}}
-
-      <button md-icon-button [mdMenuTriggerFor]="menu"><md-icon>more_horiz</md-icon></button>
-      <md-menu #menu="mdMenu">
-        <button md-menu-item>
-            <md-icon>edit</md-icon>
-              <span> Edit </span>
-              </button>
-        <button md-menu-item (click)="delete(item)">
-          <md-icon> voicemail </md-icon>
-          <span> Detele</span>
-        </button>
-      </md-menu>
-
-    </md-list-item>
-  </md-list>
 
 </div>
 

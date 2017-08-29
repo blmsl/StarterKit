@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
 
   user: Observable<firebase.User>;
   items: FirebaseListObservable<any[]>;
+  users: FirebaseListObservable<any[]>;
   msgVal: string = '';
   message;
 
@@ -34,6 +35,8 @@ export class AppComponent implements OnInit {
         limitToLast: 50
       }
     });
+
+    this.users = af.list('/users');
 
     this.user = this.afAuth.authState;
     iconRegistry.addSvgIcon('github', sanitizer.bypassSecurityTrustResourceUrl('assets/github-icon.svg'));
