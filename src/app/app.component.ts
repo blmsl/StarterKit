@@ -6,6 +6,8 @@ import * as firebase from 'firebase/app';
 import { NgForm } from '@angular/forms';
 import {MdSnackBar} from '@angular/material';
 import { MessagingService } from "./messaging.service";
+import {MdIconRegistry} from '@angular/material';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +22,13 @@ export class AppComponent implements OnInit {
   msgVal: string = '';
   message;
 
-  constructor(public afAuth: AngularFireAuth, public af: AngularFireDatabase, public snackBar: MdSnackBar, private msgService: MessagingService) {
+  constructor(
+    iconRegistry: MdIconRegistry,
+    sanitizer: DomSanitizer,
+    public afAuth: AngularFireAuth,
+    public af: AngularFireDatabase,
+    public snackBar: MdSnackBar,
+    private msgService: MessagingService) {
     this.items = af.list('/messages', {
       query: {
         limitToLast: 50
@@ -28,6 +36,7 @@ export class AppComponent implements OnInit {
     });
 
     this.user = this.afAuth.authState;
+    iconRegistry.addSvgIcon('github', sanitizer.bypassSecurityTrustResourceUrl('assets/github-icon.svg'));
 
   }
 
