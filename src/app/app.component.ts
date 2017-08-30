@@ -17,23 +17,16 @@ export class AppComponent implements OnInit {
   title = 'app';
 
   user: Observable<firebase.User>;
-  items: FirebaseListObservable<any[]>;
   users: FirebaseListObservable<any[]>;
-  msgVal: string = '';
   message;
 
-  constructor(
+constructor(
     iconRegistry: MdIconRegistry,
     sanitizer: DomSanitizer,
     public afAuth: AngularFireAuth,
     public af: AngularFireDatabase,
     public snackBar: MdSnackBar,
     private msgService: MessagingService) {
-    this.items = af.list('/messages', {
-      query: {
-        limitToLast: 50
-      }
-    });
 
     this.users = af.list('/users');
 
@@ -51,15 +44,6 @@ export class AppComponent implements OnInit {
 
   logout() {
     this.afAuth.auth.signOut();
-  }
-
-  send(desc: string) {
-    this.items.push({ message: desc });
-    this.msgVal = '';
-  }
-
-  delete(message: any) {
-    this.af.object('/messages/' + message.$key).remove();
   }
 
   createUserWithEmailAndPassword(formData: NgForm) {

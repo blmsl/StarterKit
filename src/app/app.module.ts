@@ -13,11 +13,20 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import 'hammerjs';
 import { environment } from '../environments/environment';
+import { ProfileComponent } from './profile.component';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home.component';
 
+const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'profile', component: ProfileComponent }
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ProfileComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +37,8 @@ import { environment } from '../environments/environment';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [MessagingService],
   bootstrap: [AppComponent]
