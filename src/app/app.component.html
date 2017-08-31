@@ -1,4 +1,4 @@
-<div *ngIf="(user | async)?.uid" fxFlexFill fxLayout="column">
+<div *ngIf="(auth.user | async)?.uid" fxFlexFill fxLayout="column">
 
   <md-toolbar color="primary">
     <a md-icon-button routerLink="/" mdTooltip="Home">
@@ -39,7 +39,7 @@
 
 </div>
 
-<div fxFlexFill fxLayout fxLayoutAlign="center center" *ngIf="!(user | async)?.uid">
+<div fxFlexFill fxLayout fxLayoutAlign="center center" *ngIf="!(auth.user | async)?.uid">
 
   <md-card>
     <md-tab-group>

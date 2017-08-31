@@ -16,6 +16,7 @@ import { environment } from '../environments/environment';
 import { ProfileComponent } from './profile.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
+import { AuthService } from './auth.service';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -40,7 +41,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [MessagingService],
+  providers: [MessagingService,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
