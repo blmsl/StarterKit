@@ -2,16 +2,20 @@
 
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 @import '~https://fonts.googleapis.com/icon?family=Material+Icons';
-html, body{
+html, body {
   height: 100%;
   margin: 0;
   position: relative;
 }
 
 .appMdOneLineTooltip {
-  white-space:nowrap;
+  white-space: nowrap;
 }
 
-#main-content{
+#main-content {
   overflow: auto;
+}
+
+#login-form, #sign-up-form {
+  margin-top: 1em;
 }

@@ -47,39 +47,36 @@
 
   <md-card>
     <md-tab-group>
-      <md-tab label="Sign in">
-        <section class="mat-typography">
-          <h1>Sign in</h1>
-        </section>
+      <md-tab label="Log in">
 
-        <form #signInForm='ngForm' (ngSubmit)="signInWithEmailAndPassword(signInForm)">
-          <md-form-field>
+        <form id="login-form" fxLayout="column" #signInForm='ngForm' (ngSubmit)="signInWithEmailAndPassword(signInForm)">
+          <md-form-field fxFlex>
+            <md-icon mdPrefix>perm_identity</md-icon>
             <input mdInput type="email" placeholder="Email address" (ngModel)="email" name="email" required>
           </md-form-field>
 
           <md-form-field>
+            <md-icon mdPrefix>lock</md-icon>
             <input mdInput type="password" placeholder="Password" (ngModel)="password" name="password" required>
           </md-form-field>
 
-          <button type="submit" [disabled]="!signInForm.valid" md-button>Sign in</button>
+          <button type="submit" [disabled]="!signInForm.valid" md-raised-button color="primary">Login</button>
         </form>
       </md-tab>
       <md-tab label="Sign Up">
-        <section class="mat-typography">
-          <h1>Sign up</h1>
-        </section>
-        <form #signUpForm='ngForm' (ngSubmit)="createUserWithEmailAndPassword(signUpForm)">
+        <form fxLayout="column" id="sign-up-form" #signUpForm='ngForm' (ngSubmit)="createUserWithEmailAndPassword(signUpForm)">
 
           <md-form-field>
+            <md-icon mdPrefix>perm_identity</md-icon>
             <input mdInput type="email" placeholder="Email address" (ngModel)="email" name="email" required>
-
           </md-form-field>
 
           <md-form-field>
+            <md-icon mdPrefix>lock</md-icon>
             <input mdInput type="password" placeholder="Password" (ngModel)="password" name="password" required>
           </md-form-field>
 
-          <button type="submit" [disabled]="!signUpForm.valid" md-button>Sign up</button>
+          <button type="submit" [disabled]="!signUpForm.valid" md-raised-button color="primary">Sign up</button>
         </form>
       </md-tab>
     </md-tab-group>
