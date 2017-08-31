@@ -25,17 +25,20 @@
 
   </md-toolbar>
 
-  <md-sidenav-container fxFlex>
-    <md-sidenav mode="side" opened="true">
+  <div fxFlex fxLayout>
+    <div>
       <md-list>
         <md-list-item *ngFor="let user of users | async">
           {{user.email}}
         </md-list-item>
       </md-list>
-    </md-sidenav>
+    </div>
 
-    <router-outlet></router-outlet>
-  </md-sidenav-container>
+    <div fxFlex id="main-content">
+      <router-outlet></router-outlet>
+
+    </div>
+  </div>
 
 
 </div>
@@ -50,13 +53,13 @@
         </section>
 
         <form #signInForm='ngForm' (ngSubmit)="signInWithEmailAndPassword(signInForm)">
-          <md-input-container>
+          <md-form-field>
             <input mdInput type="email" placeholder="Email address" (ngModel)="email" name="email" required>
-          </md-input-container>
+          </md-form-field>
 
-          <md-input-container>
+          <md-form-field>
             <input mdInput type="password" placeholder="Password" (ngModel)="password" name="password" required>
-          </md-input-container>
+          </md-form-field>
 
           <button type="submit" [disabled]="!signInForm.valid" md-button>Sign in</button>
         </form>
@@ -67,14 +70,14 @@
         </section>
         <form #signUpForm='ngForm' (ngSubmit)="createUserWithEmailAndPassword(signUpForm)">
 
-          <md-input-container>
+          <md-form-field>
             <input mdInput type="email" placeholder="Email address" (ngModel)="email" name="email" required>
 
-          </md-input-container>
+          </md-form-field>
 
-          <md-input-container>
+          <md-form-field>
             <input mdInput type="password" placeholder="Password" (ngModel)="password" name="password" required>
-          </md-input-container>
+          </md-form-field>
 
           <button type="submit" [disabled]="!signUpForm.valid" md-button>Sign up</button>
         </form>

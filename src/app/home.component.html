@@ -1,6 +1,6 @@
-<md-input-container>
+<md-form-field>
   <textarea mdInput placeholder="Make a post" (keyup.enter)="createPost(post)" [(ngModel)]="post.content"></textarea>
-</md-input-container>
+</md-form-field>
 <md-list>
   <md-list-item *ngFor="let post of posts | async">
     {{post.content}}
