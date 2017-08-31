@@ -17,6 +17,7 @@ import { ProfileComponent } from './profile.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { AuthService } from './auth.service';
+import { ForgotPasswordComponent } from './forgot-password.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -27,7 +28,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     ProfileComponent,
-    HomeComponent
+    HomeComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +44,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   providers: [MessagingService,AuthService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[ForgotPasswordComponent]
 })
 export class AppModule { }

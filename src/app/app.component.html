@@ -62,6 +62,9 @@
 
           <button type="submit" [disabled]="!signInForm.valid" md-raised-button color="primary">Login</button>
         </form>
+        <br />
+        <button (click)="showPasswordResetDialog()" md-button>Forgot your password?</button>
+
       </md-tab>
       <md-tab label="Sign Up">
         <form fxLayout="column" id="sign-up-form" #signUpForm='ngForm' (ngSubmit)="createUserWithEmailAndPassword(signUpForm)">
