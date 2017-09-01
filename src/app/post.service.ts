@@ -18,7 +18,6 @@ export class PostService {
     return this.posts
   }
   createPost(post: Post): void {
-    debugger;
     this.posts.push(post)
   }
 
