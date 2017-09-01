@@ -1,10 +1,12 @@
 <div *ngIf="(auth.user | async)?.uid" fxFlexFill fxLayout="column">
 
   <md-toolbar color="primary">
-    <a md-icon-button routerLink="/" mdTooltip="Home">
+    <a md-button routerLink="/" mdTooltip="Home">
       <md-icon>home</md-icon>
+
+      <span> My Application</span>
     </a>
-    <span>My Application</span>
+
 
     <span fxFlex></span>
 
@@ -13,10 +15,9 @@
       <span>GITHUB</span>
     </a>
 
-    <a md-icon-button routerLink="/profile" mdTooltip="Go to my profile">
-      <md-icon>account_circle</md-icon>
+    <a md-button routerLink="/profile">
+      Hello {{(auth.user | async)?.email}}
     </a>
-
 
     <button md-icon-button (click)="logout()" mdTooltip="Sign out" mdTooltipClass="appMdOneLineTooltip">
       <md-icon>exit_to_app</md-icon>
