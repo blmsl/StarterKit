@@ -50,7 +50,7 @@
       <md-tab label="Log in">
 
         <form id="login-form" fxLayout="column" #signInForm='ngForm' (ngSubmit)="signInWithEmailAndPassword(signInForm)">
-          <md-form-field fxFlex>
+          <md-form-field>
             <md-icon mdPrefix>perm_identity</md-icon>
             <input mdInput type="email" placeholder="Email address" (ngModel)="email" name="email" required>
           </md-form-field>
