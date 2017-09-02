@@ -1,0 +1,17 @@
+.user-status {
+  width: 1em;
+  background-color: #388e3c;
+  height: 1em;
+  border-radius: 50%;
+  display: block;
+  margin-left: 1em;
+}
+
+.user-status.offline {
+  background-color: red;
+}
+
+
+.user-status.away {
+  background-color: gray;
+}

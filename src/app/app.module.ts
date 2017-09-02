@@ -6,7 +6,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { MessagingService } from "./messaging.service";
-import {HttpModule} from '@angular/http';
+import { HttpModule } from '@angular/http';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -19,6 +19,7 @@ import { HomeComponent } from './home.component';
 import { AuthService } from './auth.service';
 import { ForgotPasswordComponent } from './forgot-password.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UserStatusComponent } from './user-status/user-status.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -30,7 +31,8 @@ const appRoutes: Routes = [
     AppComponent,
     ProfileComponent,
     HomeComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    UserStatusComponent
   ],
   imports: [
     BrowserModule,
@@ -45,8 +47,8 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [MessagingService,AuthService],
+  providers: [MessagingService, AuthService],
   bootstrap: [AppComponent],
-  entryComponents:[ForgotPasswordComponent]
+  entryComponents: [ForgotPasswordComponent]
 })
 export class AppModule { }

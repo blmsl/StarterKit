@@ -31,6 +31,9 @@
       <md-list>
         <md-list-item *ngFor="let user of users | async">
           {{user.email}}
+          <span fxFlex></span>
+          <app-user-status [status]="user.status"></app-user-status>
+
         </md-list-item>
       </md-list>
     </div>
