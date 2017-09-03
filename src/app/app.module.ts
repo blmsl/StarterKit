@@ -17,18 +17,20 @@ import { ProfileComponent } from './profile.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { AuthService } from './auth.service';
+import { UploadService } from './services/upload.service';
+
 import { ForgotPasswordComponent } from './forgot-password.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserStatusComponent } from './user-status/user-status.component';
 import { DashyComponent } from './dashy/dashy.component';
 import { GridsterModule } from 'angular2gridster';
-import { FileUploadsComponent } from './file-uploads/file-uploads.component';
+import { FilesUploadComponent } from './files-upload/files-upload.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'dashy', component: DashyComponent },
-  { path: 'uploads', component: FileUploadsComponent }
+  { path: 'uploads', component: FilesUploadComponent }
 
 ];
 
@@ -40,7 +42,7 @@ const appRoutes: Routes = [
     ForgotPasswordComponent,
     UserStatusComponent,
     DashyComponent,
-    FileUploadsComponent
+    FilesUploadComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +58,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     GridsterModule
   ],
-  providers: [MessagingService, AuthService],
+  providers: [MessagingService, AuthService, UploadService],
   bootstrap: [AppComponent],
   entryComponents: [ForgotPasswordComponent]
 })
