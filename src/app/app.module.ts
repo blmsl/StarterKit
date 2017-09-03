@@ -22,11 +22,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UserStatusComponent } from './user-status/user-status.component';
 import { DashyComponent } from './dashy/dashy.component';
 import { GridsterModule } from 'angular2gridster';
+import { FileUploadsComponent } from './file-uploads/file-uploads.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'dashy', component: DashyComponent }
+  { path: 'dashy', component: DashyComponent },
+  { path: 'uploads', component: FileUploadsComponent }
 
 ];
 
@@ -37,7 +39,8 @@ const appRoutes: Routes = [
     HomeComponent,
     ForgotPasswordComponent,
     UserStatusComponent,
-    DashyComponent
+    DashyComponent,
+    FileUploadsComponent
   ],
   imports: [
     BrowserModule,
