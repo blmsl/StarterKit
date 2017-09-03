@@ -1,0 +1,8 @@
+<gridster [options]="gridsterOptions">
+
+  <gridster-item class="pane" *ngFor="let widget of widgets"
+                 [(x)]="widget.x" [(y)]="widget.y" [(w)]="widget.w" [(h)]="widget.h">
+      <!--some content-->
+  </gridster-item>
+
+</gridster>

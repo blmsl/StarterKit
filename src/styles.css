@@ -15,6 +15,7 @@ html, body {
 
 #main-content {
   overflow: auto;
+  overflow-x: hidden;
 }
 
 #login-form, #sign-up-form {

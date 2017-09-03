@@ -20,10 +20,14 @@ import { AuthService } from './auth.service';
 import { ForgotPasswordComponent } from './forgot-password.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserStatusComponent } from './user-status/user-status.component';
+import { DashyComponent } from './dashy/dashy.component';
+import { GridsterModule } from 'angular2gridster';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'profile', component: ProfileComponent }
+  { path: 'profile', component: ProfileComponent },
+  { path: 'dashy', component: DashyComponent }
+
 ];
 
 @NgModule({
@@ -32,7 +36,8 @@ const appRoutes: Routes = [
     ProfileComponent,
     HomeComponent,
     ForgotPasswordComponent,
-    UserStatusComponent
+    UserStatusComponent,
+    DashyComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +50,8 @@ const appRoutes: Routes = [
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    GridsterModule
   ],
   providers: [MessagingService, AuthService],
   bootstrap: [AppComponent],
