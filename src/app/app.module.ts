@@ -26,7 +26,7 @@ import { DashyComponent } from './dashy/dashy.component';
 import { GridsterModule } from 'angular2gridster';
 import { FilesUploadComponent } from './files-upload/files-upload.component';
 import { FileSizePipe } from './pipes/file-size.pipe';
-
+import { UtilsService } from './services/utils.service';
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'profile', component: ProfileComponent },
@@ -60,7 +60,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     GridsterModule
   ],
-  providers: [MessagingService, AuthService, UploadService],
+  providers: [MessagingService, AuthService, UploadService, UtilsService],
   bootstrap: [AppComponent],
   entryComponents: [ForgotPasswordComponent]
 })
