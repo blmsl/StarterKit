@@ -14,11 +14,13 @@
       {{file.file.name}}
       <span fxFlex></span>
 
-      <button md-button *ngIf="file.state == 'ready'" (click)="upload(i)">Upload</button>
-      <!-- <button md-button (click)="uploads.splice(i, 1)">Remove</button> -->
-      <div [hidden]="file.state == 'ready'">
-        <button md-button *ngIf="file.state == 'running'" (click)="file.pauseUpload()">Pause</button>
-        <button md-button *ngIf="file.state == 'paused'" (click)="file.resumeUpload()">Resume</button>
+      <div *ngIf="file.progress < 100">
+        <button md-button *ngIf="file.state == 'ready'" (click)="upload(i)">Upload</button>
+        <!-- <button md-button (click)="uploads.splice(i, 1)">Remove</button> -->
+        <div [hidden]="file.state == 'ready'">
+          <button md-button *ngIf="file.state == 'running'" (click)="file.pauseUpload()">Pause</button>
+          <button md-button *ngIf="file.state == 'paused'" (click)="file.resumeUpload()">Resume</button>
+        </div>
       </div>
 
       <a md-icon-button (click)="removeUpload(i)">
