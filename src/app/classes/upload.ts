@@ -5,7 +5,7 @@ export class Upload {
   file: File;
   name: string;
   url: string;
-  progress: number;
+  progress: number = 0;
   createdAt: Date = new Date();
   private _uploadTask: firebase.storage.UploadTask
   state: string = 'ready';
