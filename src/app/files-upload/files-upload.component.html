@@ -1,22 +1,41 @@
-<div *ngIf="currentUpload">
-  <div class="progress">
-    <div class="progress-bar progress-bar-animated" [ngStyle]="{ 'width': currentUpload?.progress + '%' }"></div>
+<div fxLayout="column" fxLayoutGap="1em">
+  <div>
+    <button md-raised-button color="primary" (click)="fileInput.click()">Choose Files</button>
+
+    <input hidden multiple type="file" #fileInput (change)="addFiles($event.target.files); $event.target.value = null;" />
+    <span fxFlex></span>
+    <div [hidden]="uploads.length < 2">
+      <button md-button (click)="uploadAll()">Upload all</button>
+      <button md-button (click)="removeAll()">Remove all</button>
+    </div>
   </div>
-  Progress: {{currentUpload?.name}} | {{currentUpload?.progress}}% Complete
-  <md-progress-bar
-          [mode]="'determinate'"
-          [value]="currentUpload.progress">
+  <md-card *ngFor="let file of uploads;let i = index">
+    <div fxLayout fxLayoutAlign="center center">
+      {{file.file.name}}
+      <span fxFlex></span>
+
+      <button md-button *ngIf="file.state == 'ready'" (click)="upload(i)">Upload</button>
+      <!-- <button md-button (click)="uploads.splice(i, 1)">Remove</button> -->
+      <div [hidden]="file.state == 'ready'">
+        <button md-button *ngIf="file.state == 'running'" (click)="file.pauseUpload()">Pause</button>
+        <button md-button *ngIf="file.state == 'paused'" (click)="file.resumeUpload()">Resume</button>
+      </div>
+
+      <a md-icon-button (click)="removeUpload(i)">
+        <md-icon>close</md-icon>
+      </a>
+    </div>
+    <a md-button *ngIf="file.url" [attr.href]="file.url" target="_blank">Link to file</a>
+
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <md-progress-bar [mode]="determinate" [value]="file.progress">
       </md-progress-bar>
+      <span>
+        {{file.progress | number : '1.0-0'}}%
+      </span>
+    </div>
+    <div>
+      {{file.bytesTransferred | fileSize}} of {{file.file.size | fileSize}}
+    </div>
+  </md-card>
 </div>
-<label>
-       <input type="file" (change)="detectFiles($event)">
-    </label>
-<button [disabled]="!selectedFiles" (click)="uploadSingle()">
-      Upload Single
-    </button>
-<label>
-       <input type="file" (change)="detectFiles($event)" multiple>
-    </label>
-<button [disabled]="!selectedFiles" (click)="uploadMulti()">
-        Upload Multiple
-      </button>

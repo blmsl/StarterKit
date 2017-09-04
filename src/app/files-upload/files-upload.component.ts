@@ -10,25 +10,42 @@ import * as _ from "lodash";
   styleUrls: ['./files-upload.component.css']
 })
 export class FilesUploadComponent {
+  uploads: Array<Upload> = [];
+  constructor(private upSvc: UploadService) {
 
-  selectedFiles: FileList;
-  currentUpload: Upload;
-  constructor(private upSvc: UploadService) { }
-  detectFiles(event) {
-    this.selectedFiles = event.target.files;
   }
-  uploadSingle() {
-    let file = this.selectedFiles.item(0)
-    this.currentUpload = new Upload(file);
-    this.upSvc.pushUpload(this.currentUpload)
+
+  removeUpload(index: number) {
+    this.uploads[index].cancelUpload();
+    this.uploads.splice(index, 1);
   }
-  uploadMulti() {
-    let files = this.selectedFiles
-    let filesIndex = _.range(files.length)
-    _.each(filesIndex, (idx) => {
-      this.currentUpload = new Upload(files[idx]);
-      this.upSvc.pushUpload(this.currentUpload)
+
+  removeAll(): void {
+    // cancel all download
+    for (let i = 0; i < this.uploads.length; i++) {
+      this.uploads[i].cancelUpload();
     }
-    )
+
+    this.uploads = [];
+  }
+
+  uploadAll(): void {
+    for (let i = 0; i < this.uploads.length; i++) {
+      this.upload(i);
+    }
+  }
+
+
+  addFiles(selectedFiles: FileList) {
+    Array.from(selectedFiles).forEach(file => {
+      var fileAlreadyAdded = this.uploads.find(x => x.file.name == file.name)
+      if (!fileAlreadyAdded) {
+        this.uploads.push(new Upload(file))
+      }
+    });
+  }
+
+  upload(index: number) {
+    this.upSvc.pushUpload(this.uploads[index])
   }
 }
