@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '@angular/material';
 import { AppComponent } from './app.component';
+import { SigningInSnack } from './app.component';
+import { SigningUpSnack } from './app.component';
 import { MessagingService } from "./services/messaging.service";
 import { HttpModule } from '@angular/http';
 
@@ -44,7 +46,9 @@ const appRoutes: Routes = [
     UserStatusComponent,
     DashyComponent,
     FilesUploadComponent,
-    FileSizePipe
+    FileSizePipe,
+    SigningInSnack,
+    SigningUpSnack
   ],
   imports: [
     BrowserModule,
@@ -62,6 +66,9 @@ const appRoutes: Routes = [
   ],
   providers: [MessagingService, AuthService, UploadService, UtilsService],
   bootstrap: [AppComponent],
-  entryComponents: [ForgotPasswordComponent]
+  entryComponents: [
+    ForgotPasswordComponent,
+    SigningInSnack,
+    SigningUpSnack]
 })
 export class AppModule { }

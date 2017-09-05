@@ -1,12 +1,12 @@
-import { Component, OnInit  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
 import { NgForm } from '@angular/forms';
-import {MdSnackBar} from '@angular/material';
+import { MdSnackBar } from '@angular/material';
 import { MessagingService } from "./services/messaging.service";
-import {MdIconRegistry} from '@angular/material';
-import {DomSanitizer} from '@angular/platform-browser';
+import { MdIconRegistry } from '@angular/material';
+import { DomSanitizer } from '@angular/platform-browser';
 import { AuthService } from "./services/auth.service";
 import { MdDialog } from '@angular/material';
 import { ForgotPasswordComponent } from './forgot-password.component';
@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
   showPasswordResetDialog(): void {
     let dialogRef = this.dialog.open(ForgotPasswordComponent);
     dialogRef.afterClosed().subscribe(email => {
-      if(email) {
+      if (email) {
         this.auth.sendPasswordResetEmail(email)
           .then(result => {
             this.snackBar.open('We have sent an email to ' + email + ', you should get it shortly.', null, {
@@ -63,21 +63,26 @@ export class AppComponent implements OnInit {
 
   createUserWithEmailAndPassword(formData: NgForm) {
     if (formData.valid) {
-      console.log(formData.value);
+      let snackBarRef = this.snackBar.openFromComponent(SigningUpSnack);
+
       this.auth.signUpWithEmailAndPass(formData.value.email, formData.value.password)
         .then(value => {
-          this.snackBar.open('Welcome mate!', null, {
+          debugger;
+          this.snackBar.open('Welcome  mate!', null, {
             duration: 3000
           });
         })
         .catch(err => {
-          console.log('Something went wrong:', err.message);
+          debugger;
+          snackBarRef.dismiss();
+
         });
     }
   }
 
   signInWithEmailAndPassword(formData: NgForm) {
     if (formData.valid) {
+      let snackBarRef = this.snackBar.openFromComponent(SigningInSnack);
 
       this.auth.signInWithEmailAndPass(formData.value.email, formData.value.password)
         .then(value => {
@@ -86,10 +91,32 @@ export class AppComponent implements OnInit {
           });
         })
         .catch(err => {
-          console.log('Something went wrong:', err.message);
+          snackBarRef.dismiss();
         });
     }
   }
 
 
 }
+
+@Component({
+  selector: 'signing-in-snack',
+  template: `
+   <div fxLayout fxLayoutAlign='center center'>
+     <span fxFlex>Signing you in...</span>
+     <md-spinner style="height: 2em; width: 2em;"></md-spinner>
+   </div>
+   `
+})
+export class SigningInSnack { }
+
+@Component({
+  selector: 'signing-up-snack',
+  template: `
+   <div fxLayout fxLayoutAlign='center center'>
+     <span fxFlex>Signing you up...</span>
+     <md-spinner style="height: 2em; width: 2em;"></md-spinner>
+   </div>
+   `
+})
+export class SigningUpSnack { }
