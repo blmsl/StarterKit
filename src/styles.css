@@ -18,3 +18,7 @@ html, body {
   overflow-x: hidden;
   padding: 1em;
 }
+
+#login-form, #sign-up-form {
+  margin-top: 1em;
+}
