@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from "angularfire2/database";
 
-import { Post } from './post';
+import { Post } from '../classes/post';
 @Injectable()
 export class PostService {
 

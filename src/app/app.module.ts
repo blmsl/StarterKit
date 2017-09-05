@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '@angular/material';
 import { AppComponent } from './app.component';
-import { MessagingService } from "./messaging.service";
+import { MessagingService } from "./services/messaging.service";
 import { HttpModule } from '@angular/http';
 
 import { AngularFireModule } from 'angularfire2';
@@ -16,7 +16,7 @@ import { environment } from '../environments/environment';
 import { ProfileComponent } from './profile.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
-import { AuthService } from './auth.service';
+import { AuthService } from './services/auth.service';
 import { UploadService } from './services/upload.service';
 
 import { ForgotPasswordComponent } from './forgot-password.component';

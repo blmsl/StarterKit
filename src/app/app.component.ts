@@ -4,10 +4,10 @@ import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
 import { NgForm } from '@angular/forms';
 import {MdSnackBar} from '@angular/material';
-import { MessagingService } from "./messaging.service";
+import { MessagingService } from "./services/messaging.service";
 import {MdIconRegistry} from '@angular/material';
 import {DomSanitizer} from '@angular/platform-browser';
-import { AuthService } from "./auth.service";
+import { AuthService } from "./services/auth.service";
 import { MdDialog } from '@angular/material';
 import { ForgotPasswordComponent } from './forgot-password.component';
 
