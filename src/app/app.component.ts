@@ -67,15 +67,12 @@ export class AppComponent implements OnInit {
 
       this.auth.signUpWithEmailAndPass(formData.value.email, formData.value.password)
         .then(value => {
-          debugger;
           this.snackBar.open('Welcome  mate!', null, {
             duration: 3000
           });
         })
         .catch(err => {
-          debugger;
           snackBarRef.dismiss();
-
         });
     }
   }
