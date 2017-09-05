@@ -61,59 +61,5 @@ export class AppComponent implements OnInit {
     this.auth.signOut();
   }
 
-  createUserWithEmailAndPassword(formData: NgForm) {
-    if (formData.valid) {
-      let snackBarRef = this.snackBar.openFromComponent(SigningUpSnack);
-
-      this.auth.signUpWithEmailAndPass(formData.value.email, formData.value.password)
-        .then(value => {
-          this.snackBar.open('Welcome  mate!', null, {
-            duration: 3000
-          });
-        })
-        .catch(err => {
-          snackBarRef.dismiss();
-        });
-    }
-  }
-
-  signInWithEmailAndPassword(formData: NgForm) {
-    if (formData.valid) {
-      let snackBarRef = this.snackBar.openFromComponent(SigningInSnack);
-
-      this.auth.signInWithEmailAndPass(formData.value.email, formData.value.password)
-        .then(value => {
-          this.snackBar.open('Welcome back mate!', null, {
-            duration: 3000
-          });
-        })
-        .catch(err => {
-          snackBarRef.dismiss();
-        });
-    }
-  }
-
 
 }
-
-@Component({
-  selector: 'signing-in-snack',
-  template: `
-   <div fxLayout fxLayoutAlign='center center'>
-     <span fxFlex>Signing you in...</span>
-     <md-spinner style="height: 2em; width: 2em;"></md-spinner>
-   </div>
-   `
-})
-export class SigningInSnack { }
-
-@Component({
-  selector: 'signing-up-snack',
-  template: `
-   <div fxLayout fxLayoutAlign='center center'>
-     <span fxFlex>Signing you up...</span>
-     <md-spinner style="height: 2em; width: 2em;"></md-spinner>
-   </div>
-   `
-})
-export class SigningUpSnack { }

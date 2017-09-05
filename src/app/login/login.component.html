@@ -1,0 +1,25 @@
+<form id="login-form" fxLayout="column" #signInForm='ngForm' (ngSubmit)="signInWithEmailAndPassword(signInForm)">
+  <md-form-field>
+    <button tabindex="-1" md-icon-button mdPrefix><md-icon>person</md-icon></button>
+    <input mdInput type="email" placeholder="Email address" (ngModel)="email" name="email" required>
+  </md-form-field>
+
+  <md-form-field>
+    <button tabindex="-1" md-icon-button mdPrefix><md-icon>lock</md-icon></button>
+    <input mdInput type="password" placeholder="Password" (ngModel)="password" name="password" required>
+  </md-form-field>
+
+  <div>
+    <!-- You need to add type button to any button on a form that is not submit.
+        Else it is going to call submit on the form.
+        for more info
+        https://github.com/angular/angular.js/issues/6017
+        https://stackoverflow.com/questions/38786995/avoid-angular2-to-systematically-submit-form-on-button-click
+      -->
+    <button type="button" tabindex="-1" (click)="showPasswordResetDialog()" md-button>Forgot your password?</button>
+    <span fxFlex></span>
+    <button type="submit" [disabled]="!signInForm.valid" md-raised-button color="primary">Login</button>
+
+  </div>
+
+</form>

@@ -5,8 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '@angular/material';
 import { AppComponent } from './app.component';
-import { SigningInSnack } from './app.component';
-import { SigningUpSnack } from './app.component';
+import { SigningInSnack } from './login/login.component';
+import { SigningUpSnack } from './sign-up/sign-up.component';
 import { MessagingService } from "./services/messaging.service";
 import { HttpModule } from '@angular/http';
 
@@ -29,6 +29,8 @@ import { GridsterModule } from 'angular2gridster';
 import { FilesUploadComponent } from './files-upload/files-upload.component';
 import { FileSizePipe } from './pipes/file-size.pipe';
 import { UtilsService } from './services/utils.service';
+import { LoginComponent } from './login/login.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'profile', component: ProfileComponent },
@@ -48,7 +50,9 @@ const appRoutes: Routes = [
     FilesUploadComponent,
     FileSizePipe,
     SigningInSnack,
-    SigningUpSnack
+    SigningUpSnack,
+    LoginComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
