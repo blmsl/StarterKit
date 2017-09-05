@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '@angular/material';
 import { AppComponent } from './app.component';
-import { SigningInSnack } from './login/login.component';
+
+
 import { SigningUpSnack } from './sign-up/sign-up.component';
 import { MessagingService } from "./services/messaging.service";
 import { HttpModule } from '@angular/http';
@@ -21,15 +22,14 @@ import { HomeComponent } from './home.component';
 import { AuthService } from './services/auth.service';
 import { UploadService } from './services/upload.service';
 
-import { ForgotPasswordComponent } from './forgot-password.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { UserStatusComponent } from './user-status/user-status.component';
 import { DashyComponent } from './dashy/dashy.component';
 import { GridsterModule } from 'angular2gridster';
 import { FilesUploadComponent } from './files-upload/files-upload.component';
 import { FileSizePipe } from './pipes/file-size.pipe';
 import { UtilsService } from './services/utils.service';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent, SigningInSnack } from './login/login.component';
+import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },

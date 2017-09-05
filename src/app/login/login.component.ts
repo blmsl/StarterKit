@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from "../services/auth.service";
 import { MdSnackBar } from '@angular/material';
+import { MdDialog } from '@angular/material';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +12,7 @@ import { MdSnackBar } from '@angular/material';
 })
 export class LoginComponent {
 
-  constructor(public snackBar: MdSnackBar, public auth: AuthService) { }
+  constructor(public snackBar: MdSnackBar, public auth: AuthService, public dialog: MdDialog) { }
 
 
   signInWithEmailAndPassword(formData: NgForm) {
@@ -27,6 +29,20 @@ export class LoginComponent {
           snackBarRef.dismiss();
         });
     }
+  }
+
+  showPasswordResetDialog(): void {
+    let dialogRef = this.dialog.open(ForgotPasswordComponent);
+    dialogRef.afterClosed().subscribe(email => {
+      if (email) {
+        this.auth.sendPasswordResetEmail(email)
+          .then(result => {
+            this.snackBar.open('We have sent an email to ' + email + ', you should get it shortly.', null, {
+              duration: 3000
+            });
+          })
+      }
+    });
   }
 
 }

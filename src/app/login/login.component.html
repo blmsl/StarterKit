@@ -1,12 +1,12 @@
 <form id="login-form" fxLayout="column" #signInForm='ngForm' (ngSubmit)="signInWithEmailAndPassword(signInForm)">
   <md-form-field>
     <button tabindex="-1" md-icon-button mdPrefix><md-icon>person</md-icon></button>
-    <input mdInput type="email" placeholder="Email address" (ngModel)="email" name="email" required>
+    <input mdInput type="email" placeholder="Email address" ngModel name="email" required>
   </md-form-field>
 
   <md-form-field>
     <button tabindex="-1" md-icon-button mdPrefix><md-icon>lock</md-icon></button>
-    <input mdInput type="password" placeholder="Password" (ngModel)="password" name="password" required>
+    <input mdInput type="password" placeholder="Password" ngModel name="password" required>
   </md-form-field>
 
   <div>

@@ -9,7 +9,6 @@ import { MdIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { AuthService } from "./services/auth.service";
 import { MdDialog } from '@angular/material';
-import { ForgotPasswordComponent } from './forgot-password.component';
 
 @Component({
   selector: 'app-root',
@@ -39,21 +38,6 @@ export class AppComponent implements OnInit {
     this.msgService.getPermission()
     this.msgService.receiveMessage()
     this.message = this.msgService.currentMessage
-  }
-
-
-  showPasswordResetDialog(): void {
-    let dialogRef = this.dialog.open(ForgotPasswordComponent);
-    dialogRef.afterClosed().subscribe(email => {
-      if (email) {
-        this.auth.sendPasswordResetEmail(email)
-          .then(result => {
-            this.snackBar.open('We have sent an email to ' + email + ', you should get it shortly.', null, {
-              duration: 3000
-            });
-          })
-      }
-    });
   }
 
 
