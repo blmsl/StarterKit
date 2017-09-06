@@ -8,6 +8,9 @@ import { AppComponent } from './app.component';
 
 
 import { MessagingService } from "./services/messaging.service";
+import { AuthService } from './services/auth.service';
+import { UploadService } from './services/upload.service';
+import { UtilsService } from './services/utils.service';
 import { HttpModule } from '@angular/http';
 
 import { AngularFireModule } from 'angularfire2';
@@ -18,15 +21,13 @@ import { environment } from '../environments/environment';
 import { ProfileComponent } from './profile.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
-import { AuthService } from './services/auth.service';
-import { UploadService } from './services/upload.service';
 
 import { UserStatusComponent } from './user-status/user-status.component';
 import { DashyComponent } from './dashy/dashy.component';
 import { GridsterModule } from 'angular-gridster2';
 import { FilesUploadComponent } from './files-upload/files-upload.component';
 import { FileSizePipe } from './pipes/file-size.pipe';
-import { UtilsService } from './services/utils.service';
+
 import { LoginComponent } from './login/login.component';
 import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
