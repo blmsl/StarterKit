@@ -24,7 +24,7 @@ import { UploadService } from './services/upload.service';
 
 import { UserStatusComponent } from './user-status/user-status.component';
 import { DashyComponent } from './dashy/dashy.component';
-import { GridsterModule } from 'angular2gridster';
+import { GridsterModule } from 'angular-gridster2';
 import { FilesUploadComponent } from './files-upload/files-upload.component';
 import { FileSizePipe } from './pipes/file-size.pipe';
 import { UtilsService } from './services/utils.service';

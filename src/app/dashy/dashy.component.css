@@ -1,5 +1,12 @@
+.dashboard {
+  background-color: #fff;
+}
 .pane {
-  background: yellow;
-  border: 1px solid black;
+  background: #FAFAFA;
+  border: 1px solid #d8d8d8;
   box-sizing: border-box;
+  border-radius: 4px;
+}
+.pane:hover {
+  border-style: dotted;
 }
