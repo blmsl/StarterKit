@@ -4,6 +4,7 @@ import { AuthService } from "../services/auth.service";
 import { MdSnackBar } from '@angular/material';
 import { MdDialog } from '@angular/material';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { SnackbarProgressComponent } from '../snackbar-progress/snackbar-progress.component';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginComponent {
 
   signInWithEmailAndPassword(formData: NgForm) {
     if (formData.valid) {
-      let snackBarRef = this.snackBar.openFromComponent(SigningInSnack);
+      let snackBarRef = this.snackBar.openFromComponent(SnackbarProgressComponent,
+        { data: 'Signing you in...' });
 
       this.auth.signInWithEmailAndPass(formData.value.email, formData.value.password)
         .then(value => {
@@ -46,14 +48,3 @@ export class LoginComponent {
   }
 
 }
-
-@Component({
-  selector: 'signing-in-snack',
-  template: `
-   <div fxLayout fxLayoutAlign='center center'>
-     <span fxFlex>Signing you in...</span>
-     <md-spinner style="height: 2em; width: 2em;"></md-spinner>
-   </div>
-   `
-})
-export class SigningInSnack { }

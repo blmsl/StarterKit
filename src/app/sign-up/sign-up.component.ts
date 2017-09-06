@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from "../services/auth.service";
 import { MdSnackBar } from '@angular/material';
+import { SnackbarProgressComponent } from '../snackbar-progress/snackbar-progress.component';
 
 @Component({
   selector: 'app-sign-up',
@@ -14,7 +15,9 @@ export class SignUpComponent {
 
   createUserWithEmailAndPassword(formData: NgForm) {
     if (formData.valid) {
-      let snackBarRef = this.snackBar.openFromComponent(SigningUpSnack);
+      let snackBarRef = this.snackBar.openFromComponent(SnackbarProgressComponent, {
+        data: 'Signing you up...'
+      });
 
       this.auth.signUpWithEmailAndPass(formData.value.email, formData.value.password)
         .then(value => {
@@ -29,15 +32,3 @@ export class SignUpComponent {
   }
 
 }
-
-
-@Component({
-  selector: 'signing-up-snack',
-  template: `
-   <div fxLayout fxLayoutAlign='center center'>
-     <span fxFlex>Signing you up...</span>
-     <md-spinner style="height: 2em; width: 2em;"></md-spinner>
-   </div>
-   `
-})
-export class SigningUpSnack { }

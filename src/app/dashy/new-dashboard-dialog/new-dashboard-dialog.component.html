@@ -1,0 +1,15 @@
+<h2 md-dialog-title>New Dashboard</h2>
+<md-dialog-content>
+  Give your new dashboard a name.
+  <form [formGroup]="newDashboardForm" (ngSubmit)="submitForm()">
+    <md-form-field>
+      <input mdInput type="text"  formControlName="name">
+    </md-form-field>
+  </form>
+</md-dialog-content>
+<md-dialog-actions>
+  <span fxFlex></span>
+  <button md-button tabindex="-1" md-dialog-close>Cancel</button>
+
+  <button [disabled]="!newDashboardForm.valid" (click)="submitForm()" md-raised-button color="primary">Done</button>
+</md-dialog-actions>

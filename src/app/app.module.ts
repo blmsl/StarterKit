@@ -7,7 +7,6 @@ import { MaterialModule } from '@angular/material';
 import { AppComponent } from './app.component';
 
 
-import { SigningUpSnack } from './sign-up/sign-up.component';
 import { MessagingService } from "./services/messaging.service";
 import { HttpModule } from '@angular/http';
 
@@ -28,9 +27,11 @@ import { GridsterModule } from 'angular-gridster2';
 import { FilesUploadComponent } from './files-upload/files-upload.component';
 import { FileSizePipe } from './pipes/file-size.pipe';
 import { UtilsService } from './services/utils.service';
-import { LoginComponent, SigningInSnack } from './login/login.component';
+import { LoginComponent } from './login/login.component';
 import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { NewDashboardDialogComponent } from './dashy/new-dashboard-dialog/new-dashboard-dialog.component';
+import { SnackbarProgressComponent } from './snackbar-progress/snackbar-progress.component';
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'profile', component: ProfileComponent },
@@ -49,10 +50,10 @@ const appRoutes: Routes = [
     DashyComponent,
     FilesUploadComponent,
     FileSizePipe,
-    SigningInSnack,
-    SigningUpSnack,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    NewDashboardDialogComponent,
+    SnackbarProgressComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +73,7 @@ const appRoutes: Routes = [
   bootstrap: [AppComponent],
   entryComponents: [
     ForgotPasswordComponent,
-    SigningInSnack,
-    SigningUpSnack]
+    NewDashboardDialogComponent,
+    SnackbarProgressComponent]
 })
 export class AppModule { }

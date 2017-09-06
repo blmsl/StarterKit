@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { GridsterConfig, GridsterItem } from 'angular-gridster2';
-
+import { NewDashboardDialogComponent } from './new-dashboard-dialog/new-dashboard-dialog.component';
+import { AuthService } from "../services/auth.service";
+import { MdSnackBar } from '@angular/material';
+import { MdDialog } from '@angular/material';
 @Component({
   selector: 'app-dashy',
   templateUrl: './dashy.component.html',
@@ -87,13 +90,27 @@ export class DashyComponent implements OnInit {
     disableWindowResize: false // disable the window on resize listener. This will stop grid to recalculate on window resize.
   };
   widgets: Array<GridsterItem>;
-  constructor() { }
+  constructor(public snackBar: MdSnackBar, public auth: AuthService, public dialog: MdDialog) { }
 
   ngOnInit() {
     this.widgets = [
       { cols: 2, rows: 1, y: 0, x: 0 },
       { cols: 2, rows: 2, y: 0, x: 2 }
     ];
+  }
+
+  showNewDashboardDialog(): void {
+    let dialogRef = this.dialog.open(NewDashboardDialogComponent);
+    dialogRef.afterClosed().subscribe(email => {
+      if (email) {
+        this.auth.sendPasswordResetEmail(email)
+          .then(result => {
+            this.snackBar.open('We have sent an email to ' + email + ', you should get it shortly.', null, {
+              duration: 3000
+            });
+          })
+      }
+    });
   }
 
 }

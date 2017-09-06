@@ -1,7 +1,19 @@
-<gridster [options]="options" class="dashboard">
+<div fxLayout="column" fxFlexFill>
+  <div class="toolbar">
+    <md-select placeholder="State">
+      <md-option *ngFor="let state of states" [value]="state.code">{{ state.name }}</md-option>
+    </md-select>
+    <button>New widget</button>
+    <button (click)="showNewDashboardDialog()">New Dashboard</button>
+  </div>
 
-  <gridster-item [item]="widget" class="pane" *ngFor="let widget of widgets">
-    <!--some content-->
-  </gridster-item>
+  <gridster fxFlex [options]="options" class="dashboard">
 
-</gridster>
+    <gridster-item [item]="widget" class="pane" *ngFor="let widget of widgets">
+
+    </gridster-item>
+
+  </gridster>
+
+
+</div>
