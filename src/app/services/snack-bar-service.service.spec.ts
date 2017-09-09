@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { SnackBarServiceService } from './snack-bar-service.service';
+import { SnackBarService } from './snack-bar-service.service';
 
 describe('SnackBarServiceService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [SnackBarServiceService]
+      providers: [SnackBarService]
     });
   });
 
-  it('should be created', inject([SnackBarServiceService], (service: SnackBarServiceService) => {
+  it('should be created', inject([SnackBarService], (service: SnackBarService) => {
     expect(service).toBeTruthy();
   }));
 });

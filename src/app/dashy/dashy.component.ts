@@ -5,6 +5,8 @@ import { AuthService } from "../services/auth.service";
 import { MdSnackBar } from '@angular/material';
 import { MdDialog } from '@angular/material';
 import { Dashboard } from '../classes/dashboard';
+import { SnackBarService } from '../services/snack-bar-service.service';
+
 @Component({
   selector: 'app-dashy',
   templateUrl: './dashy.component.html',
@@ -94,12 +96,12 @@ export class DashyComponent implements OnInit {
   private _dashboards: Array<Dashboard> = [];
   private _selectedDashboard: Dashboard;
 
-  constructor(public snackBar: MdSnackBar, public auth: AuthService, public dialog: MdDialog) { }
+  constructor(public snackBarService: SnackBarService, public auth: AuthService, public dialog: MdDialog) { }
 
   get dashboards(): Array<Dashboard> {
     return this._dashboards;
   }
-  
+
   set dashboards(dashboards: Array<Dashboard>) {
     this._dashboards = dashboards;
   }
@@ -111,6 +113,16 @@ export class DashyComponent implements OnInit {
 
   set selectedDashboard(dashboard: Dashboard) {
     this._selectedDashboard = dashboard
+  }
+
+  addWidget() {
+
+    if(this.options.api.getNextPossiblePosition({ cols: -1, rows: -1 })) {
+      this.selectedDashboard.widgets.push({})
+    }
+    else {
+      this.snackBarService.showMessage('No more space brah. Try making some space.')
+    }
   }
 
   ngOnInit() {

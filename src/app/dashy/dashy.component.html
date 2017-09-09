@@ -3,7 +3,7 @@
     <md-select placeholder="Select dashboard" [(ngModel)]="selectedDashboard">
       <md-option *ngFor="let dashboard of dashboards" [value]="dashboard">{{ dashboard.name }}</md-option>
     </md-select>
-    <button md-button (click)="selectedDashboard.widgets.push({})">New widget</button>
+    <button md-button (click)="addWidget()">New widget</button>
     <button md-button (click)="showNewDashboardDialog()">New Dashboard</button>
   </div>
 

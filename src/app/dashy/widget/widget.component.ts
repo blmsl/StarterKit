@@ -14,7 +14,6 @@ export class WidgetComponent implements OnInit {
   }
 
   onRemoveClick() {
-    debugger;
     this.onRemove.emit();
   }
 }
