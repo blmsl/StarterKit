@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Post } from './classes/post';
-import {PostService} from './services/post.service'
+import { Post } from '../classes/post';
+import {PostService} from '../services/post.service'
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 
 @Component({

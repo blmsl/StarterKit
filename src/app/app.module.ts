@@ -18,9 +18,9 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import 'hammerjs';
 import { environment } from '../environments/environment';
-import { ProfileComponent } from './profile.component';
+import { ProfileComponent } from './profile/profile.component';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home.component';
+import { HomeComponent } from './home/home.component';
 
 import { UserStatusComponent } from './user-status/user-status.component';
 import { DashyComponent } from './dashy/dashy.component';
