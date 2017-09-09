@@ -1,0 +1,7 @@
+.remove-button {
+  display: none;
+}
+
+.widget:hover .remove-button {
+  display: inline-block;
+}

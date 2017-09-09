@@ -1,8 +1,11 @@
-<div class="header">
-  <span fxFlex></span>
-  <button md-icon-button (click)="onRemoveClick();"><md-icon>delete</md-icon></button>
-</div>
+<div class="widget" fxLayout="column" fxFlexFill>
+  <div class="header">
+    <span fxFlex></span>
+    <button class="remove-button" (mousedown)="$event.stopPropagation()" (touchstart)="$event.stopPropagation()" md-icon-button (click)="onRemoveClick();$event.stopPropagation();" mdTooltip="Remove"><md-icon>clear</md-icon></button>
+  </div>
 
-<div class="body">
+  <div class="body" fxFlex>
+
+  </div>
 
 </div>
