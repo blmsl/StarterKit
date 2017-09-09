@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -11,7 +12,7 @@ import { MessagingService } from "./services/messaging.service";
 import { AuthService } from './services/auth.service';
 import { UploadService } from './services/upload.service';
 import { UtilsService } from './services/utils.service';
-import { HttpModule } from '@angular/http';
+import { SnackBarServiceService } from './services/snack-bar-service.service';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -70,7 +71,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     GridsterModule
   ],
-  providers: [MessagingService, AuthService, UploadService, UtilsService],
+  providers: [MessagingService, AuthService, UploadService, UtilsService, SnackBarServiceService],
   bootstrap: [AppComponent],
   entryComponents: [
     ForgotPasswordComponent,
