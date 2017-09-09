@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '@angular/material';
 import { AppComponent } from './app.component';
+import { NgPipesModule } from 'ngx-pipes';
 
 
 import { MessagingService } from "./services/messaging.service";
@@ -13,6 +14,7 @@ import { AuthService } from './services/auth.service';
 import { UploadService } from './services/upload.service';
 import { UtilsService } from './services/utils.service';
 import { SnackBarServiceService } from './services/snack-bar-service.service';
+import { DashyService } from './services/dashy.service';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -69,9 +71,10 @@ const appRoutes: Routes = [
     AngularFireAuthModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
-    GridsterModule
+    GridsterModule,
+    NgPipesModule
   ],
-  providers: [MessagingService, AuthService, UploadService, UtilsService, SnackBarServiceService],
+  providers: [MessagingService, AuthService, UploadService, UtilsService, SnackBarServiceService, DashyService],
   bootstrap: [AppComponent],
   entryComponents: [
     ForgotPasswordComponent,
