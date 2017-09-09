@@ -1,15 +1,15 @@
 <div fxLayout="column" fxFlexFill>
   <div class="toolbar">
-    <md-select placeholder="State">
-      <md-option *ngFor="let state of states" [value]="state.code">{{ state.name }}</md-option>
+    <md-select placeholder="Select dashboard" [(ngModel)]="selectedDashboard">
+      <md-option *ngFor="let dashboard of dashboards" [value]="dashboard">{{ dashboard.name }}</md-option>
     </md-select>
-    <button>New widget</button>
-    <button (click)="showNewDashboardDialog()">New Dashboard</button>
+    <button md-button (click)="selectedDashboard.widgets.push({})">New widget</button>
+    <button md-button (click)="showNewDashboardDialog()">New Dashboard</button>
   </div>
 
   <gridster fxFlex [options]="options" class="dashboard">
 
-    <gridster-item [item]="widget" class="pane" *ngFor="let widget of widgets">
+    <gridster-item [item]="widget" class="pane" *ngFor="let widget of selectedDashboard.widgets">
 
     </gridster-item>
 

@@ -1,9 +1,9 @@
 <h2 md-dialog-title>New Dashboard</h2>
 <md-dialog-content>
   Give your new dashboard a name.
-  <form [formGroup]="newDashboardForm" (ngSubmit)="submitForm()">
+  <form novalidate #f="ngForm">
     <md-form-field>
-      <input mdInput type="text"  formControlName="name">
+      <input mdInput type="text" [(ngModel)]="newDashboard.name" name="name" required>
     </md-form-field>
   </form>
 </md-dialog-content>
@@ -11,5 +11,5 @@
   <span fxFlex></span>
   <button md-button tabindex="-1" md-dialog-close>Cancel</button>
 
-  <button [disabled]="!newDashboardForm.valid" (click)="submitForm()" md-raised-button color="primary">Done</button>
+  <button [disabled]="!f.valid" [md-dialog-close]="newDashboard" md-raised-button color="primary">Done</button>
 </md-dialog-actions>

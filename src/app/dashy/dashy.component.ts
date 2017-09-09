@@ -4,6 +4,7 @@ import { NewDashboardDialogComponent } from './new-dashboard-dialog/new-dashboar
 import { AuthService } from "../services/auth.service";
 import { MdSnackBar } from '@angular/material';
 import { MdDialog } from '@angular/material';
+import { Dashboard } from '../classes/dashboard';
 @Component({
   selector: 'app-dashy',
   templateUrl: './dashy.component.html',
@@ -90,27 +91,51 @@ export class DashyComponent implements OnInit {
     disableWindowResize: false // disable the window on resize listener. This will stop grid to recalculate on window resize.
   };
   widgets: Array<GridsterItem>;
+  private _dashboards: Array<Dashboard> = [];
+  private _selectedDashboard: Dashboard;
+
   constructor(public snackBar: MdSnackBar, public auth: AuthService, public dialog: MdDialog) { }
+
+  get dashboards(): Array<Dashboard> {
+    return this._dashboards;
+  }
+
+  set dashboards(dashboards: Array<Dashboard>) {
+    this._dashboards = dashboards;
+  }
+
+
+  get selectedDashboard(): Dashboard {
+    return this._selectedDashboard
+  }
+
+  set selectedDashboard(dashboard: Dashboard) {
+    this._selectedDashboard = dashboard
+  }
 
   ngOnInit() {
     this.widgets = [
       { cols: 2, rows: 1, y: 0, x: 0 },
       { cols: 2, rows: 2, y: 0, x: 2 }
     ];
+
+    this.dashboards = [
+      new Dashboard('demo dashboard'),
+      new Dashboard('sales dashboard')
+
+    ]
+
+    this.selectedDashboard = this.dashboards[0];
   }
 
   showNewDashboardDialog(): void {
-    let dialogRef = this.dialog.open(NewDashboardDialogComponent);
-    dialogRef.afterClosed().subscribe(email => {
-      if (email) {
-        this.auth.sendPasswordResetEmail(email)
-          .then(result => {
-            this.snackBar.open('We have sent an email to ' + email + ', you should get it shortly.', null, {
-              duration: 3000
-            });
-          })
+    this.dialog.open(NewDashboardDialogComponent).afterClosed().subscribe((dashboard: Dashboard) => {
+
+      if (dashboard) {
+        this.dashboards.push(dashboard);
+        this.selectedDashboard = dashboard;
       }
-    });
+    })
   }
 
 }
