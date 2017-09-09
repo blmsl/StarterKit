@@ -25,10 +25,10 @@ export class DashyComponent implements OnInit {
     keepFixedWidthInMobile: false, // keep the width from fixed gridType in mobile layout
     compactType: 'none', // compact items: 'none' | 'compactUp' | 'compactLeft' | 'compactUp&Left' | 'compactLeft&Up'
     mobileBreakpoint: -1, // if the screen is not wider that this, remove the grid layout and stack the items
-    minCols: 1, // minimum amount of columns in the grid
-    maxCols: 6, // maximum amount of columns in the grid
-    minRows: 1, // minimum amount of rows in the grid
-    maxRows: 100, // maximum amount of rows in the grid
+    minCols: 8, // minimum amount of columns in the grid
+    maxCols: 8, // maximum amount of columns in the grid
+    minRows: 8, // minimum amount of rows in the grid
+    maxRows: 8, // maximum amount of rows in the grid
     defaultItemCols: 1, // default width of an item in columns
     defaultItemRows: 1, // default height of an item in rows
     maxItemCols: 50, // max item number of cols
@@ -99,7 +99,7 @@ export class DashyComponent implements OnInit {
   get dashboards(): Array<Dashboard> {
     return this._dashboards;
   }
-
+  
   set dashboards(dashboards: Array<Dashboard>) {
     this._dashboards = dashboards;
   }

@@ -36,6 +36,7 @@ import { ForgotPasswordComponent } from './login/forgot-password/forgot-password
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { NewDashboardDialogComponent } from './dashy/new-dashboard-dialog/new-dashboard-dialog.component';
 import { SnackbarProgressComponent } from './snackbar-progress/snackbar-progress.component';
+import { WidgetComponent } from './dashy/widget/widget.component';
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'profile', component: ProfileComponent },
@@ -57,7 +58,8 @@ const appRoutes: Routes = [
     LoginComponent,
     SignUpComponent,
     NewDashboardDialogComponent,
-    SnackbarProgressComponent
+    SnackbarProgressComponent,
+    WidgetComponent
   ],
   imports: [
     BrowserModule,
