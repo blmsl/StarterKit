@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-widget-setting',
   templateUrl: './widget-setting.component.html',

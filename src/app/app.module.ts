@@ -15,6 +15,7 @@ import { UploadService } from './services/upload.service';
 import { UtilsService } from './services/utils.service';
 import { SnackBarService } from './services/snack-bar-service.service';
 import { DashyService } from './services/dashy.service';
+import { DialogService } from './services/dialog.service';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -78,11 +79,20 @@ const appRoutes: Routes = [
     GridsterModule,
     NgPipesModule
   ],
-  providers: [MessagingService, AuthService, UploadService, UtilsService, SnackBarService, DashyService],
+  providers: [
+    MessagingService,
+    AuthService,
+    UploadService,
+    UtilsService,
+    SnackBarService,
+    DashyService,
+    DialogService
+  ],
   bootstrap: [AppComponent],
   entryComponents: [
     ForgotPasswordComponent,
     NewDashboardDialogComponent,
-    SnackbarProgressComponent]
+    SnackbarProgressComponent,
+    WidgetSettingComponent]
 })
 export class AppModule { }

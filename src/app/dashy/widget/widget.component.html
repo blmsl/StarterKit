@@ -1,6 +1,7 @@
 <div class="widget" fxLayout="column" fxFlexFill>
   <div class="header">
     <span fxFlex></span>
+    <button class="remove-button" (mousedown)="$event.stopPropagation()" (touchstart)="$event.stopPropagation()" md-icon-button (click)="showSettings();$event.stopPropagation();" mdTooltip="Settings"><md-icon>settings</md-icon></button>
     <button class="remove-button" (mousedown)="$event.stopPropagation()" (touchstart)="$event.stopPropagation()" md-icon-button (click)="onRemoveClick();$event.stopPropagation();" mdTooltip="Remove"><md-icon>clear</md-icon></button>
   </div>
 
