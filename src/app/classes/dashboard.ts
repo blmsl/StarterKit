@@ -8,12 +8,13 @@ export class Dashboard {
 
     if (widgets == null) {
       var widget1 = new Widget();
+      widget1.options.url = "https://github.com/MurWade/app-demo";
       widget1.gridSterItemOptions.x = 6;
       widget1.gridSterItemOptions.y = 0;
       widget1.gridSterItemOptions.cols = 2;
       widget1.gridSterItemOptions.rows = 3;
 
-      var widget2 = new Widget();
+      var widget2 = new Widget(WidgetType.CHART);
       widget2.gridSterItemOptions.x = 4;
       widget2.gridSterItemOptions.y = 0;
       widget2.gridSterItemOptions.cols = 2;
@@ -47,7 +48,15 @@ export class Dashboard {
 }
 
 export class Widget {
+  type: WidgetType = WidgetType.URL;
+  options: any = {};
+  title: string = "Title - demo widget";
+  subtitle: string= "Subtitle - demo widget"
   gridSterItemOptions: GridSterItemOptions = new GridSterItemOptions();
+
+  constructor(type: WidgetType = WidgetType.URL) {
+    this.type = type;
+  }
 }
 
 export class GridSterItemOptions {
@@ -55,4 +64,8 @@ export class GridSterItemOptions {
   y: number;
   cols: number;
   rows: number;
+}
+
+export enum WidgetType {
+  URL, PDF, TEXT, CHART, TABLE
 }

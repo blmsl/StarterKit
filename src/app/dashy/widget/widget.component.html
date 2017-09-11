@@ -1,12 +1,24 @@
 <div class="widget" fxLayout="column" fxFlexFill>
   <div class="header">
+    <div>
+      <h1 class="mat-headline">{{widget.title}}</h1>
+      <h2 class="mat-caption">{{widget.subtitle}}</h2>
+    </div>
     <span fxFlex></span>
     <button class="remove-button" (mousedown)="$event.stopPropagation()" (touchstart)="$event.stopPropagation()" md-icon-button (click)="showSettings();$event.stopPropagation();" mdTooltip="Settings"><md-icon>settings</md-icon></button>
     <button class="remove-button" (mousedown)="$event.stopPropagation()" (touchstart)="$event.stopPropagation()" md-icon-button (click)="onRemoveClick();$event.stopPropagation();" mdTooltip="Remove"><md-icon>clear</md-icon></button>
   </div>
 
   <div class="body" fxFlex>
-
+    <!-- over here we render what the type of the widget is -->
+    <div [ngSwitch]="widget.type">
+      <div *ngSwitchCase="widgetTypes.URL">
+        this is a iframe
+      </div>
+      <div *ngSwitchCase="widgetTypes.CHART">
+        this is a chart
+      </div>
+    </div>
   </div>
 
 </div>

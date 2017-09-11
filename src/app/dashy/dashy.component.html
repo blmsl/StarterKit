@@ -10,7 +10,7 @@
   <gridster fxFlex [options]="options" class="dashboard">
 
     <gridster-item [item]="widget.gridSterItemOptions" class="pane" *ngFor="let widget of selectedDashboard.widgets; let i = index">
-      <app-widget (onRemove)="selectedDashboard.widgets.splice(i, 1)"></app-widget>
+      <app-widget (onRemove)="selectedDashboard.widgets.splice(i, 1)" [widget]="widget"></app-widget>
     </gridster-item>
 
   </gridster>

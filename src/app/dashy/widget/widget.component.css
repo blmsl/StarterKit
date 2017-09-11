@@ -5,3 +5,7 @@
 .widget:hover .remove-button {
   display: inline-block;
 }
+
+.header {
+  height:40px;
+}
