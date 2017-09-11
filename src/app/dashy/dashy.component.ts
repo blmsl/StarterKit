@@ -5,6 +5,8 @@ import { AuthService } from "../services/auth.service";
 import { MdSnackBar } from '@angular/material';
 import { MdDialog } from '@angular/material';
 import { Dashboard } from '../classes/dashboard';
+import { Widget } from '../classes/dashboard';
+
 import { SnackBarService } from '../services/snack-bar-service.service';
 
 @Component({
@@ -118,7 +120,7 @@ export class DashyComponent implements OnInit {
   addWidget() {
 
     if(this.options.api.getNextPossiblePosition({ cols: -1, rows: -1 })) {
-      this.selectedDashboard.widgets.push({})
+      this.selectedDashboard.widgets.push(new Widget());
     }
     else {
       this.snackBarService.showMessage('No more space brah. Try making some space.')

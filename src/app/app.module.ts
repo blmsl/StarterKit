@@ -37,6 +37,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { NewDashboardDialogComponent } from './dashy/new-dashboard-dialog/new-dashboard-dialog.component';
 import { SnackbarProgressComponent } from './snackbar-progress/snackbar-progress.component';
 import { WidgetComponent } from './dashy/widget/widget.component';
+import { WidgetSettingComponent } from './dashy/widget/widget-setting/widget-setting.component';
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'profile', component: ProfileComponent },
@@ -59,7 +60,8 @@ const appRoutes: Routes = [
     SignUpComponent,
     NewDashboardDialogComponent,
     SnackbarProgressComponent,
-    WidgetComponent
+    WidgetComponent,
+    WidgetSettingComponent
   ],
   imports: [
     BrowserModule,
