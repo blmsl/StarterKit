@@ -39,6 +39,23 @@ import { NewDashboardDialogComponent } from './dashy/new-dashboard-dialog/new-da
 import { SnackbarProgressComponent } from './snackbar-progress/snackbar-progress.component';
 import { WidgetComponent } from './dashy/widget/widget.component';
 import { WidgetSettingComponent } from './dashy/widget/widget-setting/widget-setting.component';
+
+import { HighchartsStatic } from 'angular2-highcharts/dist/HighchartsService';
+import * as highcharts from 'highcharts';
+import * as highchartsMore from 'highcharts/js/highcharts-more';
+import * as brokenAxis from 'highcharts/js/modules/broken-axis';
+import * as highmaps from 'highcharts/js/modules/map';
+import { ChartModule } from 'angular2-highcharts';
+
+export function highchartsFactory() {
+  // Initialize addons.
+  highchartsMore(highcharts);
+  brokenAxis(highcharts);
+  highmaps(highcharts);
+
+  return highcharts;
+}
+
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'profile', component: ProfileComponent },
@@ -77,7 +94,8 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes),
     GridsterModule,
-    NgPipesModule
+    NgPipesModule,
+    ChartModule
   ],
   providers: [
     MessagingService,
@@ -86,7 +104,11 @@ const appRoutes: Routes = [
     UtilsService,
     SnackBarService,
     DashyService,
-    DialogService
+    DialogService,
+    {
+      provide: HighchartsStatic,
+      useFactory: highchartsFactory
+    }
   ],
   bootstrap: [AppComponent],
   entryComponents: [

@@ -15,6 +15,12 @@ export class WidgetComponent implements OnInit {
 
   @Input() widget: Widget;
   widgetTypes = WidgetType;
+  options: any = {
+    title: { text: 'simple chart' },
+    series: [{
+      data: [29.9, 71.5, 106.4, 129.2],
+    }]
+  };
   constructor(public dialogService: DialogService, public sanitizer: DomSanitizer) { }
 
   ngOnInit() {
