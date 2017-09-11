@@ -8,10 +8,4 @@
 
 .header {
   height:40px;
-  overflow: hidden;
-}
-
-.body {
-  overflow: hidden;
-  position: relative;
 }

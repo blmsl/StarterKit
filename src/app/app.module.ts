@@ -7,7 +7,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { NgPipesModule } from 'ngx-pipes';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 
 import { MessagingService } from "./services/messaging.service";
@@ -78,8 +77,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes),
     GridsterModule,
-    NgPipesModule,
-    NgxChartsModule
+    NgPipesModule
   ],
   providers: [
     MessagingService,

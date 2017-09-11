@@ -9,16 +9,16 @@
     <button class="remove-button" (mousedown)="$event.stopPropagation()" (touchstart)="$event.stopPropagation()" md-icon-button (click)="onRemoveClick();$event.stopPropagation();" mdTooltip="Remove"><md-icon>clear</md-icon></button>
   </div>
 
-  <div class="body" fxFlex [ngSwitch]="widget.type">
+  <div class="body" fxFlex>
     <!-- over here we render what the type of the widget is -->
-
-    <div *ngSwitchCase="widgetTypes.URL">
-      this is a iframe
+    <div [ngSwitch]="widget.type">
+      <div *ngSwitchCase="widgetTypes.URL">
+        this is a iframe
+      </div>
+      <div *ngSwitchCase="widgetTypes.CHART">
+        this is a chart
+      </div>
     </div>
-    <ngx-charts-bar-vertical *ngSwitchCase="widgetTypes.CHART" [scheme]="colorScheme" [results]="single" [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel"
-      [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" (select)="onSelect($event)">
-    </ngx-charts-bar-vertical>
-
   </div>
 
 </div>

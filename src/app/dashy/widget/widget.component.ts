@@ -15,38 +15,6 @@ export class WidgetComponent implements OnInit {
 
   @Input() widget: Widget;
   widgetTypes = WidgetType;
-  single: any[] = [
-    {
-      "name": "Germany",
-      "value": 8940000
-    },
-    {
-      "name": "USA",
-      "value": 5000000
-    },
-    {
-      "name": "France",
-      "value": 7200000
-    }
-  ];
-
-  // options
-  showXAxis = true;
-  showYAxis = true;
-  gradient = false;
-  showLegend = false;
-  showXAxisLabel = true;
-  xAxisLabel = 'Country';
-  showYAxisLabel = true;
-  yAxisLabel = 'Population';
-
-  colorScheme = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
-  };
-
-  onSelect(event) {
-    console.log(event);
-  }
   constructor(public dialogService: DialogService, public sanitizer: DomSanitizer) { }
 
   ngOnInit() {
