@@ -16,10 +16,13 @@ export class WidgetComponent implements OnInit {
   @Input() widget: Widget;
   widgetTypes = WidgetType;
   options: any = {
-    title: { text: 'simple chart' },
+    title: { text: null },
     series: [{
       data: [29.9, 71.5, 106.4, 129.2],
-    }]
+    }],
+    credits: {
+      enabled: false
+    }
   };
   constructor(public dialogService: DialogService, public sanitizer: DomSanitizer) { }
 
