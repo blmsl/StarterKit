@@ -40,6 +40,12 @@ export class SignUpComponent implements OnInit {
               emailAlreadyInUse: true
             });
             break;
+
+          case 'auth/invalid-email':
+            this.form.controls['email'].setErrors({
+              invalidEmail: true
+            });
+            break;
         }
       });
   }

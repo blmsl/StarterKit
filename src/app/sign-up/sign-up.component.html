@@ -4,6 +4,9 @@
     <md-error *ngIf="form.controls['email'].hasError('emailAlreadyInUse')">
       There already exists an account with this email address
     </md-error>
+    <md-error *ngIf="form.controls['email'].hasError('invalidEmail')">
+      This email address is not valid
+    </md-error>
   </md-form-field>
 
   <md-form-field>

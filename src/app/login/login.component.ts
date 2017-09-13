@@ -42,6 +42,12 @@ export class LoginComponent implements OnInit {
               userNotFound: true
             });
             break;
+            
+          case 'auth/invalid-email':
+            this.form.controls['email'].setErrors({
+              invalidEmail: true
+            });
+            break;
 
           case 'auth/wrong-password':
             this.form.controls['password'].setErrors({
