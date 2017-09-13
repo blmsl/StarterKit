@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { MdDialogRef } from '@angular/material';
+import { SnackBarService } from '../../services/snack-bar-service.service';
+import { AuthService } from "../../services/auth.service";
 
 @Component({
   selector: 'app-forgot-password',
@@ -8,19 +10,43 @@ import { MdDialogRef } from '@angular/material';
   providers: [FormBuilder]
 })
 export class ForgotPasswordComponent implements OnInit {
-  public retrievePasswordForm = this.fb.group({
-    email: ["", Validators.required]
-  });
-  constructor(public fb: FormBuilder,
+  form: FormGroup;
+
+  constructor(public auth: AuthService, public snackBarService: SnackBarService, public fb: FormBuilder,
     public dialogRef: MdDialogRef<ForgotPasswordComponent>) { }
 
   ngOnInit() {
+    this.form = this.fb.group({
+      email: ["", [Validators.required, Validators.email]]
+    });
   }
 
-  submitForm() {
-    if(this.retrievePasswordForm.valid) {
-      this.dialogRef.close(this.retrievePasswordForm.value.email)
-    }
+  submit() {
+    let snackBarRef = this.snackBarService.showProgress('Hold on brah...')
+    let email = this.form.value.email;
+    this.auth.sendPasswordResetEmail(email)
+      .then(result => {
+        this.snackBarService.showMessage('We have sent an email to ' + email + ', you should get it shortly.', 3000);
+        this.dialogRef.close()
+      })
+      .catch(err => {
+        snackBarRef.dismiss();
+
+        switch (err['code']) {
+          case 'auth/user-not-found':
+            this.form.controls['email'].setErrors({
+              userNotFound: true
+            });
+            break;
+
+          case 'auth/invalid-email':
+            this.form.controls['email'].setErrors({
+              invalidEmail: true
+            });
+            break;
+        }
+      })
+
   }
 
 }

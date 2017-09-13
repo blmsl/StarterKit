@@ -55,17 +55,7 @@ export class LoginComponent implements OnInit {
   }
 
   showPasswordResetDialog(): void {
-    let dialogRef = this.dialog.open(ForgotPasswordComponent);
-    dialogRef.afterClosed().subscribe(email => {
-      if (email) {
-        this.auth.sendPasswordResetEmail(email)
-          .then(result => {
-            this.snackBar.open('We have sent an email to ' + email + ', you should get it shortly.', null, {
-              duration: 3000
-            });
-          })
-      }
-    });
+    this.dialog.open(ForgotPasswordComponent);
   }
 
 }
