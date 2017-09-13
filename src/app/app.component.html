@@ -79,9 +79,9 @@
 
 </div>
 
-<div fxFlexFill fxLayout fxLayoutAlign="center center" *ngIf="!(auth.user | async)?.uid">
+<div fxFlexFill fxLayout fxLayoutAlign.gt-xs="center center" *ngIf="!(auth.user | async)?.uid">
 
-  <md-card>
+  <md-card class="login-wrapper">
     <md-tab-group>
       <md-tab label="Log in">
         <app-login></app-login>
