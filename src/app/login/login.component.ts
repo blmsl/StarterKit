@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(12)]]
+      password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(12)]]
     });
   }
 
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
       })
       .catch(err => {
         snackBarRef.dismiss();
-        
+
         switch (err['code']) {
           case 'auth/user-not-found':
             this.form.controls['email'].setErrors({

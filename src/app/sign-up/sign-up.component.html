@@ -1,14 +1,19 @@
-<form fxLayout="column" id="sign-up-form" #signUpForm='ngForm' (ngSubmit)="createUserWithEmailAndPassword(signUpForm)">
-
+<form [formGroup]="form" (ngSubmit)="submit()" fxLayout="column">
   <md-form-field>
-    <button tabindex="-1" md-icon-button mdPrefix><md-icon>person</md-icon></button>
-    <input mdInput email type="email" placeholder="Email address" ngModel name="email" required>
+    <input mdInput type="email" placeholder="Email address" formControlName="email">
+    <md-error *ngIf="form.controls['email'].hasError('emailAlreadyInUse')">
+      There already exists an account with this email address
+    </md-error>
   </md-form-field>
 
   <md-form-field>
-    <button tabindex="-1" md-icon-button mdPrefix><md-icon>lock</md-icon></button>
-    <input mdInput type="password" placeholder="Password" ngModel name="password" required>
+    <input mdInput type="password" placeholder="Password" formControlName="password">
   </md-form-field>
 
-  <button type="submit" [disabled]="!signUpForm.valid" md-raised-button color="primary">Sign up</button>
+  <div>
+    <span fxFlex></span>
+    <button type="submit" [disabled]="!form.valid" md-raised-button color="primary">Sign up</button>
+
+  </div>
+
 </form>
