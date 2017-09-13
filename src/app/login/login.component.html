@@ -1,12 +1,16 @@
-<form id="login-form" fxLayout="column" #signInForm='ngForm' (ngSubmit)="signInWithEmailAndPassword(signInForm)">
+<form [formGroup]="form" (ngSubmit)="submit()" fxLayout="column">
   <md-form-field>
-    <button tabindex="-1" md-icon-button mdPrefix><md-icon>person</md-icon></button>
-    <input mdInput type="email" placeholder="Email address" ngModel name="email" required>
+    <input mdInput type="email" placeholder="Email address" formControlName="email">
+    <md-error *ngIf="form.controls['email'].hasError('userNotFound')">
+      No user with this email address
+    </md-error>
   </md-form-field>
 
   <md-form-field>
-    <button tabindex="-1" md-icon-button mdPrefix><md-icon>lock</md-icon></button>
-    <input mdInput type="password" placeholder="Password" ngModel name="password" required>
+    <input mdInput type="password" placeholder="Password" formControlName="password">
+    <md-error *ngIf="form.controls['password'].hasError('wrongPassword')">
+      The password is invalid
+    </md-error>
   </md-form-field>
 
   <div>
@@ -18,7 +22,7 @@
       -->
     <button type="button" tabindex="-1" (click)="showPasswordResetDialog()" md-button>Forgot your password?</button>
     <span fxFlex></span>
-    <button type="submit" [disabled]="!signInForm.valid" md-raised-button color="primary">Login</button>
+    <button type="submit" [disabled]="!form.valid" md-raised-button color="primary">Login</button>
 
   </div>
 

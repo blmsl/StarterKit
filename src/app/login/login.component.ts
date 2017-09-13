@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from "../services/auth.service";
 import { MdSnackBar } from '@angular/material';
 import { MdDialog } from '@angular/material';
@@ -11,26 +11,47 @@ import { SnackbarProgressComponent } from '../snackbar-progress/snackbar-progres
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
+  form: FormGroup;
 
-  constructor(public snackBar: MdSnackBar, public auth: AuthService, public dialog: MdDialog) { }
+  constructor(private fb: FormBuilder, public snackBar: MdSnackBar, public auth: AuthService, public dialog: MdDialog) { }
 
+  ngOnInit() {
+    this.form = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(12)]]
+    });
+  }
 
-  signInWithEmailAndPassword(formData: NgForm) {
-    if (formData.valid) {
-      let snackBarRef = this.snackBar.openFromComponent(SnackbarProgressComponent,
-        { data: 'Signing you in...' });
+  submit() {
+    let snackBarRef = this.snackBar.openFromComponent(SnackbarProgressComponent,
+      { data: 'Signing you in...' });
 
-      this.auth.signInWithEmailAndPass(formData.value.email, formData.value.password)
-        .then(value => {
-          this.snackBar.open('Welcome back mate!', null, {
-            duration: 3000
-          });
-        })
-        .catch(err => {
-          snackBarRef.dismiss();
+    this.auth.signInWithEmailAndPass(this.form.value.email, this.form.value.password)
+      .then(value => {
+        this.snackBar.open('Welcome back mate!', null, {
+          duration: 3000
         });
-    }
+      })
+      .catch(err => {
+        snackBarRef.dismiss();
+        
+        switch (err['code']) {
+          case 'auth/user-not-found':
+            this.form.controls['email'].setErrors({
+              userNotFound: true
+            });
+            break;
+
+          case 'auth/wrong-password':
+            this.form.controls['password'].setErrors({
+              wrongPassword: true
+            });
+            break;
+
+          default:
+        }
+      });
   }
 
   showPasswordResetDialog(): void {
