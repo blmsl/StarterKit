@@ -7,28 +7,53 @@
       <span> My Application</span>
     </a>
 
-    <a md-button routerLink="/dashy" mdTooltip="BI Dashboard">
+    <div fxHide.lt-md="true">
+      <a md-button routerLink="/dashy" mdTooltip="BI Dashboard">
       <span>Dashy</span>
     </a>
 
-    <a md-button routerLink="/uploads" mdTooltip="My uploads">
+      <a md-button routerLink="/uploads" mdTooltip="My uploads">
       <span>Uploads</span>
     </a>
 
+    </div>
     <span fxFlex></span>
 
-    <a md-button href="https://github.com/MurWade/app-demo">
-      <md-icon svgIcon="github"></md-icon>
-      <span>GITHUB</span>
-    </a>
+    <div fxHide.lt-sm="true">
+      <a md-button href="https://github.com/MurWade/app-demo">
+        <md-icon svgIcon="github"></md-icon>
+        <span>GITHUB</span>
+      </a>
 
-    <a md-button routerLink="/profile">
-      Hello {{(auth.user | async)?.email}}
-    </a>
+      <a md-button routerLink="/profile">
+        Hello {{(auth.user | async)?.email}}
+      </a>
 
-    <button md-icon-button (click)="logout()" mdTooltip="Sign out" mdTooltipClass="appMdOneLineTooltip">
-      <md-icon>exit_to_app</md-icon>
-    </button>
+      <button md-icon-button (click)="logout()" mdTooltip="Sign out" mdTooltipClass="appMdOneLineTooltip">
+        <md-icon>exit_to_app</md-icon>
+      </button>
+    </div>
+
+    <div fxHide.gt-xs>
+      <button md-icon-button [mdMenuTriggerFor]="mainMenu"><md-icon>more_vert</md-icon></button>
+
+      <md-menu #mainMenu="mdMenu">
+        <a md-menu-item routerLink="/profile">
+          <md-icon>person</md-icon>
+          <span> {{(auth.user | async)?.email}} </span>
+        </a>
+        <a md-menu-item href="https://github.com/MurWade/app-demo">
+          <md-icon svgIcon="github"></md-icon>
+          <span>GITHUB</span>
+        </a>
+        <md-divider></md-divider>
+
+        <button md-menu-item (click)="logout()">
+              <md-icon>exit_to_app</md-icon>
+              <span> Sign out</span>
+            </button>
+      </md-menu>
+    </div>
 
 
   </md-toolbar>
