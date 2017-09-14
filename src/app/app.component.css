@@ -7,3 +7,8 @@
 md-sidenav {
   width: 200px;
 }
+
+.app-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
