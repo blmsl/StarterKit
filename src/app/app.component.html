@@ -1,10 +1,12 @@
 <div fxFlexFill fxLayout="column" *ngIf="(auth.user | async)?.uid">
   <md-toolbar color="primary">
-    <button md-icon-button (click)="sidenav.toggle()" fxHide.gt-xs="true">
-      <md-icon>menu</md-icon>
-    </button>
+    <div fxHide.gt-xs="true" fxFlex>
+      <button md-icon-button (click)="sidenav.toggle()">
+        <md-icon>menu</md-icon>
+      </button>
+    </div>
 
-    <span>App - Demo</span>
+    <span>App demo</span>
 
     <span fxFlex></span>
 
