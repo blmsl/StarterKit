@@ -12,3 +12,7 @@ md-sidenav {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.active-link {
+  color: #3F51B5;
+}
