@@ -90,9 +90,9 @@
   </md-sidenav-container>
 </div>
 
-<div fxFlexFill fxLayout fxLayoutAlign.gt-xs="center center" *ngIf="!(auth.user | async)?.uid">
+<div fxFlexFill fxLayout fxLayoutAlign.gt-xs="center center" *ngIf="!(auth.user | async)?.uid" style="background-color: #E91E63;">
 
-  <md-card class="login-wrapper">
+  <md-card class="login-wrapper" style="background-color: #FFEB3B;">
     <md-tab-group>
       <md-tab label="Log in">
         <app-login></app-login>
