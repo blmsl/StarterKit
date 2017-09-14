@@ -51,18 +51,18 @@
       <div fxLayout="column">
         <md-nav-list>
 
-          <a md-list-item routerLink="/" color="primary" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}">
+          <a md-list-item routerLink="/" color="primary" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}" (click)="routeLinkClick()">
             <md-icon mdListIcon>home</md-icon>
 
             <h3 mdLine> Home </h3>
 
           </a>
-          <a md-list-item routerLink="/dashy" routerLinkActive="active-link">
+          <a md-list-item routerLink="/dashy" routerLinkActive="active-link" (click)="routeLinkClick()">
             <md-icon mdListIcon>dashboard</md-icon>
 
             <h3 mdLine> BI Dashboard </h3>
           </a>
-          <a md-list-item routerLink="/uploads" routerLinkActive="active-link">
+          <a md-list-item routerLink="/uploads" routerLinkActive="active-link" (click)="routeLinkClick()">
             <md-icon mdListIcon>cloud</md-icon>
 
             <h3 mdLine> My uploads </h3>

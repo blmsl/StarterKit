@@ -19,7 +19,7 @@ import { MdSidenav } from '@angular/material';
 
 })
 export class AppComponent implements OnInit {
-  @ViewChild('sidenav') sidenav: MdSidenav; 
+  @ViewChild('sidenav') sidenav: MdSidenav;
   users: FirebaseListObservable<any[]>;
   message;
 
@@ -48,6 +48,12 @@ export class AppComponent implements OnInit {
 
   logout() {
     this.auth.signOut();
+  }
+
+  routeLinkClick() {
+    if (!this.media.isActive('gt-xs')) {
+      this.sidenav.toggle();
+    }
   }
 
 
