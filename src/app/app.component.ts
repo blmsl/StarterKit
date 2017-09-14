@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
@@ -9,6 +9,8 @@ import { MdIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { AuthService } from "./services/auth.service";
 import { MdDialog } from '@angular/material';
+import { ObservableMedia } from "@angular/flex-layout";
+import { MdSidenav } from '@angular/material';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +19,7 @@ import { MdDialog } from '@angular/material';
 
 })
 export class AppComponent implements OnInit {
-
+  @ViewChild('sidenav') sidenav: MdSidenav; 
   users: FirebaseListObservable<any[]>;
   message;
 
@@ -28,7 +30,8 @@ export class AppComponent implements OnInit {
     public snackBar: MdSnackBar,
     private msgService: MessagingService,
     public auth: AuthService,
-    public dialog: MdDialog) {
+    public dialog: MdDialog,
+    public media: ObservableMedia) {
 
     this.users = af.list('/users');
 

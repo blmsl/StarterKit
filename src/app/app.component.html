@@ -1,22 +1,11 @@
-<div *ngIf="(auth.user | async)?.uid" fxFlexFill fxLayout="column">
-
+<div fxFlexFill fxLayout="column" *ngIf="(auth.user | async)?.uid">
   <md-toolbar color="primary">
-    <a md-button routerLink="/" mdTooltip="Home">
-      <md-icon>home</md-icon>
+    <button md-icon-button (click)="sidenav.toggle()" fxHide.gt-xs="true">
+      <md-icon>menu</md-icon>
+    </button>
 
-      <span> My Application</span>
-    </a>
+    <span>App - Demo</span>
 
-    <div fxHide.lt-md="true">
-      <a md-button routerLink="/dashy" mdTooltip="BI Dashboard">
-      <span>Dashy</span>
-    </a>
-
-      <a md-button routerLink="/uploads" mdTooltip="My uploads">
-      <span>Uploads</span>
-    </a>
-
-    </div>
     <span fxFlex></span>
 
     <div fxHide.lt-sm="true">
@@ -26,12 +15,11 @@
       </a>
 
       <a md-button routerLink="/profile">
-        Hello {{(auth.user | async)?.email}}
-      </a>
-
+      Hello {{(auth.user | async)?.email}}
+    </a>
       <button md-icon-button (click)="logout()" mdTooltip="Sign out" mdTooltipClass="appMdOneLineTooltip">
-        <md-icon>exit_to_app</md-icon>
-      </button>
+         <md-icon>exit_to_app</md-icon>
+       </button>
     </div>
 
     <div fxHide.gt-xs>
@@ -49,18 +37,24 @@
         <md-divider></md-divider>
 
         <button md-menu-item (click)="logout()">
-              <md-icon>exit_to_app</md-icon>
-              <span> Sign out</span>
-            </button>
+            <md-icon>exit_to_app</md-icon>
+            <span> Sign out</span>
+          </button>
       </md-menu>
     </div>
-
-
   </md-toolbar>
 
-  <div fxFlex fxLayout>
-    <div>
+  <md-sidenav-container fxFlex>
+    <md-sidenav #sidenav [mode]="media.isActive('gt-xs') ? 'side' : 'over'" [opened]="media.isActive('gt-xs')">
+
       <md-list>
+        <md-nav-list>
+          <a md-list-item routerLink="/"> Home</a>
+          <a md-list-item routerLink="/dashy"> Dashy </a>
+          <a md-list-item routerLink="/uploads"> My uploads </a>
+
+        </md-nav-list>
+        <md-divider></md-divider>
         <md-list-item *ngFor="let user of users | async">
           {{user.email}}
           <span fxFlex></span>
@@ -68,15 +62,12 @@
 
         </md-list-item>
       </md-list>
-    </div>
+    </md-sidenav>
 
-    <div fxFlex id="main-content">
-      <router-outlet></router-outlet>
-
-    </div>
-  </div>
+    <router-outlet></router-outlet>
 
 
+  </md-sidenav-container>
 </div>
 
 <div fxFlexFill fxLayout fxLayoutAlign.gt-xs="center center" *ngIf="!(auth.user | async)?.uid">
