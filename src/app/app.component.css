@@ -5,7 +5,7 @@
 }
 
 md-sidenav {
-  width: 200px;
+  width: 250px;
 }
 
 .app-title {
@@ -13,6 +13,12 @@ md-sidenav {
   text-overflow: ellipsis;
 }
 
+
+
+
+md-nav-list a {
+  color: rgba(0, 0, 0, 0.54);
+}
 .active-link {
-  color: #3F51B5;
+  color: #3F51B5 !important;
 }

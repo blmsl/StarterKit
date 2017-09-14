@@ -48,36 +48,40 @@
 
   <md-sidenav-container fxFlex>
     <md-sidenav #sidenav [mode]="media.isActive('gt-xs') ? 'side' : 'over'" [opened]="media.isActive('gt-xs')">
+      <div fxLayout="column">
+        <md-nav-list>
 
-      <md-nav-list>
-        <a md-list-item routerLink="/" color="primary" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}">
-          <md-icon mdListIcon>home</md-icon>
+          <a md-list-item routerLink="/" color="primary" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}">
+            <md-icon mdListIcon>home</md-icon>
 
-          <h3 mdLine> Home </h3>
+            <h3 mdLine> Home </h3>
 
-        </a>
-        <a md-list-item routerLink="/dashy" routerLinkActive="active-link">
-          <md-icon mdListIcon>dashboard</md-icon>
+          </a>
+          <a md-list-item routerLink="/dashy" routerLinkActive="active-link">
+            <md-icon mdListIcon>dashboard</md-icon>
 
-          <h3 mdLine> BI Dashboard </h3>
-        </a>
-        <a md-list-item routerLink="/uploads" routerLinkActive="active-link">
-          <md-icon mdListIcon>cloud</md-icon>
+            <h3 mdLine> BI Dashboard </h3>
+          </a>
+          <a md-list-item routerLink="/uploads" routerLinkActive="active-link">
+            <md-icon mdListIcon>cloud</md-icon>
 
-          <h3 mdLine> My uploads </h3>
-        </a>
+            <h3 mdLine> My uploads </h3>
+          </a>
 
-      </md-nav-list>
-      <md-divider></md-divider>
+        </md-nav-list>
 
-      <md-list>
-        <md-list-item *ngFor="let user of users | async">
-          {{user.email}}
-          <span fxFlex></span>
-          <app-user-status [status]="user.status"></app-user-status>
+        <md-divider></md-divider>
+        <md-list dense>
+          <h3 md-subheader>Users</h3>
 
-        </md-list-item>
-      </md-list>
+          <md-list-item *ngFor="let user of users | async">
+            <img mdListAvatar src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/ce54bf11889067.562541ef7cde4.png" alt="...">
+            <h3 mdLine> {{user.email}} </h3>
+            <app-user-status [status]="user.status"></app-user-status>
+
+          </md-list-item>
+        </md-list>
+      </div>
     </md-sidenav>
 
     <router-outlet></router-outlet>
