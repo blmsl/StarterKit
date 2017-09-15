@@ -1,8 +1,6 @@
 {
   "short_name": "App Demo",
   "name": "App Demo - Mustafa Hossaini",
-  "start_url": "/?utm_source=homescreen",
-  "gcm_sender_id": "103953800507",
   "icons": [{
       "src": "/favicons/android-chrome-192x192.png",
       "sizes": "192x192",
