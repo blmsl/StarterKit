@@ -10,7 +10,7 @@
   </div>
 
 
-  <chart class="body" fxFlex [options]="options"> </chart>
+  <chart class="body" fxFlex [options]="options" (load)="saveInstance($event.context)"> </chart>
 
 
 </div>

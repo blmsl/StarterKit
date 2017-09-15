@@ -15,6 +15,7 @@ export class WidgetComponent implements OnInit {
 
   @Input() widget: Widget;
   widgetTypes = WidgetType;
+  chart: any;
   options: any = {
     title: { text: null },
     series: [{
@@ -35,5 +36,8 @@ export class WidgetComponent implements OnInit {
 
   showSettings() {
     let dialogRef = this.dialogService.showDialog(WidgetSettingComponent);
+  }
+  saveInstance(chartInstance) {
+    this.chart = chartInstance;
   }
 }
