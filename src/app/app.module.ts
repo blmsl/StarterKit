@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { NgPipesModule } from 'ngx-pipes';
 
 
+import { MessagingService } from "./services/messaging.service";
 import { AuthService } from './services/auth.service';
 import { UploadService } from './services/upload.service';
 import { UtilsService } from './services/utils.service';
@@ -97,6 +98,7 @@ const appRoutes: Routes = [
     ChartModule
   ],
   providers: [
+    MessagingService,
     AuthService,
     UploadService,
     UtilsService,

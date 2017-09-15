@@ -2,6 +2,7 @@
   "short_name": "App Demo",
   "name": "App Demo - Mustafa Hossaini",
   "start_url": "/",
+  "gcm_sender_id": "103953800507",
   "icons": [{
       "src": "/assets/favicons/android-chrome-36x36.png",
       "sizes": "36x36",
