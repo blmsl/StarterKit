@@ -19,6 +19,9 @@
   padding-left: 6px;
   padding-top: 4px;
   line-height: 17px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .title {

@@ -1,8 +1,9 @@
 <div class="widget" fxLayout="column" fxFlexFill>
   <div class="header">
     <div class="header-titles" [title]="widget.title +'&#xA;' + widget.subtitle">
-      <div class="title">{{widget.title}}</div>
-      <div class="subtitle">{{widget.subtitle}}</div>
+      <span class="title">{{widget.title}}</span>
+      <br />
+      <span class="subtitle">{{widget.subtitle}}</span>
     </div>
     <span fxFlex></span>
     <button class="remove-button" (mousedown)="$event.stopPropagation()" (touchstart)="$event.stopPropagation()" md-icon-button (click)="onEditClick();$event.stopPropagation();"><md-icon>edit</md-icon></button>
