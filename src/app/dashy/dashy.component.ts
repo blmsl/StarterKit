@@ -75,14 +75,14 @@ export class DashyComponent implements OnInit {
     resizable: {
       enabled: true, // enable/disable resizable items
       handles: {
-        s: true,
-        e: true,
-        n: true,
-        w: true,
+        s: false,
+        e: false,
+        n: false,
+        w: false,
         se: true,
-        ne: true,
-        sw: true,
-        nw: true
+        ne: false,
+        sw: false,
+        nw: false
       }, // resizable edges of an item
       stop: undefined, // callback when resizing an item stops. Accepts Promise return to cancel/approve resize.
       start: undefined // callback when resizing an item starts.
@@ -94,7 +94,6 @@ export class DashyComponent implements OnInit {
     displayGrid: 'onDrag&Resize', // display background grid of rows and columns
     disableWindowResize: false // disable the window on resize listener. This will stop grid to recalculate on window resize.
   };
-  widgets: Array<GridsterItem>;
   private _dashboards: Array<Dashboard> = [];
   private _selectedDashboard: Dashboard;
 
@@ -119,7 +118,7 @@ export class DashyComponent implements OnInit {
 
   addWidget() {
 
-    if(this.options.api.getNextPossiblePosition({ cols: -1, rows: -1 })) {
+    if (this.options.api.getNextPossiblePosition({ cols: -1, rows: -1 })) {
       this.selectedDashboard.widgets.push(new Widget());
     }
     else {
@@ -128,10 +127,6 @@ export class DashyComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.widgets = [
-      { cols: 2, rows: 1, y: 0, x: 0 },
-      { cols: 2, rows: 2, y: 0, x: 2 }
-    ];
 
     this.dashboards = [
       new Dashboard('demo dashboard'),
