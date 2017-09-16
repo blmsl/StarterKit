@@ -55,7 +55,15 @@ export function highchartsFactory() {
 
   // default highcharts options
   highcharts.setOptions({
-    chart: { backgroundColor: 'transparent' },
+    chart: {
+      backgroundColor: 'transparent',
+      animation: false
+    },
+    plotOptions: {
+      series: {
+        animation: false
+      }
+    },
     title: {
       text: null
     },
