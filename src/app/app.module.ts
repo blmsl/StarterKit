@@ -71,7 +71,13 @@ export function highchartsFactory() {
       enabled: false
     },
     tooltip: {
-      shadow: false
+      shadow: false,
+      borderColor: '#000000'
+    },
+    yAxis: {
+      title: {
+        text: null
+      }
     }
   });
 
