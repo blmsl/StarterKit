@@ -7,10 +7,30 @@
 }
 
 .header {
-  height:40px;
+  height: 40px;
   overflow: hidden;
 }
 
 .body {
   overflow: hidden;
+}
+
+.header-titles {
+  padding-left: 6px;
+  padding-top: 4px;
+  line-height: 17px;
+}
+
+.title {
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.subtitle {
+  font-size: 1em;
+  font-weight: 300;
+}
+
+.widget {
+  background-color: #fff;
 }
