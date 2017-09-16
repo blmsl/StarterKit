@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import { Component, Output, Input, EventEmitter, DoCheck } from '@angular/core';
 import { DialogService } from '../../services/dialog.service';
 import { WidgetSettingComponent } from './widget-setting/widget-setting.component'
 import { WidgetType } from '../../classes/dashboard';
@@ -10,7 +10,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   templateUrl: './widget.component.html',
   styleUrls: ['./widget.component.css']
 })
-export class WidgetComponent implements OnInit {
+export class WidgetComponent implements DoCheck {
   @Output() onRemove: EventEmitter<string> = new EventEmitter<string>();
 
   @Input() widget: Widget;
@@ -56,11 +56,11 @@ export class WidgetComponent implements OnInit {
   };
   constructor(public dialogService: DialogService, public sanitizer: DomSanitizer) { }
 
-  ngOnInit() {
-  }
-
   onRemoveClick() {
     this.onRemove.emit();
+  }
+  ngDoCheck() {
+    this.resizeChart();
   }
 
   showSettings() {
@@ -68,5 +68,11 @@ export class WidgetComponent implements OnInit {
   }
   saveInstance(chartInstance) {
     this.chart = chartInstance;
+  }
+
+  resizeChart() {
+    if (this.chart) {
+      this.chart.reflow();
+    }
   }
 }
