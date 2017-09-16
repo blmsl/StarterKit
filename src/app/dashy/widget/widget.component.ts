@@ -17,7 +17,6 @@ export class WidgetComponent implements OnInit {
   widgetTypes = WidgetType;
   chart: any;
   options: any = {
-    title: { text: null },
     series: [{
       type: 'column',
       name: 'Jane',
@@ -53,10 +52,7 @@ export class WidgetComponent implements OnInit {
       dataLabels: {
         enabled: false
       }
-    }],
-    credits: {
-      enabled: false
-    }
+    }]
   };
   constructor(public dialogService: DialogService, public sanitizer: DomSanitizer) { }
 

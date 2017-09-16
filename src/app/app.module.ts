@@ -53,6 +53,20 @@ export function highchartsFactory() {
   brokenAxis(highcharts);
   highmaps(highcharts);
 
+  // default highcharts options
+  highcharts.setOptions({
+    chart: { backgroundColor: 'transparent' },
+    title: {
+      text: null
+    },
+    credits: {
+      enabled: false
+    },
+    tooltip: {
+      shadow: false
+    }
+  });
+
   return highcharts;
 }
 
