@@ -12,9 +12,3 @@ html, body {
 .appMdOneLineTooltip {
   white-space: nowrap;
 }
-
-#main-content {
-  overflow: auto;
-  overflow-x: hidden;
-  padding: 1em;
-}
