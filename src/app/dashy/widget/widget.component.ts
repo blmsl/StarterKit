@@ -12,6 +12,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class WidgetComponent implements DoCheck {
   @Output() onRemove: EventEmitter<string> = new EventEmitter<string>();
+  @Output() onSelect: EventEmitter<string> = new EventEmitter<string>();
 
   @Input() widget: Widget;
   widgetTypes = WidgetType;
@@ -21,6 +22,11 @@ export class WidgetComponent implements DoCheck {
   onRemoveClick() {
     this.onRemove.emit();
   }
+
+  onEditClick() {
+    this.onSelect.emit();
+  }
+  
   ngDoCheck() {
     this.resizeChart();
   }

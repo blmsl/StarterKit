@@ -1,11 +1,11 @@
 <div class="widget" fxLayout="column" fxFlexFill>
   <div class="header">
-    <div class="header-titles">
+    <div class="header-titles" [title]="widget.title +'&#xA;' + widget.subtitle">
       <div class="title">{{widget.title}}</div>
       <div class="subtitle">{{widget.subtitle}}</div>
     </div>
     <span fxFlex></span>
-    <button class="remove-button" (mousedown)="$event.stopPropagation()" (touchstart)="$event.stopPropagation()" md-icon-button (click)="showSettings();$event.stopPropagation();" mdTooltip="Settings"><md-icon>settings</md-icon></button>
+    <button class="remove-button" (mousedown)="$event.stopPropagation()" (touchstart)="$event.stopPropagation()" md-icon-button (click)="onEditClick();$event.stopPropagation();"><md-icon>edit</md-icon></button>
     <button class="remove-button" (mousedown)="$event.stopPropagation()" (touchstart)="$event.stopPropagation()" md-icon-button (click)="onRemoveClick();$event.stopPropagation();" mdTooltip="Remove"><md-icon>clear</md-icon></button>
   </div>
 

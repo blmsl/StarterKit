@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { GridsterConfig, GridsterItem } from 'angular-gridster2';
 import { NewDashboardDialogComponent } from './new-dashboard-dialog/new-dashboard-dialog.component';
 import { AuthService } from "../services/auth.service";
 import { MdSnackBar } from '@angular/material';
-import { MdDialog } from '@angular/material';
+import { MdDialog, MdSidenav } from '@angular/material';
 import { Dashboard } from '../classes/dashboard';
 import { Widget } from '../classes/dashboard';
 
@@ -96,8 +96,29 @@ export class DashyComponent implements OnInit {
   };
   private _dashboards: Array<Dashboard> = [];
   private _selectedDashboard: Dashboard;
+  selectedWidget: Widget;
+  @ViewChild('widgetEdit') widgetEditSideNav: MdSidenav;
+
 
   constructor(public snackBarService: SnackBarService, public auth: AuthService, public dialog: MdDialog) { }
+
+  selectWidget(widget: Widget) {
+    this.selectedWidget = widget;
+    this.widgetEditSideNav
+      .open()
+      .then(() => {
+        this.options.api.resize();
+      })
+  }
+
+  closeWidgetEdit() {
+    this.selectedWidget = null;
+    this.widgetEditSideNav
+      .close()
+      .then(() => {
+        this.options.api.resize();
+      })
+  }
 
   get dashboards(): Array<Dashboard> {
     return this._dashboards;
@@ -143,6 +164,7 @@ export class DashyComponent implements OnInit {
       if (dashboard) {
         this.dashboards.push(dashboard);
         this.selectedDashboard = dashboard;
+        this.closeWidgetEdit();
       }
     })
   }

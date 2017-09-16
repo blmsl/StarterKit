@@ -7,13 +7,29 @@
     <button md-button (click)="showNewDashboardDialog()">New Dashboard</button>
   </div>
 
-  <gridster fxFlex [options]="options" class="dashboard">
-
-    <gridster-item [item]="widget.gridSterItemOptions" class="pane" *ngFor="let widget of selectedDashboard.widgets; let i = index">
-      <app-widget (onRemove)="selectedDashboard.widgets.splice(i, 1)" [widget]="widget"></app-widget>
-    </gridster-item>
-
-  </gridster>
 
 
+  <md-sidenav-container fxFlex>
+    <md-sidenav #widgetEdit mode="side" position="end">
+      <form *ngIf="selectedWidget">
+        <md-form-field>
+          <input mdInput type="text" name="title" placeholder="Title" [(ngModel)]="selectedWidget.title">
+        </md-form-field>
+        <md-form-field>
+          <input mdInput type="text" name="subtitle" placeholder="Subtitle" [(ngModel)]="selectedWidget.subtitle">
+        </md-form-field>
+      </form>
+      <button md-raised-button color="primary" (click)="closeWidgetEdit()">Done</button>
+    </md-sidenav>
+
+    <gridster fxFlex [options]="options" class="dashboard">
+
+      <gridster-item [item]="widget.gridSterItemOptions" class="pane" [ngClass]="{'pane-selected': selectedWidget == widget}" *ngFor="let widget of selectedDashboard.widgets; let i = index">
+        <app-widget (onRemove)="selectedDashboard.widgets.splice(i, 1)" (onSelect)="selectWidget(widget)" [widget]="widget"></app-widget>
+      </gridster-item>
+
+    </gridster>
+
+
+  </md-sidenav-container>
 </div>
