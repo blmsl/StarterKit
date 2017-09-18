@@ -53,7 +53,7 @@ export class Dashboard {
         }]
       }
 
-      var widget2 = new Widget(WidgetType.CHART);
+      var widget2 = new Widget();
       widget2.title = "Area chart";
       widget2.subtitle = "Nuclear stockpiles";
       widget2.gridSterItemOptions.x = 4;
@@ -210,14 +210,13 @@ export class Dashboard {
 }
 
 export class Widget {
-  type: WidgetType = WidgetType.URL;
   private _chartOptions: any = {};
   private _title: string = "Title - demo widget";
-  private _subtitle: string = "Subtitle - demo widget"
+  private _subtitle: string = "Subtitle - demo widget";
+
   gridSterItemOptions: GridSterItemOptions = new GridSterItemOptions();
 
-  constructor(type: WidgetType = WidgetType.URL) {
-    this.type = type;
+  constructor() {
   }
 
   get title(): string {
@@ -250,8 +249,4 @@ export class GridSterItemOptions {
   y: number;
   cols: number;
   rows: number;
-}
-
-export enum WidgetType {
-  URL, PDF, TEXT, CHART, TABLE
 }
