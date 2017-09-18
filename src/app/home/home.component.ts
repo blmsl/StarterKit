@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../classes/post';
-import {PostService} from '../services/post.service'
+import { PostService } from '../services/post.service'
+import { AuthService } from '../services/auth.service'
+
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 
 @Component({
@@ -12,7 +14,9 @@ export class HomeComponent implements OnInit {
   posts: FirebaseListObservable<Post[]>;
   post: Post = new Post();
 
-  constructor(private postService: PostService) { }
+  constructor(private postService: PostService,
+    public auth: AuthService
+  ) { }
 
   ngOnInit() {
     this.posts = this.postService.getPostsList();
