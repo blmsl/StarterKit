@@ -11,6 +11,7 @@ import 'rxjs/add/observable/fromEvent';
 @Injectable()
 export class AuthService {
   user: Observable<firebase.User>;
+  _user: firebase.User;
   userId: string;
   mouseEvents: Subscription
   timer: Subscription;
@@ -21,6 +22,7 @@ export class AuthService {
     this.afAuth.authState
       .do(user => {
         if (user) {
+          this._user = user;
           this.userId = user.uid;
           this.updateOnConnect()
           this.updateOnDisconnect()
