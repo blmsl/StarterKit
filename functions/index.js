@@ -8,3 +8,8 @@ exports.createProfile = functions.auth.user().onCreate(event => {
     status: 'online'
   });
 });
+
+exports.removeProfile = functions.auth.user().onDelete(event => {
+  return admin.database().ref(`/users/${event.data.uid}`).remove();
+
+});
