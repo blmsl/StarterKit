@@ -15,10 +15,8 @@ exports.removeProfile = functions.auth.user().onDelete(event => {
 
 });
 
-exports.addPostTimeStamp = functions.database.ref('/posts/{id}').onWrite(ev => {
-  // prevent loops by guarding on data state
-  if (ev.data.child('createdAt').exists()) return;
-
+exports.addPostTimeStamp = functions.database.ref('/posts/{id}').onCreate(ev => {
+  
   return ev.data.adminRef.update({
     createdAt: admin.database.ServerValue.TIMESTAMP
   });
