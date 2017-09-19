@@ -10,7 +10,7 @@
 
 
   <md-sidenav-container fxFlex>
-    <md-sidenav #widgetEdit mode="side" position="end">
+    <md-sidenav #widgetEdit disableClose mode="side" position="end">
       <form *ngIf="selectedWidget">
         <md-form-field>
           <input mdInput type="text" name="title" placeholder="Title" [(ngModel)]="selectedWidget.title">

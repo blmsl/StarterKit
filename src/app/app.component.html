@@ -47,7 +47,7 @@
   </md-toolbar>
 
   <md-sidenav-container fxFlex>
-    <md-sidenav #sidenav [mode]="media.isActive('gt-xs') ? 'side' : 'over'" [opened]="media.isActive('gt-xs')">
+    <md-sidenav #sidenav disableClose [mode]="media.isActive('gt-xs') ? 'side' : 'over'" [opened]="media.isActive('gt-xs')">
       <div fxLayout="column" fxFlexFill>
         <md-nav-list>
 
