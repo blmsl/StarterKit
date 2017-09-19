@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Post } from '../classes/post';
 import { PostService } from '../services/post.service'
 import { AuthService } from '../services/auth.service'
+import 'rxjs/add/operator/map'
 
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 
@@ -11,7 +12,7 @@ import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable }
   providers: [PostService]
 })
 export class HomeComponent implements OnInit {
-  posts: FirebaseListObservable<Post[]>;
+  posts: any;
   post: Post = new Post();
 
   constructor(private postService: PostService,
@@ -19,7 +20,9 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.posts = this.postService.getPostsList();
+    this.posts = this.postService.getPostsList({
+      orderByChild: 'createdAt'
+    }).map((arr) => { return arr.reverse(); })
 
   }
   createPost(post: Post) {

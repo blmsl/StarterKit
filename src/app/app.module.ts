@@ -7,6 +7,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { NgPipesModule } from 'ngx-pipes';
+import { MomentModule } from 'angular2-moment';
 
 
 import { MessagingService } from "./services/messaging.service";
@@ -110,6 +111,7 @@ const appRoutes: Routes = [
     WidgetSettingComponent
   ],
   imports: [
+    MomentModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
