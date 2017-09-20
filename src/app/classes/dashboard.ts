@@ -98,15 +98,12 @@ export class Dashboard {
         },
         series: [{
           name: 'Brands',
-          colorByPoint: true,
           data: [{
             name: 'Microsoft Internet Explorer',
             y: 56.33
           }, {
             name: 'Chrome',
-            y: 24.03,
-            sliced: true,
-            selected: true
+            y: 24.03
           }, {
             name: 'Firefox',
             y: 10.38
