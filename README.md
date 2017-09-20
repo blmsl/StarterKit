@@ -4,7 +4,7 @@
  * [Demo](#demo)
  * [Libraries](#libraries)
  * [Installation instructions](#installation)
- * [Firebase configuration](#firebase-configuration)
+ * [Firebase configuration](#firebase configuration)
  * [Author](#author)
  * [License](#license)
 
@@ -46,7 +46,7 @@ Demo of this application can be found from [https://app-demo-1ac99.firebaseapp.c
  3. Now install the dependencies with `npm install`
  4. Now start the dev server with `ng serve` and open http://localhost:4200
  5. Star this repository.
- 
+
 ### Firebase configuration (Coming soon)
 I will show you how to deploy this application to your own firebase application instance.
 
