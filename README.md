@@ -4,7 +4,7 @@
  * [Demo](#demo)
  * [Libraries](#libraries)
  * [Installation instructions](#installation)
- * [Firebase configuration](#firebase configuration)
+ * [Firebase configuration](#user-content-firebase-configuration-coming-soon)
  * [Author](#author)
  * [License](#license)
 
