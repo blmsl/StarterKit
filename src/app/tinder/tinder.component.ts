@@ -33,7 +33,7 @@ export class TinderComponent {
         let throwOutConfidence = arguments[3];
         return throwOutConfidence > 0.50;
       },
-      minThrowOutDistance: 5000
+      minThrowOutDistance: 10000
     };
 
     this.cards = [
@@ -67,7 +67,29 @@ export class TinderComponent {
 
     // this.swingStack.dragstart.subscribe((event: DragEvent) => console.log(event.throwOutConfidence));
 
-    // this.swingStack.dragmove.subscribe((event: DragEvent) => console.log(event.throwOutConfidence));
+    this.swingStack.dragmove.subscribe((event: DragEvent) => {
+      let like = event.target.querySelector('.like') as HTMLElement;
+      let nope = event.target.querySelector('.nope') as HTMLElement;
+
+      if (event.offset > 0) {
+        like.style.opacity = event.throwOutConfidence + '';
+        nope.style.opacity = 0 + '';
+
+      }
+      else {
+        nope.style.opacity = event.throwOutConfidence + '';
+        like.style.opacity = 0 + '';
+
+      }
+    });
+
+    this.swingStack.dragend.subscribe((event: DragEvent) => {
+      let like = event.target.querySelector('.like') as HTMLElement;
+      let nope = event.target.querySelector('.nope') as HTMLElement;
+
+      like.style.opacity = 0 + '';
+      nope.style.opacity = 0 + '';
+    });
   }
 
   // This method is called by hooking up the event

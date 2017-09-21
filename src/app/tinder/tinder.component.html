@@ -1,6 +1,15 @@
 <div fxFlexFill fxLayout="column" class="wrapper">
   <div fxFlex class="cards" swing-stack [stackConfig]="stackConfig" #myswing1 (throwout)="onThrowOut($event)">
     <div class="card" fxLayout="column" swing-card #mycards1 *ngFor="let c of cards">
+      <div class="drag-info" fxLayout>
+        <div fxFlex fxLayoutAlign="center center">
+          <span class="like">Like</span>
+        </div>
+
+        <div fxFlex fxLayoutAlign="center center">
+          <span class="nope">Nope</span>
+        </div>
+      </div>
       <div fxFlex fxLayoutAlign="center center">
         <img [src]="c.imgURL" draggable="false" />
       </div>
@@ -15,10 +24,10 @@
 
   <md-card fxLayoutAlign="center start" fxLayoutGap="50px">
     <button md-fab style="background-color:#C62828">
-     <md-icon >thumb_down</md-icon>
+     <md-icon>clear</md-icon>
    </button>
     <button md-fab style="background-color:#2E7D32 ">
-    <md-icon>thumb_up</md-icon>
+    <md-icon>favorite</md-icon>
   </button>
 
   </md-card>
