@@ -49,6 +49,8 @@ import * as highmaps from 'highcharts/js/modules/map';
 import { ChartModule } from 'angular2-highcharts';
 import { SwingModule } from 'angular2-swing';
 import { TinderComponent } from './tinder/tinder.component';
+import { ConfirmComponent } from './dialogs/confirm/confirm.component';
+import { PromptComponent } from './dialogs/prompt/prompt.component';
 
 export function highchartsFactory() {
   // Initialize addons.
@@ -132,7 +134,9 @@ const appRoutes: Routes = [
     SnackbarProgressComponent,
     WidgetComponent,
     WidgetSettingComponent,
-    TinderComponent
+    TinderComponent,
+    ConfirmComponent,
+    PromptComponent
   ],
   imports: [
     MomentModule,
@@ -169,6 +173,8 @@ const appRoutes: Routes = [
   entryComponents: [
     ForgotPasswordComponent,
     NewDashboardDialogComponent,
+    ConfirmComponent,
+    PromptComponent,
     SnackbarProgressComponent,
     WidgetSettingComponent]
 })
