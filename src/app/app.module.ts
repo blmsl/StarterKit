@@ -47,6 +47,8 @@ import * as highchartsMore from 'highcharts/js/highcharts-more';
 import * as brokenAxis from 'highcharts/js/modules/broken-axis';
 import * as highmaps from 'highcharts/js/modules/map';
 import { ChartModule } from 'angular2-highcharts';
+import { SwingModule } from 'angular2-swing';
+import { TinderComponent } from './tinder/tinder.component';
 
 export function highchartsFactory() {
   // Initialize addons.
@@ -109,7 +111,8 @@ const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'dashy', component: DashyComponent },
-  { path: 'uploads', component: FilesUploadComponent }
+  { path: 'uploads', component: FilesUploadComponent },
+  { path: 'tinder', component: TinderComponent }
 
 ];
 
@@ -128,7 +131,8 @@ const appRoutes: Routes = [
     NewDashboardDialogComponent,
     SnackbarProgressComponent,
     WidgetComponent,
-    WidgetSettingComponent
+    WidgetSettingComponent,
+    TinderComponent
   ],
   imports: [
     MomentModule,
@@ -145,7 +149,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     GridsterModule,
     NgPipesModule,
-    ChartModule
+    ChartModule,
+    SwingModule
   ],
   providers: [
     MessagingService,
