@@ -37,6 +37,9 @@ export class TinderComponent {
     };
 
     this.cards = [
+      { name: 'clubs', symbol: '♣', imgURL: 'https://pbs.twimg.com/profile_images/874276197357596672/kUuht00m_400x400.jpg' },
+      { name: 'diamonds', symbol: '♦', imgURL: 'http://c0.nrostatic.com/sites/default/files/styles/original_image_with_cropping/public/uploaded/donald-trump-bankruptcy-lies.jpg?itok=QEd6okhR' },
+      { name: 'spades', symbol: '♠', imgURL: 'http://i2.cdn.cnn.com/cnnnext/dam/assets/170825070624-01-donald-trump-0823-exlarge-169.jpg' }
     ];
   }
 
