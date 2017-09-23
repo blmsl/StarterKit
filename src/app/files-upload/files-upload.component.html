@@ -1,43 +1,59 @@
-<div fxLayout="column" fxLayoutGap="1em">
-  <div>
-    <button mat-raised-button color="primary" (click)="fileInput.click()">Choose Files</button>
+<div style="margin: 1em;">
+  <h1>Upload new</h1>
+  <div fxLayout="column" fxLayoutGap="1em">
 
-    <input hidden multiple type="file" #fileInput (change)="addFiles($event.target.files); $event.target.value = null;" />
-    <span fxFlex></span>
-    <div [hidden]="uploads.length < 2">
-      <button mat-button (click)="uploadAll()">Upload all</button>
-      <button mat-button (click)="removeAll()">Remove all</button>
-    </div>
-  </div>
-  <mat-card *ngFor="let file of uploads;let i = index">
-    <div fxLayout fxLayoutAlign="center center">
-      {{file.file.name}}
-      <span fxFlex></span>
+    <div>
 
-      <div *ngIf="file.progress < 100">
-        <button mat-button *ngIf="file.state == 'ready'" (click)="upload(i)">Upload</button>
-        <!-- <button mat-button (click)="uploads.splice(i, 1)">Remove</button> -->
-        <div [hidden]="file.state == 'ready'">
-          <button mat-button *ngIf="file.state == 'running'" (click)="file.pauseUpload()">Pause</button>
-          <button mat-button *ngIf="file.state == 'paused'" (click)="file.resumeUpload()">Resume</button>
-        </div>
+      <div appDnd over="over" id="drop-area" (filesChangeEmiter)="addFiles($event)" fxLayout="column" fxLayoutAlign="center center">
+        <mat-icon>cloud_upload</mat-icon>
+        <p>
+          Drag and drop Files here to Upload
+        </p>
+        <button mat-button (click)="fileInput.click()">Or Select Files to Upload</button>
+
+        <input hidden multiple type="file" #fileInput (change)="addFiles($event.target.files); $event.target.value = null;" />
       </div>
 
-      <a mat-icon-button (click)="removeUpload(i)">
-        <mat-icon>close</mat-icon>
-      </a>
-    </div>
-    <a mat-button *ngIf="file.url" [attr.href]="file.url" target="_blank">Link to file</a>
+      <span fxFlex></span>
 
-    <div fxLayout="row" fxLayoutAlign="center center">
-      <mat-progress-bar [mode]="determinate" [value]="file.progress">
-      </mat-progress-bar>
-      <span>
-        {{file.progress | number : '1.0-0'}}%
-      </span>
+      <div [hidden]="uploads.length < 2">
+        <button mat-button (click)="uploadAll()">Upload all</button>
+        <button mat-button (click)="removeAll()">Remove all</button>
+      </div>
+
     </div>
-    <div>
-      {{file.bytesTransferred | fileSize}} of {{file.file.size | fileSize}}
-    </div>
-  </mat-card>
+    <mat-card *ngFor="let file of uploads;let i = index">
+      <div fxLayout fxLayoutAlign="center center">
+        {{file.file.name}}
+        <span fxFlex></span>
+
+        <div *ngIf="file.progress < 100">
+          <button mat-button *ngIf="file.state == 'ready'" (click)="upload(i)">Upload</button>
+          <!-- <button mat-button (click)="uploads.splice(i, 1)">Remove</button> -->
+          <div [hidden]="file.state == 'ready'">
+            <button mat-button *ngIf="file.state == 'running'" (click)="file.pauseUpload()">Pause</button>
+            <button mat-button *ngIf="file.state == 'paused'" (click)="file.resumeUpload()">Resume</button>
+          </div>
+        </div>
+
+        <a mat-icon-button (click)="removeUpload(i)">
+          <mat-icon>close</mat-icon>
+        </a>
+      </div>
+      <a mat-button *ngIf="file.url" [attr.href]="file.url" target="_blank">Link to file</a>
+
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <mat-progress-bar [mode]="determinate" [value]="file.progress">
+        </mat-progress-bar>
+        <span>
+          {{file.progress | number : '1.0-0'}}%
+        </span>
+      </div>
+      <div>
+        {{file.bytesTransferred | fileSize}} of {{file.file.size | fileSize}}
+      </div>
+    </mat-card>
+  </div>
+  <h1>My uploads</h1>
+
 </div>

@@ -69,6 +69,7 @@ import { SwingModule } from 'angular2-swing';
 import { TinderComponent } from './tinder/tinder.component';
 import { ConfirmComponent } from './dialogs/confirm/confirm.component';
 import { PromptComponent } from './dialogs/prompt/prompt.component';
+import { DndDirective } from './directives/dnd.directive';
 
 export function highchartsFactory() {
   // Initialize addons.
@@ -154,7 +155,8 @@ const appRoutes: Routes = [
     WidgetSettingComponent,
     TinderComponent,
     ConfirmComponent,
-    PromptComponent
+    PromptComponent,
+    DndDirective
   ],
   imports: [
     MomentModule,
