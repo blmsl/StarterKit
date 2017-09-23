@@ -26,7 +26,7 @@ exports.fakeNews = functions.https.onRequest((req, res) => {
   res.status(200).send(`<!doctype html>
     <head>
       <title>${req.query.title}</title>
-      <meta property="og:url" content="https://app-demo-1ac99.firebaseapp.com/" />
+      <meta property="og:url" content="https://us-central1-app-demo-1ac99.cloudfunctions.net/" />
       <meta property="og:type" content="${req.query.type}" />
       <meta property="og:title" content="${req.query.title}" />
       <meta property="og:description" content="${req.query.description}" />
