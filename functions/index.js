@@ -23,13 +23,17 @@ exports.addPostTimeStamp = functions.database.ref('/posts/{id}').onCreate(ev => 
 });
 
 exports.fakeNews = functions.https.onRequest((req, res) => {
-  const hours = (new Date().getHours() % 12) + 1 // london is UTC + 1hr;
   res.status(200).send(`<!doctype html>
     <head>
-      <title>Time</title>
+      <title>${req.query.title}</title>
+      <meta property="og:url" content="https://app-demo-1ac99.firebaseapp.com/" />
+      <meta property="og:type" content="${req.query.type}" />
+      <meta property="og:title" content="${req.query.title}" />
+      <meta property="og:description" content="${req.query.description}" />
+      <meta property="og:image" content="${req.query.image}" />
+
     </head>
     <body>
-      ${'BONG '.repeat(hours)}
     </body>
   </html>`);
 });
