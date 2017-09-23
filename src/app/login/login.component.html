@@ -1,20 +1,20 @@
 <form [formGroup]="form" (ngSubmit)="submit()" fxLayout="column">
-  <md-form-field>
-    <input mdInput type="email" placeholder="Email address" formControlName="email">
-    <md-error *ngIf="form.controls['email'].hasError('userNotFound')">
+  <mat-form-field>
+    <input matInput type="email" placeholder="Email address" formControlName="email">
+    <mat-error *ngIf="form.controls['email'].hasError('userNotFound')">
       No user with this email address
-    </md-error>
-    <md-error *ngIf="form.controls['email'].hasError('invalidEmail')">
+    </mat-error>
+    <mat-error *ngIf="form.controls['email'].hasError('invalidEmail')">
       This email address is not valid
-    </md-error>
-  </md-form-field>
+    </mat-error>
+  </mat-form-field>
 
-  <md-form-field>
-    <input mdInput type="password" placeholder="Password" formControlName="password">
-    <md-error *ngIf="form.controls['password'].hasError('wrongPassword')">
+  <mat-form-field>
+    <input matInput type="password" placeholder="Password" formControlName="password">
+    <mat-error *ngIf="form.controls['password'].hasError('wrongPassword')">
       This password is wrong
-    </md-error>
-  </md-form-field>
+    </mat-error>
+  </mat-form-field>
 
   <div fxLayout.xs="column-reverse">
     <!-- You need to add type button to any button on a form that is not submit.
@@ -23,9 +23,9 @@
         https://github.com/angular/angular.js/issues/6017
         https://stackoverflow.com/questions/38786995/avoid-angular2-to-systematically-submit-form-on-button-click
       -->
-    <button type="button" tabindex="-1" (click)="showPasswordResetDialog()" md-button>Forgot your password?</button>
+    <button type="button" tabindex="-1" (click)="showPasswordResetDialog()" mat-button>Forgot your password?</button>
     <span fxFlex></span>
-    <button type="submit" [disabled]="!form.valid" md-raised-button color="primary">Login</button>
+    <button type="submit" [disabled]="!form.valid" mat-raised-button color="primary">Login</button>
 
   </div>
 

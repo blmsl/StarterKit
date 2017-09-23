@@ -4,10 +4,28 @@ import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MaterialModule } from '@angular/material';
+import {
+  MatInputModule,
+  MatIconModule,
+  MatTabsModule,
+  MatProgressSpinnerModule,
+  MatCardModule,
+  MatMenuModule,
+  MatSidenavModule,
+  MatTooltipModule,
+  MatSelectModule,
+  MatProgressBarModule,
+  MatDialogModule,
+  MatSnackBarModule,
+  MatCheckboxModule,
+  MatButtonModule,
+  MatListModule,
+  MatToolbarModule
+} from '@angular/material';
 import { AppComponent } from './app.component';
 import { NgPipesModule } from 'ngx-pipes';
 import { MomentModule } from 'angular2-moment';
+import { MATERIAL_COMPATIBILITY_MODE } from '@angular/material';
 
 
 import { MessagingService } from "./services/messaging.service";
@@ -144,7 +162,22 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MaterialModule,
+    MatInputModule,
+    MatIconModule,
+    MatTabsModule,
+    MatProgressSpinnerModule,
+    MatCardModule,
+    MatMenuModule,
+    MatSidenavModule,
+    MatTooltipModule,
+    MatSelectModule,
+    MatProgressBarModule,
+    MatDialogModule,
+    MatSnackBarModule,
+    MatCheckboxModule,
+    MatButtonModule,
+    MatListModule,
+    MatToolbarModule,
     FlexLayoutModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
@@ -167,7 +200,8 @@ const appRoutes: Routes = [
     {
       provide: HighchartsStatic,
       useFactory: highchartsFactory
-    }
+    },
+    { provide: MATERIAL_COMPATIBILITY_MODE, useValue: true }
   ],
   bootstrap: [AppComponent],
   entryComponents: [

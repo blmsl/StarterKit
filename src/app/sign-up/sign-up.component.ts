@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from "../services/auth.service";
-import { MdSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 import { SnackbarProgressComponent } from '../snackbar-progress/snackbar-progress.component';
 
 @Component({
@@ -12,7 +12,7 @@ import { SnackbarProgressComponent } from '../snackbar-progress/snackbar-progres
 export class SignUpComponent implements OnInit {
   form: FormGroup;
 
-  constructor(private fb: FormBuilder, public snackBar: MdSnackBar, public auth: AuthService) { }
+  constructor(private fb: FormBuilder, public snackBar: MatSnackBar, public auth: AuthService) { }
   ngOnInit() {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],

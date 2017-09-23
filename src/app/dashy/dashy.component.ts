@@ -2,8 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { GridsterConfig, GridsterItem } from 'angular-gridster2';
 import { NewDashboardDialogComponent } from './new-dashboard-dialog/new-dashboard-dialog.component';
 import { AuthService } from "../services/auth.service";
-import { MdSnackBar } from '@angular/material';
-import { MdDialog, MdSidenav } from '@angular/material';
+import { MatSnackBar } from '@angular/material';
+import { MatDialog, MatSidenav } from '@angular/material';
 import { Dashboard } from '../classes/dashboard';
 import { Widget } from '../classes/dashboard';
 
@@ -97,10 +97,10 @@ export class DashyComponent implements OnInit {
   private _dashboards: Array<Dashboard> = [];
   private _selectedDashboard: Dashboard;
   selectedWidget: Widget;
-  @ViewChild('widgetEdit') widgetEditSideNav: MdSidenav;
+  @ViewChild('widgetEdit') widgetEditSideNav: MatSidenav;
 
 
-  constructor(public snackBarService: SnackBarService, public auth: AuthService, public dialog: MdDialog) { }
+  constructor(public snackBarService: SnackBarService, public auth: AuthService, public dialog: MatDialog) { }
 
   selectWidget(widget: Widget) {
     this.selectedWidget = widget;

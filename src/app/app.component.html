@@ -1,8 +1,8 @@
 <div fxFlexFill fxLayout="column" *ngIf="(auth.user | async)?.uid">
-  <md-toolbar color="primary">
+  <mat-toolbar color="primary">
     <div fxHide.gt-xs="true" fxFlex>
-      <button md-icon-button (click)="sidenav.toggle()">
-        <md-icon>menu</md-icon>
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
       </button>
     </div>
 
@@ -11,101 +11,101 @@
     <span fxFlex></span>
 
     <div fxHide.xs>
-      <a md-button href="https://github.com/MurWade/app-demo">
-        <md-icon svgIcon="github"></md-icon>
+      <a mat-button href="https://github.com/MurWade/app-demo">
+        <mat-icon svgIcon="github"></mat-icon>
         <span>GITHUB</span>
       </a>
 
-      <a md-button routerLink="/profile">
+      <a mat-button routerLink="/profile">
       Hello {{(auth.user | async)?.email}}
     </a>
-      <button md-icon-button (click)="logout()" mdTooltip="Sign out" mdTooltipClass="appMdOneLineTooltip">
-         <md-icon>exit_to_app</md-icon>
+      <button mat-icon-button (click)="logout()" matTooltip="Sign out" matTooltipClass="appMdOneLineTooltip">
+         <mat-icon>exit_to_app</mat-icon>
        </button>
     </div>
 
     <div fxHide.gt-xs>
-      <button md-icon-button [mdMenuTriggerFor]="mainMenu"><md-icon>more_vert</md-icon></button>
+      <button mat-icon-button [matMenuTriggerFor]="mainMenu"><mat-icon>more_vert</mat-icon></button>
 
-      <md-menu #mainMenu="mdMenu">
-        <a md-menu-item routerLink="/profile">
-          <md-icon>person</md-icon>
+      <mat-menu #mainMenu="matMenu">
+        <a mat-menu-item routerLink="/profile">
+          <mat-icon>person</mat-icon>
           <span> {{(auth.user | async)?.email}} </span>
         </a>
-        <a md-menu-item href="https://github.com/MurWade/app-demo">
-          <md-icon svgIcon="github"></md-icon>
+        <a mat-menu-item href="https://github.com/MurWade/app-demo">
+          <mat-icon svgIcon="github"></mat-icon>
           <span>GITHUB</span>
         </a>
-        <md-divider></md-divider>
+        <mat-divider></mat-divider>
 
-        <button md-menu-item (click)="logout()">
-            <md-icon>exit_to_app</md-icon>
+        <button mat-menu-item (click)="logout()">
+            <mat-icon>exit_to_app</mat-icon>
             <span> Sign out</span>
           </button>
-      </md-menu>
+      </mat-menu>
     </div>
-  </md-toolbar>
+  </mat-toolbar>
 
-  <md-sidenav-container fxFlex>
-    <md-sidenav #sidenav [disableClose]="media.isActive('gt-xs')" [mode]="media.isActive('gt-xs') ? 'side' : 'over'" [opened]="media.isActive('gt-xs')">
+  <mat-sidenav-container fxFlex>
+    <mat-sidenav #sidenav [disableClose]="media.isActive('gt-xs')" [mode]="media.isActive('gt-xs') ? 'side' : 'over'" [opened]="media.isActive('gt-xs')">
       <div fxLayout="column" fxFlexFill>
-        <md-nav-list>
+        <mat-nav-list>
 
-          <a md-list-item routerLink="/" color="primary" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}" (click)="routeLinkClick()">
-            <md-icon mdListIcon>home</md-icon>
+          <a mat-list-item routerLink="/" color="primary" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}" (click)="routeLinkClick()">
+            <mat-icon matListIcon>home</mat-icon>
 
-            <h3 mdLine> Home </h3>
+            <h3 matLine> Home </h3>
 
           </a>
-          <a md-list-item routerLink="/dashy" routerLinkActive="active-link" (click)="routeLinkClick()">
-            <md-icon mdListIcon>dashboard</md-icon>
+          <a mat-list-item routerLink="/dashy" routerLinkActive="active-link" (click)="routeLinkClick()">
+            <mat-icon matListIcon>dashboard</mat-icon>
 
-            <h3 mdLine> BI Dashboard </h3>
+            <h3 matLine> BI Dashboard </h3>
           </a>
-          <a md-list-item routerLink="/uploads" routerLinkActive="active-link" (click)="routeLinkClick()">
-            <md-icon mdListIcon>cloud</md-icon>
+          <a mat-list-item routerLink="/uploads" routerLinkActive="active-link" (click)="routeLinkClick()">
+            <mat-icon matListIcon>cloud</mat-icon>
 
-            <h3 mdLine> My uploads </h3>
-          </a>
-
-          <a md-list-item routerLink="/tinder" routerLinkActive="active-link" (click)="routeLinkClick()">
-            <md-icon mdListIcon>whatshot</md-icon>
-
-            <h3 mdLine> Tinder </h3>
+            <h3 matLine> My uploads </h3>
           </a>
 
-        </md-nav-list>
+          <a mat-list-item routerLink="/tinder" routerLinkActive="active-link" (click)="routeLinkClick()">
+            <mat-icon matListIcon>whatshot</mat-icon>
 
-        <md-divider></md-divider>
-        <md-list dense fxFlex style="overflow: auto;">
-          <h3 md-subheader>Users</h3>
-          <md-list-item *ngFor="let user of users | async">
-            <img mdListAvatar src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/ce54bf11889067.562541ef7cde4.png" alt="...">
-            <h3 mdLine> {{user.email}} </h3>
+            <h3 matLine> Tinder </h3>
+          </a>
+
+        </mat-nav-list>
+
+        <mat-divider></mat-divider>
+        <mat-list dense fxFlex style="overflow: auto;">
+          <h3 matSubheader>Users</h3>
+          <mat-list-item *ngFor="let user of users | async">
+            <img matListAvatar src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/ce54bf11889067.562541ef7cde4.png" alt="...">
+            <h3 matLine> {{user.email}} </h3>
             <app-user-status [status]="user.status"></app-user-status>
 
-          </md-list-item>
-        </md-list>
+          </mat-list-item>
+        </mat-list>
       </div>
-    </md-sidenav>
+    </mat-sidenav>
 
     <router-outlet></router-outlet>
 
 
-  </md-sidenav-container>
+  </mat-sidenav-container>
 </div>
 
 <div fxFlexFill fxLayout fxLayoutAlign.gt-xs="center center" *ngIf="!(auth.user | async)?.uid">
 
-  <md-card class="login-wrapper">
-    <md-tab-group>
-      <md-tab label="Log in">
+  <mat-card class="login-wrapper">
+    <mat-tab-group>
+      <mat-tab label="Log in">
         <app-login></app-login>
-      </md-tab>
-      <md-tab label="Sign Up">
+      </mat-tab>
+      <mat-tab label="Sign Up">
         <app-sign-up></app-sign-up>
-      </md-tab>
-    </md-tab-group>
-  </md-card>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>
 
 </div>

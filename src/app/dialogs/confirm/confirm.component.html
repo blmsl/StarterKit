@@ -1,7 +1,7 @@
-<h2 md-dialog-title>{{data.title || 'Confirm Dialog'}}</h2>
-<md-dialog-content>{{data.message || 'Are you sure you want to perform this action?'}}</md-dialog-content>
-<md-dialog-actions>
-  <button md-button md-dialog-close>{{data.reject || 'Cancel'}}</button>
+<h2 matDialogTitle>{{data.title || 'Confirm Dialog'}}</h2>
+<mat-dialog-content>{{data.message || 'Are you sure you want to perform this action?'}}</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button matDialogClose>{{data.reject || 'Cancel'}}</button>
   <!-- Can optionally provide a result for the closing dialog. -->
-  <button md-button [md-dialog-close]="true">{{data.accept || 'Confirm'}}</button>
-</md-dialog-actions>
+  <button mat-button [matDialogClose]="true">{{data.accept || 'Confirm'}}</button>
+</mat-dialog-actions>

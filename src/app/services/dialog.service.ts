@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { MdDialog } from '@angular/material';
+import { MatDialog } from '@angular/material';
 import { ConfirmComponent } from '../dialogs/confirm/confirm.component';
 import { PromptComponent } from '../dialogs/prompt/prompt.component';
 
 @Injectable()
 export class DialogService {
 
-  constructor(public dialog: MdDialog) { }
+  constructor(public dialog: MatDialog) { }
 
   showDialog(component) {
     return this.dialog.open(component);

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { MdDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material';
 import { SnackBarService } from '../../services/snack-bar-service.service';
 import { AuthService } from "../../services/auth.service";
 
@@ -13,7 +13,7 @@ export class ForgotPasswordComponent implements OnInit {
   form: FormGroup;
 
   constructor(public auth: AuthService, public snackBarService: SnackBarService, public fb: FormBuilder,
-    public dialogRef: MdDialogRef<ForgotPasswordComponent>) { }
+    public dialogRef: MatDialogRef<ForgotPasswordComponent>) { }
 
   ngOnInit() {
     this.form = this.fb.group({

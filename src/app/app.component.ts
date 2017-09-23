@@ -3,13 +3,13 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
 import { NgForm } from '@angular/forms';
-import { MdSnackBar } from '@angular/material';
-import { MdIconRegistry } from '@angular/material';
+import { MatSnackBar } from '@angular/material';
+import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { AuthService } from "./services/auth.service";
-import { MdDialog } from '@angular/material';
+import { MatDialog } from '@angular/material';
 import { ObservableMedia } from "@angular/flex-layout";
-import { MdSidenav } from '@angular/material';
+import { MatSidenav } from '@angular/material';
 
 @Component({
   selector: 'app-root',
@@ -18,16 +18,16 @@ import { MdSidenav } from '@angular/material';
 
 })
 export class AppComponent implements OnInit {
-  @ViewChild('sidenav') sidenav: MdSidenav;
+  @ViewChild('sidenav') sidenav: MatSidenav;
   users: FirebaseListObservable<any[]>;
 
   constructor(
-    iconRegistry: MdIconRegistry,
+    iconRegistry: MatIconRegistry,
     sanitizer: DomSanitizer,
     public af: AngularFireDatabase,
-    public snackBar: MdSnackBar,
+    public snackBar: MatSnackBar,
     public auth: AuthService,
-    public dialog: MdDialog,
+    public dialog: MatDialog,
     public media: ObservableMedia) {
 
     this.users = af.list('/users');

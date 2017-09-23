@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MD_SNACK_BAR_DATA } from '@angular/material';
+import { MAT_SNACK_BAR_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-snackbar-progress',
@@ -8,7 +8,7 @@ import { MD_SNACK_BAR_DATA } from '@angular/material';
 })
 export class SnackbarProgressComponent implements OnInit {
 
-  constructor( @Inject(MD_SNACK_BAR_DATA) public message: any) {
+  constructor( @Inject(MAT_SNACK_BAR_DATA) public message: any) {
   }
 
   ngOnInit() {

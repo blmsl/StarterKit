@@ -1,26 +1,26 @@
 <div fxLayout="column" fxFlexFill>
   <div class="toolbar">
-    <md-select placeholder="Select dashboard" [(ngModel)]="selectedDashboard">
-      <md-option *ngFor="let dashboard of dashboards" [value]="dashboard">{{ dashboard.name }}</md-option>
-    </md-select>
-    <button md-button (click)="addWidget()">New widget</button>
-    <button md-button (click)="showNewDashboardDialog()">New Dashboard</button>
+    <mat-select placeholder="Select dashboard" [(ngModel)]="selectedDashboard">
+      <mat-option *ngFor="let dashboard of dashboards" [value]="dashboard">{{ dashboard.name }}</mat-option>
+    </mat-select>
+    <button mat-button (click)="addWidget()">New widget</button>
+    <button mat-button (click)="showNewDashboardDialog()">New Dashboard</button>
   </div>
 
 
 
-  <md-sidenav-container fxFlex>
-    <md-sidenav #widgetEdit disableClose mode="side" position="end">
+  <mat-sidenav-container fxFlex>
+    <mat-sidenav #widgetEdit disableClose mode="side" position="end">
       <form *ngIf="selectedWidget">
-        <md-form-field>
-          <input mdInput type="text" name="title" placeholder="Title" [(ngModel)]="selectedWidget.title">
-        </md-form-field>
-        <md-form-field>
-          <input mdInput type="text" name="subtitle" placeholder="Subtitle" [(ngModel)]="selectedWidget.subtitle">
-        </md-form-field>
+        <mat-form-field>
+          <input matInput type="text" name="title" placeholder="Title" [(ngModel)]="selectedWidget.title">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="text" name="subtitle" placeholder="Subtitle" [(ngModel)]="selectedWidget.subtitle">
+        </mat-form-field>
       </form>
-      <button md-raised-button color="primary" (click)="closeWidgetEdit()">Done</button>
-    </md-sidenav>
+      <button mat-raised-button color="primary" (click)="closeWidgetEdit()">Done</button>
+    </mat-sidenav>
 
     <gridster fxFlex [options]="options" class="dashboard">
 
@@ -31,5 +31,5 @@
     </gridster>
 
 
-  </md-sidenav-container>
+  </mat-sidenav-container>
 </div>

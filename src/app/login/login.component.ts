@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from "../services/auth.service";
-import { MdSnackBar } from '@angular/material';
-import { MdDialog } from '@angular/material';
+import { MatSnackBar } from '@angular/material';
+import { MatDialog } from '@angular/material';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { SnackbarProgressComponent } from '../snackbar-progress/snackbar-progress.component';
 
@@ -14,7 +14,7 @@ import { SnackbarProgressComponent } from '../snackbar-progress/snackbar-progres
 export class LoginComponent implements OnInit {
   form: FormGroup;
 
-  constructor(private fb: FormBuilder, public snackBar: MdSnackBar, public auth: AuthService, public dialog: MdDialog) { }
+  constructor(private fb: FormBuilder, public snackBar: MatSnackBar, public auth: AuthService, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.form = this.fb.group({

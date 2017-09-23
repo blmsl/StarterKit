@@ -1,15 +1,15 @@
-<h2 md-dialog-title>New Dashboard</h2>
-<md-dialog-content>
+<h2 matDialogTitle>New Dashboard</h2>
+<mat-dialog-content>
   Give your new dashboard a name.
   <form novalidate #f="ngForm">
-    <md-form-field>
-      <input mdInput type="text" [(ngModel)]="newDashboard.name" name="name" required>
-    </md-form-field>
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="newDashboard.name" name="name" required>
+    </mat-form-field>
   </form>
-</md-dialog-content>
-<md-dialog-actions>
+</mat-dialog-content>
+<mat-dialog-actions>
   <span fxFlex></span>
-  <button md-button tabindex="-1" md-dialog-close>Cancel</button>
+  <button mat-button tabindex="-1" matDialogClose>Cancel</button>
 
-  <button [disabled]="!f.valid" [md-dialog-close]="newDashboard" md-raised-button color="primary">Done</button>
-</md-dialog-actions>
+  <button [disabled]="!f.valid" [matDialogClose]="newDashboard" mat-raised-button color="primary">Done</button>
+</mat-dialog-actions>
