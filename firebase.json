@@ -9,10 +9,6 @@
     "rewrites": [{
         "source": "**",
         "destination": "/index.html"
-      },
-      {
-        "source": "/fakenews",
-        "function": "fakeNews"
       }
     ]
 
