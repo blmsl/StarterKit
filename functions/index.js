@@ -3,8 +3,8 @@ const admin = require('firebase-admin');
 const nodemailer = require('nodemailer');
 const gmailEmail = encodeURIComponent(functions.config().gmail.email);
 const gmailPassword = encodeURIComponent(functions.config().gmail.password);
-const mailTransport = nodemailer.createTransport('smtps://${gmailEmail}:${gmailPassword}@smtp.gmail.com');
-const APP_NAME = 'Cloud Storage for Firebase quickstart';
+const mailTransport = nodemailer.createTransport(`smtps://${gmailEmail}:${gmailPassword}@smtp.gmail.com`);
+const APP_NAME = 'App Demo by Mustafa';
 
 admin.initializeApp(functions.config().firebase);
 
