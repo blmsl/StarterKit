@@ -18,6 +18,8 @@ this demo application contains following features:
    * Forgot Password
    * Delete Account
    * User presence
+   * Welcome emails(using firebase functions)
+   * Good bye emails(using firebase functions)
  * Routing
  * Progressive Web Application
  * Material Design
