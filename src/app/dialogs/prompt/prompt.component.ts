@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material';
+import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-prompt',
@@ -7,10 +8,14 @@ import { MAT_DIALOG_DATA } from '@angular/material';
   styleUrls: ['./prompt.component.css']
 })
 export class PromptComponent implements OnInit {
-  promptValue: any;
-  constructor( @Inject(MAT_DIALOG_DATA) public data: any) { }
+  form: FormGroup;
+
+  constructor( @Inject(MAT_DIALOG_DATA) public data: any, private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.form = this.fb.group({
+      promptValue: ['', this.data.validators]
+    });
   }
 
 }

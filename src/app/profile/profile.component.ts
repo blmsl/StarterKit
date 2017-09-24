@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { SnackBarService } from '../services/snack-bar-service.service';
 import { DialogService } from '../services/dialog.service';
+import { Validators } from '@angular/forms';
 
 import * as firebase from 'firebase/app';
 
@@ -36,7 +37,11 @@ export class ProfileComponent implements OnInit {
               switch (err['code']) {
                 case 'auth/requires-recent-login':
 
-                  this.dialogService.showPromptDialog("Please enter your password", "password")
+                  this.dialogService.showPromptDialog(
+                    "Please enter your password",
+                    "password",
+                    [Validators.required, Validators.minLength(6), Validators.maxLength(12)]
+                  )
                     .afterClosed().subscribe(result => {
                       var password = result;
                       const credentials = firebase.auth.EmailAuthProvider.credential(this.auth._user.email, password);

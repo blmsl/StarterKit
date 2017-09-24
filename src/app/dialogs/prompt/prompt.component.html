@@ -2,12 +2,15 @@
   <p>
     {{data.message || 'Are you sure you want to perform this action?'}}
   </p>
-  <mat-form-field>
-    <input matInput [type]="data.type" required [(ngModel)]="promptValue">
-  </mat-form-field>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <mat-form-field>
+      <input matInput [type]="data.type" formControlName="promptValue">
+    </mat-form-field>
+
+  </form>
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button matDialogClose>{{data.reject || 'Cancel'}}</button>
   <!-- Can optionally provide a result for the closing dialog. -->
-  <button mat-button [matDialogClose]="promptValue" [disabled]>{{data.accept || 'Ok'}}</button>
+  <button mat-button [disabled]="!form.valid" [matDialogClose]="form.value.promptValue" [disabled]>{{data.accept || 'Ok'}}</button>
 </mat-dialog-actions>
