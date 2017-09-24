@@ -1,1 +1,22 @@
+<mat-card>
+  <mat-card-title>
+    Change password
+  </mat-card-title>
+  <form [formGroup]="changePasswordForm" (ngSubmit)="changePassword()" fxLayout="column">
+    <mat-form-field>
+      <input matInput type="password" placeholder="Current password" formControlName="currentPassword">
+      <mat-error *ngIf="changePasswordForm.controls['currentPassword'].hasError('wrongPassword')">
+        This password is wrong
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="password" placeholder="New password" formControlName="newPassword">
+    </mat-form-field>
+    <button type="submit" [disabled]="!changePasswordForm.valid" mat-raised-button color="primary">Update password</button>
+
+  </form>
+</mat-card>
+
+
 <button mat-button color="warn" (click)="deleteAccountClick()">Delete account</button>

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { SnackBarService } from '../services/snack-bar-service.service';
 import { DialogService } from '../services/dialog.service';
-import { Validators } from '@angular/forms';
+import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import * as firebase from 'firebase/app';
 
@@ -11,12 +11,50 @@ import * as firebase from 'firebase/app';
   templateUrl: './profile.component.html'
 })
 export class ProfileComponent implements OnInit {
+  changePasswordForm: FormGroup;
 
   constructor(public auth: AuthService,
     public snackBar: SnackBarService,
-    public dialogService: DialogService) { }
+    public dialogService: DialogService,
+    private fb: FormBuilder) { }
 
   ngOnInit() {
+    let passwordValidators = [Validators.required, Validators.minLength(6), Validators.maxLength(12)];
+    this.changePasswordForm = this.fb.group({
+      currentPassword: ['', passwordValidators],
+      newPassword: ['', passwordValidators]
+    });
+  }
+
+  changePassword() {
+    let snackBarRef = this.snackBar.showProgress("Changing your password")
+
+    const credentials = firebase.auth.EmailAuthProvider.credential(this.auth._user.email, this.changePasswordForm.value.currentPassword);
+    this.auth._user.reauthenticateWithCredential(credentials)
+      .then(() => {
+
+        this.auth._user.updatePassword(this.changePasswordForm.value.newPassword)
+          .then(result => {
+            this.snackBar.showMessage("Your password has been changed!");
+          })
+          .catch(err => {
+
+          });
+      })
+      .catch((err) => {
+        snackBarRef.dismiss();
+
+        switch (err['code']) {
+          case 'auth/wrong-password':
+            this.changePasswordForm.controls['currentPassword'].setErrors({
+              wrongPassword: true
+            });
+            break;
+
+          default:
+            this.snackBar.showMessage("Something went wrong");
+        }
+      })
   }
 
   deleteAccountClick() {
