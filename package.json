@@ -29,6 +29,7 @@
     "@angular/router": "^4.4.3",
     "@types/jasminewd2": "^2.0.3",
     "angular-gridster2": "^3.12.0",
+    "angular2-highcharts": "^0.5.5",
     "angular2-moment": "^1.7.0",
     "angular2-swing": "^0.14.0",
     "angularfire2": "^4.0.0-rc0",
