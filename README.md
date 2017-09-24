@@ -15,9 +15,10 @@ this demo application contains following features:
  * Authentication with email and password
    * Sign in
    * Signup
-   * Forgot Password
+   * Reset password
+   * Change password
    * Delete Account
-   * User presence
+   * User presence(Online, Away, Offline)
    * Welcome emails(using firebase functions)
    * Good bye emails(using firebase functions)
  * Routing
