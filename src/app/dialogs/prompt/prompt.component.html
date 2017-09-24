@@ -2,7 +2,7 @@
   <p>
     {{data.message || 'Are you sure you want to perform this action?'}}
   </p>
-  <form [formGroup]="form" (ngSubmit)="submit()">
+  <form [formGroup]="form" (ngSubmit)="dialogRef.close(form.value.promptValue)">
     <mat-form-field>
       <input matInput [type]="data.type" formControlName="promptValue">
     </mat-form-field>

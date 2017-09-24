@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -10,7 +10,7 @@ import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class PromptComponent implements OnInit {
   form: FormGroup;
 
-  constructor( @Inject(MAT_DIALOG_DATA) public data: any, private fb: FormBuilder) { }
+  constructor( @Inject(MAT_DIALOG_DATA) public data: any, private fb: FormBuilder, public dialogRef: MatDialogRef<PromptComponent>) { }
 
   ngOnInit() {
     this.form = this.fb.group({
