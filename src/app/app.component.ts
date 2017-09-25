@@ -10,6 +10,12 @@ import { AuthService } from "./services/auth.service";
 import { MatDialog } from '@angular/material';
 import { ObservableMedia } from "@angular/flex-layout";
 import { MatSidenav } from '@angular/material';
+import { Title } from '@angular/platform-browser';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mergeMap';
 
 @Component({
   selector: 'app-root',
@@ -22,6 +28,9 @@ export class AppComponent implements OnInit {
   users: FirebaseListObservable<any[]>;
 
   constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private titleService: Title,
     iconRegistry: MatIconRegistry,
     sanitizer: DomSanitizer,
     public af: AngularFireDatabase,
@@ -37,6 +46,21 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    // this peace of code changes the title of the page
+    // if you want to know why the code is what it is
+    // then have a look at https://toddmotto.com/dynamic-page-titles-angular-2-router-events
+    
+    this.router.events
+      .filter((event) => event instanceof NavigationEnd)
+      .map(() => this.activatedRoute)
+      .map((route) => {
+        while (route.firstChild) route = route.firstChild;
+        return route;
+      })
+      .filter((route) => route.outlet === 'primary')
+      .mergeMap((route) => route.data)
+      .subscribe((event) => this.titleService.setTitle(event['title']));
   }
 
 

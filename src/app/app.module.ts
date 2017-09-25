@@ -129,11 +129,32 @@ export function highchartsFactory() {
 }
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'dashy', component: DashyComponent },
-  { path: 'uploads', component: FilesUploadComponent },
-  { path: 'tinder', component: TinderComponent }
+  {
+    path: '', component: HomeComponent,
+    data: {
+      title: 'App Demo - Home'
+    }
+  },
+  {
+    path: 'profile', component: ProfileComponent, data: {
+      title: 'My profile'
+    }
+  },
+  {
+    path: 'dashy', component: DashyComponent, data: {
+      title: 'Dashy BI Dashboard'
+    }
+  },
+  {
+    path: 'uploads', component: FilesUploadComponent, data: {
+      title: 'My uploads'
+    }
+  },
+  {
+    path: 'tinder', component: TinderComponent, data: {
+      title: 'Tinder yo'
+    }
+  }
 
 ];
 
