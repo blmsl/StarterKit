@@ -66,7 +66,7 @@ export class DashyComponent implements OnInit {
     draggable: {
       enabled: true, // enable/disable draggable items
       ignoreContentClass: 'gridster-item-content', // default content class to ignore the drag event from
-      ignoreContent: false, // if true drag will start only from elements from `dragHandleClass`
+      ignoreContent: true, // if true drag will start only from elements from `dragHandleClass`
       dragHandleClass: 'drag-handler', // drag event only from this class. If `ignoreContent` is true.
       stop: undefined, // callback when dragging an item stops.  Accepts Promise return to cancel/approve drag.
       start: undefined // callback when dragging an item starts.

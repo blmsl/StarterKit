@@ -116,7 +116,7 @@ export function highchartsFactory() {
     },
     tooltip: {
       shadow: false,
-      borderColor: '#000000'
+      borderColor: '#9E9E9E',
     },
     yAxis: {
       title: {

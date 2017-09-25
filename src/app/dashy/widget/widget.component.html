@@ -1,17 +1,14 @@
 <div class="widget" fxLayout="column" fxFlexFill>
   <div class="header" fxLayout>
-    <div class="header-titles" [title]="widget.title +'&#xA;' + widget.subtitle">
+    <div fxFlex class="header-titles drag-handler" [title]="widget.title +'&#xA;' + widget.subtitle">
       <span class="title">{{widget.title}}</span>
       <br />
       <span class="subtitle">{{widget.subtitle}}</span>
     </div>
-    <span fxFlex></span>
-    <button class="remove-button" (mousedown)="$event.stopPropagation()" (touchstart)="$event.stopPropagation()" mat-icon-button (click)="onEditClick();$event.stopPropagation();"><mat-icon>edit</mat-icon></button>
-    <button class="remove-button" (mousedown)="$event.stopPropagation()" (touchstart)="$event.stopPropagation()" mat-icon-button (click)="onRemoveClick();$event.stopPropagation();" matTooltip="Remove"><mat-icon>clear</mat-icon></button>
+    <button  mat-icon-button (click)="onEditClick();$event.stopPropagation();"><mat-icon>edit</mat-icon></button>
+    <button mat-icon-button (click)="onRemoveClick();$event.stopPropagation();" matTooltip="Remove"><mat-icon>clear</mat-icon></button>
   </div>
-
-
-  <chart class="body" fxFlex [options]="widget.chartOptions" (load)="saveInstance($event.context)"> </chart>
-
+  
+  <chart class="gridster-item-content" class="body" fxFlex [options]="widget.chartOptions" (load)="saveInstance($event.context)"> </chart>
 
 </div>
