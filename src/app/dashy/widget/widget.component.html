@@ -5,10 +5,13 @@
       <br />
       <span class="subtitle">{{widget.subtitle}}</span>
     </div>
-    <button  mat-icon-button (click)="onEditClick();$event.stopPropagation();"><mat-icon>edit</mat-icon></button>
-    <button mat-icon-button (click)="onRemoveClick();$event.stopPropagation();" matTooltip="Remove"><mat-icon>clear</mat-icon></button>
+
+    <div class="pane-menu">
+      <button mat-icon-button (click)="onEditClick();$event.stopPropagation();"><mat-icon>edit</mat-icon></button>
+      <button mat-icon-button (click)="onRemoveClick();$event.stopPropagation();" matTooltip="Remove"><mat-icon>clear</mat-icon></button>
+    </div>
   </div>
-  
+
   <chart class="gridster-item-content" class="body" fxFlex [options]="widget.chartOptions" (load)="saveInstance($event.context)"> </chart>
 
 </div>

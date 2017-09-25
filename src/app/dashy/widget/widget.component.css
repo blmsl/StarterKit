@@ -1,8 +1,8 @@
-.remove-button {
+.pane-menu {
   display: none;
 }
 
-.widget:hover .remove-button {
+.widget:hover .pane-menu {
   display: inline-block;
 }
 
