@@ -75,14 +75,14 @@ export class DashyComponent implements OnInit {
     resizable: {
       enabled: true, // enable/disable resizable items
       handles: {
-        s: false,
-        e: false,
-        n: false,
-        w: false,
+        s: true,
+        e: true,
+        n: true,
+        w: true,
         se: true,
-        ne: false,
-        sw: false,
-        nw: false
+        ne: true,
+        sw: true,
+        nw: true
       }, // resizable edges of an item
       stop: undefined, // callback when resizing an item stops. Accepts Promise return to cancel/approve resize.
       start: undefined // callback when resizing an item starts.
