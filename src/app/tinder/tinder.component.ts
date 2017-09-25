@@ -44,29 +44,6 @@ export class TinderComponent {
   }
 
   ngAfterViewInit() {
-    // ViewChild & ViewChildren are only available
-    // in this function
-
-    console.log(this.swingStack); // this is the stack
-    console.log(this.swingCards); // this is a list of cards
-
-    // we can get the underlying stack
-    // which has methods - createCard, destroyCard, getCard etc
-    console.log(this.swingStack.stack);
-
-    // and the cards
-    // every card has methods - destroy, throwIn, throwOut etc
-    this.swingCards.forEach((c) => console.log(c.getCard()));
-
-    // this is how you can manually hook up to the
-    // events instead of providing the event method in the template
-    this.swingStack.throwoutleft.subscribe(
-      (event: ThrowEvent) => console.log('Manual hook: ', event));
-    this.swingStack.throwoutright.subscribe(
-      (event: ThrowEvent) => console.log('Manual hook: ', event));
-
-    // this.swingStack.dragstart.subscribe((event: DragEvent) => console.log(event.throwOutConfidence));
-
     this.swingStack.dragmove.subscribe((event: DragEvent) => {
       let like = event.target.querySelector('.like') as HTMLElement;
       let nope = event.target.querySelector('.nope') as HTMLElement;
