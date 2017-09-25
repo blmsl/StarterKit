@@ -22,6 +22,7 @@ this demo application contains following features:
    * Welcome emails(using firebase functions)
    * Good bye emails(using firebase functions)
  * Routing
+ * Dynamic Page titles based on route
  * Progressive Web Application
  * Material Design
  * Responsive layout using [fxLayout](https://github.com/angular/flex-layout)
