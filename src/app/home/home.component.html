@@ -1,53 +1,31 @@
-<div fxLayout="column" fxFlexFill fxLayoutGap="10px">
+<div fxLayout="column" fxFlexFill>
+  <div fxFlex class="chat-log mat-elevation-z6" fxLayout="column" fxLayoutGap="10px">
+    <div *ngFor="let post of posts | async">
+      <div class="message" [class.mine]="post.creatorId == (auth.user | async)?.uid">
 
-  <mat-card>
-    <mat-card-header>
-      <img mat-card-avatar src="http://c7.nrostatic.com/sites/default/files/uploaded/related_donald-trump_gd_150616.jpg" />
-      <mat-card-title>{{(auth.user | async)?.email}}</mat-card-title>
-      <mat-card-subtitle>sub text</mat-card-subtitle>
-    </mat-card-header>
-    <!-- <img mat-card-image src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/ce54bf11889067.562541ef7cde4.png" alt="Photo of a Shiba Inu"> -->
-    <mat-card-content>
-      <mat-form-field fxFlex>
-        <textarea matInput placeholder="Make a post" maxlength="256" [(ngModel)]="post.content"></textarea>
-        <mat-hint align="end">{{post.content.length}} / 256</mat-hint>
-      </mat-form-field>
+        <div class="creator-name">
+          {{post.creatorName}}
+        </div>
 
-    </mat-card-content>
-    <mat-card-actions>
-      <span fxFlex></span>
-      <button mat-raised-button color="primary" (click)="createPost(post)">Post</button>
-    </mat-card-actions>
-  </mat-card>
+        <div class="content">{{post.content}}</div>
 
-  <div fxFlex fxLayout="column" style="overflow:auto; padding: 0 10px;" fxLayoutGap="10px">
-    <mat-card *ngFor="let post of posts | async">
-      <mat-card-header>
-        <img mat-card-avatar src="http://c7.nrostatic.com/sites/default/files/uploaded/related_donald-trump_gd_150616.jpg" />
-        <mat-card-title>Donald trump</mat-card-title>
-        <mat-card-subtitle>{{post.createdAt | amTimeAgo}}</mat-card-subtitle>
-      </mat-card-header>
-      <!-- <img mat-card-image src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/ce54bf11889067.562541ef7cde4.png" alt="Photo of a Shiba Inu"> -->
-      <mat-card-content>
-        <p style="word-break: break-all;">
-          {{post.content}} </p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>
-        <span fxFlex></span>
-        <button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>more_horiz</mat-icon></button>
-        <mat-menu #menu="matMenu">
-          <button mat-menu-item>
-              <mat-icon>edit</mat-icon>
-                <span> Edit </span>
-                </button>
-          <button mat-menu-item (click)="deletePost(post.$key)">
-            <mat-icon>delete</mat-icon>
-            <span> Detele</span>
-          </button>
-        </mat-menu>
-      </mat-card-actions>
-    </mat-card>
+        <div class="time">
+          {{post.createdAt | amTimeAgo}}
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div fxLayout fxLayoutAlign="start end" class="mat-elevation-z6">
+
+    <mat-form-field fxFlex>
+      <textarea matTextareaAutosize matAutosizeMaxRows="5" matAutosizeMinRows="2" [(ngModel)]="message" (keyup.enter)="sendMessage()" matInput placeholder="Write message..."></textarea>
+    </mat-form-field>
+
+    <button mat-icon-button [disabled]="!message" color="primary" (click)="sendMessage()">
+      <mat-icon class="mat-24">send</mat-icon>
+    </button>
+
   </div>
 </div>

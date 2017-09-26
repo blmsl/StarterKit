@@ -9,25 +9,32 @@ import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable }
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css'],
   providers: [PostService]
 })
 export class HomeComponent implements OnInit {
   posts: any;
-  post: Post = new Post();
-
-  constructor(private postService: PostService,
+  message: string = "";
+  constructor(
+    private fb: FormBuilder,
+    private postService: PostService,
     public auth: AuthService
   ) { }
 
   ngOnInit() {
+
     this.posts = this.postService.getPostsList({
       orderByChild: 'createdAt'
-    }).map((arr) => { return arr.reverse(); })
+    });
 
   }
-  createPost(post: Post) {
-    this.postService.createPost(post);
-    this.post = new Post();
+  sendMessage() {
+
+    if (this.message.length > 0) {
+      this.postService.createPost(this.message);
+      this.message = ""
+    }
+
   }
 
   deletePost(key: string) {
