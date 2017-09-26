@@ -16,7 +16,6 @@ export class HomeComponent implements OnInit {
   posts: any;
   message: string = "";
   constructor(
-    private fb: FormBuilder,
     private postService: PostService,
     public auth: AuthService
   ) { }
