@@ -5713,10 +5713,10 @@ export class SellComponent implements OnInit {
     this.form = this.fb.group({
       make: ['', [Validators.required]],
       model: ['', [Validators.required]],
-      mileage: ['178569', [Validators.required]],
-      year: ['1998', [Validators.required]],
-      description: ['Call Mo to buy my nice cheap car. 02045343124123', [Validators.required]],
-      price: ['5000', [Validators.required]]
+      mileage: ['', [Validators.required]],
+      year: ['', [Validators.required]],
+      description: ['', [Validators.required]],
+      price: ['', [Validators.required]]
 
     });
   }
@@ -5737,7 +5737,7 @@ export class SellComponent implements OnInit {
       })
   }
 
-  private getModelsByMake(make: string) {
+  getModelsByMake(make: string) {
     return this.makes.filter(x => x.title === make)[0].models;
   }
 

@@ -30,7 +30,7 @@ export class ShoppingComponent implements OnInit {
     this.getItems();
   }
 
-  private getItems(key?) {
+  getItems(key?) {
     if (this.finished) {
       return;
     }
