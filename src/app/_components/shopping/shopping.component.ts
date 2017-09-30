@@ -8,6 +8,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject'
 
 import * as _ from 'lodash';
 import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/take';
 
 @Component({
   selector: 'app-shopping',

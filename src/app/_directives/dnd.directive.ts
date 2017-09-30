@@ -7,8 +7,8 @@ export class DndDirective {
   @Output() private filesChangeEmiter: EventEmitter<FileList> = new EventEmitter();
   @Input() over: string;
 
-  constructor(private el: ElementRef, private renderer: Renderer2) { }
-  
+  constructor(private el: ElementRef = null, private renderer: Renderer2 = null) { }
+
   @HostListener('drop', ['$event'])
   onDrop(evt) {
     evt.preventDefault();
