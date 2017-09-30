@@ -8,6 +8,7 @@
   background-color: #FAFAFA;
   margin: 5px;
   overflow: hidden;
+  position: relative;
 }
 
 .head, .body {

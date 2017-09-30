@@ -5,7 +5,7 @@
 
   <div fxFlex fxLayout class="body" infiniteScrollThrottle="100"
   fxLayoutWrap fxLayoutAlign="center start" infiniteScroll [scrollWindow]="false" (scrolled)="getItems()">
-    <div fxFlex *ngFor="let item of items | async" class="list-item mat-elevation-z2">
+    <div fxFlex *ngFor="let item of items | async" class="list-item ">
       <app-list-item [item]= "item"></app-list-item>
     </div>
 

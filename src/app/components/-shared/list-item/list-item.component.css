@@ -1,8 +1,33 @@
-.list-item {
-}
+.list-item {}
 
 .list-item .img {
   height: 200px;
   background-size: cover;
   background-position: center;
+}
+
+.list-item .price {
+  position: absolute;
+  top: 172px;
+  right: 0px;
+  margin: 4px;
+  padding: 0 5px;
+  border-radius: 2px 0px 0px 0px;
+  color: hsl(0, 0%, 100%);
+  background-color: hsl(0, 0%, 6.7%);
+}
+
+.list-item .title {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+  margin-top: 8px;
+}
+
+.list-item .description {
+  color: hsl(0, 0%, 53.3%);
+  padding-top: 8px;
+  line-height: 14px;
+  font-size: 12px;
+  font-weight: 400;
 }
