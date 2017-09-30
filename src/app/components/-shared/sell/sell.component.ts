@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Upload } from '../../../classes/upload'
 import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { EcommerceService } from "../../../services/ecommerce.service";
-import { SnackBarService } from '../../../services/snack-bar-service.service';
+import { EcommerceService } from "../../../_services/ecommerce.service";
+import { SnackBarService } from '../../../_services/snack-bar-service.service';
 import { MatHorizontalStepper } from '@angular/material'
 import { MdDialogRef } from '@angular/material';
 

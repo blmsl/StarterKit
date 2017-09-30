@@ -6,7 +6,7 @@ import { NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
-import { AuthService } from "./services/auth.service";
+import { AuthService } from "./_services/auth.service";
 import { MatDialog } from '@angular/material';
 import { ObservableMedia } from "@angular/flex-layout";
 import { MatSidenav } from '@angular/material';

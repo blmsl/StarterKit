@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AuthService } from "../services/auth.service";
+import { AuthService } from "../_services/auth.service";
 import { MatSnackBar } from '@angular/material';
 import { MatDialog } from '@angular/material';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
               userNotFound: true
             });
             break;
-            
+
           case 'auth/invalid-email':
             this.form.controls['email'].setErrors({
               invalidEmail: true

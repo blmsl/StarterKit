@@ -3,8 +3,8 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Upload } from '../classes/upload';
 import * as firebase from 'firebase/app';
-import { UtilsService } from '../services/utils.service';
-import { AuthService } from "../services/auth.service";
+import { UtilsService } from '../_services/utils.service';
+import { AuthService } from "../_services/auth.service";
 
 @Injectable()
 export class UploadService {

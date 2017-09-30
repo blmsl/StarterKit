@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../classes/post';
-import { PostService } from '../services/post.service'
-import { AuthService } from '../services/auth.service'
+import { PostService } from '../_services/post.service'
+import { AuthService } from '../_services/auth.service'
 import 'rxjs/add/operator/map'
 
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';

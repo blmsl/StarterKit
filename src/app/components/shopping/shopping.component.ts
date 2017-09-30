@@ -1,10 +1,10 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { EcommerceService } from "../../services/ecommerce.service";
+import { EcommerceService } from "../../_services/ecommerce.service";
 import { SellComponent } from '../-shared/sell/sell.component';
 
-import { SnackBarService } from '../../services/snack-bar-service.service';
-import { DialogService } from '../../services/dialog.service';
+import { SnackBarService } from '../../_services/snack-bar-service.service';
+import { DialogService } from '../../_services/dialog.service';
 
 import { BehaviorSubject } from 'rxjs/BehaviorSubject'
 import * as _ from 'lodash';

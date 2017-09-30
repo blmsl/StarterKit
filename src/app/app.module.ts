@@ -34,14 +34,14 @@ import { MATERIAL_COMPATIBILITY_MODE } from '@angular/material';
 import { DndModule } from 'ng2-dnd';
 
 
-import { MessagingService } from "./services/messaging.service";
-import { AuthService } from './services/auth.service';
-import { UploadService } from './services/upload.service';
-import { UtilsService } from './services/utils.service';
-import { SnackBarService } from './services/snack-bar-service.service';
-import { DashyService } from './services/dashy.service';
-import { DialogService } from './services/dialog.service';
-import { EcommerceService } from './services/ecommerce.service';
+import { MessagingService } from "./_services/messaging.service";
+import { AuthService } from './_services/auth.service';
+import { UploadService } from './_services/upload.service';
+import { UtilsService } from './_services/utils.service';
+import { SnackBarService } from './_services/snack-bar-service.service';
+import { DashyService } from './_services/dashy.service';
+import { DialogService } from './_services/dialog.service';
+import { EcommerceService } from './_services/ecommerce.service';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
