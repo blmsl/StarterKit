@@ -8,8 +8,8 @@ export class DialogService {
 
   constructor(public dialog: MatDialog) { }
 
-  showDialog(component) {
-    return this.dialog.open(component);
+  showDialog(component, data: any = {}) {
+    return this.dialog.open(component, data);
   }
 
   showConfirmDialog(message: string) {

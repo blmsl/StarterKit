@@ -4,6 +4,8 @@ import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+
 import {
   MatInputModule,
   MatIconModule,
@@ -20,12 +22,16 @@ import {
   MatCheckboxModule,
   MatButtonModule,
   MatListModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatGridListModule,
+  MatFormFieldModule,
+  MatStepperModule
 } from '@angular/material';
 import { AppComponent } from './app.component';
 import { NgPipesModule } from 'ngx-pipes';
 import { MomentModule } from 'angular2-moment';
 import { MATERIAL_COMPATIBILITY_MODE } from '@angular/material';
+import { DndModule } from 'ng2-dnd';
 
 
 import { MessagingService } from "./services/messaging.service";
@@ -35,6 +41,7 @@ import { UtilsService } from './services/utils.service';
 import { SnackBarService } from './services/snack-bar-service.service';
 import { DashyService } from './services/dashy.service';
 import { DialogService } from './services/dialog.service';
+import { EcommerceService } from './services/ecommerce.service';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -70,6 +77,10 @@ import { TinderComponent } from './tinder/tinder.component';
 import { ConfirmComponent } from './dialogs/confirm/confirm.component';
 import { PromptComponent } from './dialogs/prompt/prompt.component';
 import { DndDirective } from './directives/dnd.directive';
+import { ShoppingComponent } from './components/shopping/shopping.component';
+import { UploadComponent } from './components/-shared/upload/upload.component';
+import { ListItemComponent } from './components/-shared/list-item/list-item.component';
+import { SellComponent } from './components/-shared/sell/sell.component';
 
 export function highchartsFactory() {
   // Initialize addons.
@@ -155,6 +166,11 @@ const appRoutes: Routes = [
     path: 'tinder', component: TinderComponent, data: {
       title: 'Tinder yo'
     }
+  },
+  {
+    path: 'shopping', component: ShoppingComponent, data: {
+      title: 'Buy and sell yo'
+    }
   }
 
 ];
@@ -178,7 +194,11 @@ const appRoutes: Routes = [
     TinderComponent,
     ConfirmComponent,
     PromptComponent,
-    DndDirective
+    DndDirective,
+    ShoppingComponent,
+    UploadComponent,
+    ListItemComponent,
+    SellComponent
   ],
   imports: [
     MomentModule,
@@ -202,7 +222,10 @@ const appRoutes: Routes = [
     MatButtonModule,
     MatListModule,
     MatToolbarModule,
+    MatFormFieldModule,
+    MatStepperModule,
     FlexLayoutModule,
+    MatGridListModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
@@ -211,7 +234,9 @@ const appRoutes: Routes = [
     GridsterModule,
     NgPipesModule,
     ChartModule,
-    SwingModule
+    SwingModule,
+    DndModule.forRoot(),
+    InfiniteScrollModule
   ],
   providers: [
     MessagingService,
@@ -221,6 +246,7 @@ const appRoutes: Routes = [
     SnackBarService,
     DashyService,
     DialogService,
+    EcommerceService,
     {
       provide: HighchartsStatic,
       useFactory: highchartsFactory
@@ -234,6 +260,8 @@ const appRoutes: Routes = [
     ConfirmComponent,
     PromptComponent,
     SnackbarProgressComponent,
-    WidgetSettingComponent]
+    WidgetSettingComponent,
+    SellComponent
+  ]
 })
 export class AppModule { }

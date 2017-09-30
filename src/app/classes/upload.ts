@@ -5,6 +5,7 @@ export class Upload {
   file: File;
   name: string;
   url: string;
+  base64: string;
   progress: number = 0;
   createdAt: Date = new Date();
   private _uploadTask: firebase.storage.UploadTask
@@ -16,6 +17,9 @@ export class Upload {
 
   set uploadTask(uploadTask: firebase.storage.UploadTask) {
     this._uploadTask = uploadTask;
+  }
+  get uploadTask(): firebase.storage.UploadTask {
+    return this._uploadTask;
   }
 
   pauseUpload() {

@@ -1,0 +1,52 @@
+#drop-area {
+  border-radius: 4px;
+  border: 0.5em dashed #E0E0E0;
+  padding: 1em;
+}
+
+#drop-area.over {
+  border: 0.5em dashed #3F51B5;
+}
+
+#drop-area mat-icon {
+  color: #3F51B5
+}
+
+.upload {
+  width: 100px;
+  display: inline-block;
+  height: 58px;
+  margin: 3px;
+  position: relative;
+  height: 100px;
+}
+
+.upload .img {
+  background-size: cover;
+  background-position: center;
+}
+
+.upload .remove-button {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  z-index: 1;
+  display: none;
+}
+
+.upload:hover .remove-button {
+  display: inline-block;
+}
+
+.upload .main {
+  position: absolute;
+  border-radius: 1px;
+  background: #FAFAFA;
+  padding: 0 3px;
+  border: 1px solid #9E9E9E;
+  top: -11px;
+  width: 50px;
+  right: 25px;
+  text-align: center;
+  box-sizing: border-box;
+}

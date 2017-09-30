@@ -1,0 +1,8 @@
+.list-item {
+}
+
+.list-item .img {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}

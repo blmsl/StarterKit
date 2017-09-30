@@ -1,0 +1,91 @@
+<h2 matDialogTitle>List an item</h2>
+<mat-dialog-content>
+  <mat-horizontal-stepper linear="true" (selectionChange)="stepperSelectionChange($event.selectedIndex)">
+    <mat-step [stepControl]="form" label="Details">
+
+      <form [formGroup]="form" fxLayout="column" fxLayoutGap="10px">
+        <div fxLayout>
+          <div>
+            <mat-select placeholder="Make" formControlName="make" (change)="models = getModelsByMake($event.value)">
+              <mat-option *ngFor="let make of makes" [value]="make.title">
+                {{make.title}}
+              </mat-option>
+            </mat-select>
+          </div>
+
+          <div>
+            <mat-select placeholder="Model" formControlName="model">
+              <mat-option *ngFor="let model of models" [value]="model.title">
+                {{ model.title }}
+              </mat-option>
+            </mat-select>
+          </div>
+        </div>
+
+        <div>
+          <mat-form-field>
+            <input matInput type="number" placeholder="Year" formControlName="year">
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field>
+            <input matInput type="number" placeholder="Kilometres" formControlName="mileage" />
+            <span matSuffix>km</span>
+
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field>
+            <span matPrefix>$</span>
+            <input matInput type="number" placeholder="Enter your price" formControlName="price">
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field>
+            <textarea matInput matTextareaAutosize matAutosizeMaxRows="5" matAutosizeMinRows="5" placeholder="Description" formControlName="description"></textarea>
+          </mat-form-field>
+        </div>
+      </form>
+
+    </mat-step>
+
+    <mat-step stepControl label="Images & Videos">
+      <p>
+        Add photos, videos or even gifs to your listing
+      </p>
+      <app-upload [uploads]="uploads"></app-upload>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel icon="exit_to_app">Preview</ng-template>
+      <p>
+        This is how your list will look like
+      </p>
+    </mat-step>
+
+  </mat-horizontal-stepper>
+
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button matDialogClose>Cancel</button>
+
+  <span fxFlex></span>
+  <div fxLayout fxLayoutGap="8px" fxLayoutAlign="center center">
+    <mat-spinner *ngIf="uploadsInProgress().length > 0" style="height: 2em; width: 2em;"></mat-spinner>
+    <button mat-raised-button *ngIf="stepperSelectedIndex > 0" (click)="back()">Back</button>
+    <button *ngIf="stepperSelectedIndex == 0" mat-raised-button [disabled]="!form.valid" (click)="next()" color="primary">Next, add photos</button>
+
+    <div *ngIf="stepperSelectedIndex == 1" (click)="next()">
+      <button mat-raised-button *ngIf="uploads.length < 1 ">Skip, dont add photos</button>
+
+      <button mat-raised-button color="primary" *ngIf="uploads.length > 0 " [disabled]="uploadsInProgress().length > 0">See Preview</button>
+    </div>
+    <!-- Can optionally provide a result for the closing dialog. -->
+    <button *ngIf="form.valid && uploadsInProgress().length < 1 && seenPreview" mat-raised-button color="primary" (click)="createListItem()">Done</button>
+
+  </div>
+</mat-dialog-actions>

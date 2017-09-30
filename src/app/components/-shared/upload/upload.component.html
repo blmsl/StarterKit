@@ -1,0 +1,24 @@
+<div appDnd over="over" id="drop-area" (filesChangeEmiter)="addFiles($event)" fxLayout="column" fxLayoutAlign="center center">
+  <mat-icon>cloud_upload</mat-icon>
+  <p>
+    Drag and drop Files here to Upload
+  </p>
+  <button mat-button (click)="fileInput.click()">Or Select Files to Upload</button>
+
+  <input hidden multiple type="file" #fileInput (change)="addFiles($event.target.files); $event.target.value = null;" />
+</div>
+
+<div dnd-sortable-container [sortableData]="uploads">
+  <div *ngFor="let file of uploads;let i = index" class="upload" dnd-sortable [sortableIndex]="i">
+    <div fxLayout="column" fxFlexFill>
+      <div fxFlex [style.opacity]="((file.progress * 0.01) / 2) + 0.5" [style.backgroundImage]="'url('+file.base64+')'" class="img">
+
+      </div>
+      <mat-progress-bar [mode]="determinate" [value]="file.progress">
+      </mat-progress-bar>
+
+      <button mat-mini-fab class="remove-button" (click)="removeUpload(i)"><mat-icon>clear</mat-icon></button>
+      <span [hidden]=" i > 0" class="main">Main</span>
+    </div>
+  </div>
+</div>
