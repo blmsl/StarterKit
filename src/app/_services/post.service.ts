@@ -3,7 +3,7 @@ import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable }
 import { AuthService } from "../_services/auth.service";
 import * as firebase from 'firebase';
 
-import { Post } from '../classes/post';
+import { Post } from '../_classes/post';
 @Injectable()
 export class PostService {
 

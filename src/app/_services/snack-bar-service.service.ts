@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
-import { SnackbarProgressComponent } from '../snackbar-progress/snackbar-progress.component';
+import { SnackbarProgressComponent } from '../_components/_shared/snackbar-progress/snackbar-progress.component';
 
 @Injectable()
 export class SnackBarService {

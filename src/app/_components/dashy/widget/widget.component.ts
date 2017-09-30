@@ -1,8 +1,8 @@
 import { Component, Output, Input, EventEmitter, DoCheck } from '@angular/core';
-import { DialogService } from '../../_services/dialog.service';
-import { WidgetSettingComponent } from './widget-setting/widget-setting.component'
-import { Widget } from '../../classes/dashboard';
 import { DomSanitizer } from '@angular/platform-browser';
+import { DialogService } from '../../../_services/dialog.service';
+import { WidgetSettingComponent } from './widget-setting/widget-setting.component'
+import { Widget } from '../../../_classes/dashboard';
 
 @Component({
   selector: 'app-widget',

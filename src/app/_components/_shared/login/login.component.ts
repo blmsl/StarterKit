@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AuthService } from "../_services/auth.service";
-import { MatSnackBar } from '@angular/material';
-import { MatDialog } from '@angular/material';
+import { MatSnackBar, MatDialog } from '@angular/material';
+import { AuthService } from "../../../_services/auth.service";
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { SnackbarProgressComponent } from '../snackbar-progress/snackbar-progress.component';
 

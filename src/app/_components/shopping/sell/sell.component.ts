@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Upload } from '../../../classes/upload'
 import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatDialogRef, MatHorizontalStepper } from '@angular/material'
 import { EcommerceService } from "../../../_services/ecommerce.service";
 import { SnackBarService } from '../../../_services/snack-bar-service.service';
-import { MatHorizontalStepper } from '@angular/material'
-import { MdDialogRef } from '@angular/material';
+import { Upload } from '../../../_classes/upload'
+
+import {  } from '@angular/material';
 
 @Component({
   selector: 'app-sell',
@@ -5704,7 +5705,7 @@ export class SellComponent implements OnInit {
   uploads: Array<Upload> = [];
   form: FormGroup;
   constructor(
-    public dialogRef: MdDialogRef<SellComponent>,
+    public dialogRef: MatDialogRef<SellComponent>,
     private fb: FormBuilder,
     private snackBar: SnackBarService,
     public ecommerceService: EcommerceService) { }

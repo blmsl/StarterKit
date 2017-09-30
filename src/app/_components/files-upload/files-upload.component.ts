@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { Upload } from '../classes/upload'
-import { UploadService } from '../_services/upload.service';
-import * as _ from "lodash";
+import { Upload } from '../../_classes/upload'
+import { UploadService } from '../../_services/upload.service';
 
+import * as _ from "lodash";
 
 @Component({
   selector: 'app-files-upload',

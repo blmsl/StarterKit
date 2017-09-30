@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material';
-import { ConfirmComponent } from '../dialogs/confirm/confirm.component';
-import { PromptComponent } from '../dialogs/prompt/prompt.component';
+import { ConfirmComponent } from '../_components/_shared/_dialogs/confirm/confirm.component';
+import { PromptComponent } from '../_components/_shared/_dialogs/prompt/prompt.component';
 import { Validators } from '@angular/forms';
 @Injectable()
 export class DialogService {

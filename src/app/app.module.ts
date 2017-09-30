@@ -27,13 +27,13 @@ import {
   MatFormFieldModule,
   MatStepperModule
 } from '@angular/material';
-import { AppComponent } from './app.component';
 import { NgPipesModule } from 'ngx-pipes';
 import { MomentModule } from 'angular2-moment';
 import { MATERIAL_COMPATIBILITY_MODE } from '@angular/material';
 import { DndModule } from 'ng2-dnd';
 
 
+// services
 import { MessagingService } from "./_services/messaging.service";
 import { AuthService } from './_services/auth.service';
 import { UploadService } from './_services/upload.service';
@@ -43,29 +43,41 @@ import { DashyService } from './_services/dashy.service';
 import { DialogService } from './_services/dialog.service';
 import { EcommerceService } from './_services/ecommerce.service';
 
+import { GridsterModule } from 'angular-gridster2';
+
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import 'hammerjs';
 import { environment } from '../environments/environment';
-import { ProfileComponent } from './profile/profile.component';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
 
-import { UserStatusComponent } from './user-status/user-status.component';
-import { DashyComponent } from './dashy/dashy.component';
-import { GridsterModule } from 'angular-gridster2';
-import { FilesUploadComponent } from './files-upload/files-upload.component';
-import { FileSizePipe } from './pipes/file-size.pipe';
 
-import { LoginComponent } from './login/login.component';
-import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
-import { NewDashboardDialogComponent } from './dashy/new-dashboard-dialog/new-dashboard-dialog.component';
-import { SnackbarProgressComponent } from './snackbar-progress/snackbar-progress.component';
-import { WidgetComponent } from './dashy/widget/widget.component';
-import { WidgetSettingComponent } from './dashy/widget/widget-setting/widget-setting.component';
+// compoenents
+import { AppComponent } from './app.component';
+import { HomeComponent } from './_components/home/home.component';
+import { ProfileComponent } from './_components/profile/profile.component';
+import { UserStatusComponent } from './_components/_shared/user-status/user-status.component';
+import { DashyComponent } from './_components/dashy/dashy.component';
+import { FilesUploadComponent } from './_components/files-upload/files-upload.component';
+import { LoginComponent } from './_components/_shared/login/login.component';
+import { ForgotPasswordComponent } from './_components/_shared/login/forgot-password/forgot-password.component';
+import { SignUpComponent } from './_components/_shared/sign-up/sign-up.component';
+import { NewDashboardDialogComponent } from './_components/dashy/new-dashboard-dialog/new-dashboard-dialog.component';
+import { SnackbarProgressComponent } from './_components/_shared/snackbar-progress/snackbar-progress.component';
+import { WidgetComponent } from './_components/dashy/widget/widget.component';
+import { WidgetSettingComponent } from './_components/dashy/widget/widget-setting/widget-setting.component';
+import { TinderComponent } from './_components/tinder/tinder.component';
+import { ConfirmComponent } from './_components/_shared/_dialogs/confirm/confirm.component';
+import { PromptComponent } from './_components/_shared/_dialogs/prompt/prompt.component';
+import { DndDirective } from './_directives/dnd.directive';
+import { ShoppingComponent } from './_components/shopping/shopping.component';
+import { UploadComponent } from './_components/shopping/upload/upload.component';
+import { ListItemComponent } from './_components/shopping/list-item/list-item.component';
+import { SellComponent } from './_components/shopping/sell/sell.component';
 
+//pipes
+import { FileSizePipe } from './_pipes/file-size.pipe';
 import { HighchartsStatic } from 'angular2-highcharts/dist/HighchartsService';
 import * as highcharts from 'highcharts';
 import * as highchartsMore from 'highcharts/js/highcharts-more';
@@ -73,14 +85,7 @@ import * as brokenAxis from 'highcharts/js/modules/broken-axis';
 import * as highmaps from 'highcharts/js/modules/map';
 import { ChartModule } from 'angular2-highcharts';
 import { SwingModule } from 'angular2-swing';
-import { TinderComponent } from './tinder/tinder.component';
-import { ConfirmComponent } from './dialogs/confirm/confirm.component';
-import { PromptComponent } from './dialogs/prompt/prompt.component';
-import { DndDirective } from './directives/dnd.directive';
-import { ShoppingComponent } from './components/shopping/shopping.component';
-import { UploadComponent } from './components/-shared/upload/upload.component';
-import { ListItemComponent } from './components/-shared/list-item/list-item.component';
-import { SellComponent } from './components/-shared/sell/sell.component';
+
 
 export function highchartsFactory() {
   // Initialize addons.

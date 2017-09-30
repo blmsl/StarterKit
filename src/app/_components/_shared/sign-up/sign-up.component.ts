@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AuthService } from "../_services/auth.service";
 import { MatSnackBar } from '@angular/material';
+import { AuthService } from "../../../_services/auth.service";
 import { SnackbarProgressComponent } from '../snackbar-progress/snackbar-progress.component';
 
 @Component({

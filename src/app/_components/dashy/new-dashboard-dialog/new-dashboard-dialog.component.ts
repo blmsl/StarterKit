@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material';
-import { MatSnackBar } from '@angular/material';
-import { Dashboard } from '../../classes/dashboard';
+import { MatDialogRef ,MatSnackBar } from '@angular/material';
+import { Dashboard } from '../../../_classes/dashboard';
+
 @Component({
   selector: 'app-new-dashboard-dialog',
   templateUrl: './new-dashboard-dialog.component.html',

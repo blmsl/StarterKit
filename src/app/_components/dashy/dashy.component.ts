@@ -1,13 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { GridsterConfig, GridsterItem } from 'angular-gridster2';
-import { NewDashboardDialogComponent } from './new-dashboard-dialog/new-dashboard-dialog.component';
-import { AuthService } from "../_services/auth.service";
-import { MatSnackBar } from '@angular/material';
 import { MatDialog, MatSidenav } from '@angular/material';
-import { Dashboard } from '../classes/dashboard';
-import { Widget } from '../classes/dashboard';
+import { NewDashboardDialogComponent } from './new-dashboard-dialog/new-dashboard-dialog.component';
+import { AuthService } from "../../_services/auth.service";
+import { SnackBarService } from '../../_services/snack-bar-service.service';
+import { Dashboard } from '../../_classes/dashboard';
+import { Widget } from '../../_classes/dashboard';
 
-import { SnackBarService } from '../_services/snack-bar-service.service';
 
 @Component({
   selector: 'app-dashy',

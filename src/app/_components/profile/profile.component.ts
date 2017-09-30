@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../_services/auth.service';
-import { SnackBarService } from '../_services/snack-bar-service.service';
-import { DialogService } from '../_services/dialog.service';
+import { AuthService } from '../../_services/auth.service';
+import { SnackBarService } from '../../_services/snack-bar-service.service';
+import { DialogService } from '../../_services/dialog.service';
 import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import * as firebase from 'firebase/app';

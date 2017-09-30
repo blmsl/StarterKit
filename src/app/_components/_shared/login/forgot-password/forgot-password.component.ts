@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { MatDialogRef } from '@angular/material';
-import { SnackBarService } from '../../_services/snack-bar-service.service';
-import { AuthService } from "../../_services/auth.service";
+import { SnackBarService } from '../../../../_services/snack-bar-service.service';
+import { AuthService } from "../../../../_services/auth.service";
 
 @Component({
   selector: 'app-forgot-password',
