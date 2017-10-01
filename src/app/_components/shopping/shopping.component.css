@@ -9,6 +9,8 @@
   margin: 5px;
   overflow: hidden;
   position: relative;
+  text-decoration: none;
+  color: #212121;
 }
 
 .head, .body {

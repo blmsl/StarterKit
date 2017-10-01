@@ -3,11 +3,10 @@
     <button mat-raised-button color="primary" (click)="showSellDialog()">Sell</button>
   </div>
 
-  <div fxFlex fxLayout class="body" infiniteScrollThrottle="100"
-  fxLayoutWrap fxLayoutAlign="center start" infiniteScroll [scrollWindow]="false" (scrolled)="getItems()">
-    <div fxFlex *ngFor="let item of items | async" class="list-item ">
-      <app-list-item [item]= "item"></app-list-item>
-    </div>
+  <div fxFlex fxLayout class="body" infiniteScrollThrottle="100" fxLayoutWrap fxLayoutAlign="center start" infiniteScroll [scrollWindow]="false" (scrolled)="getItems()">
+    <a fxFlex *ngFor="let item of items | async" class="list-item " [routerLink]="item.$key">
+      <app-list-item [item]="item"></app-list-item>
+    </a>
 
     <div fxLayout fxLayoutAlign="center center" *ngIf="!finished">
       <mat-spinner></mat-spinner>

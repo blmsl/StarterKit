@@ -72,6 +72,7 @@ import { ShoppingComponent } from './_components/shopping/shopping.component';
 import { UploadComponent } from './_components/shopping/upload/upload.component';
 import { ListItemComponent } from './_components/shopping/list-item/list-item.component';
 import { SellComponent } from './_components/shopping/sell/sell.component';
+import { ItemDetailsComponent } from './_components/shopping/item-details/item-details.component';
 
 //pipes
 import { FileSizePipe } from './_pipes/file-size.pipe';
@@ -173,6 +174,11 @@ const appRoutes: Routes = [
     path: 'shopping', component: ShoppingComponent, data: {
       title: 'Buy and sell yo'
     }
+  },
+  {
+    path: 'shopping/:key', component: ItemDetailsComponent, data: {
+      title: 'Product info'
+    }
   }
 
 ];
@@ -200,7 +206,8 @@ const appRoutes: Routes = [
     ShoppingComponent,
     UploadComponent,
     ListItemComponent,
-    SellComponent
+    SellComponent,
+    ItemDetailsComponent
   ],
   imports: [
     MomentModule,
