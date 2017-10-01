@@ -22,6 +22,7 @@
   font-weight: 500;
   line-height: 16px;
   margin-top: 8px;
+  padding-right: 68px;
 }
 
 .list-item .description {
@@ -30,4 +31,11 @@
   line-height: 14px;
   font-size: 12px;
   font-weight: 400;
+}
+
+.list-item .thumbnail-ctrl {
+  top: 192px;
+  width: 68px;
+  right: 0px;
+  position: absolute;
 }
