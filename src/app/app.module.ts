@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-
+import { MATERIAL_COMPATIBILITY_MODE } from '@angular/material';
 import {
   MatInputModule,
   MatIconModule,
@@ -27,11 +27,18 @@ import {
   MatFormFieldModule,
   MatStepperModule
 } from '@angular/material';
+
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { NgPipesModule } from 'ngx-pipes';
 import { MomentModule } from 'angular2-moment';
-import { MATERIAL_COMPATIBILITY_MODE } from '@angular/material';
 import { DndModule } from 'ng2-dnd';
+import { GridsterModule } from 'angular-gridster2';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import 'hammerjs';
+import { environment } from '../environments/environment';
 
 // services
 import { MessagingService } from "./_services/messaging.service";
@@ -42,16 +49,6 @@ import { SnackBarService } from './_services/snack-bar-service.service';
 import { DashyService } from './_services/dashy.service';
 import { DialogService } from './_services/dialog.service';
 import { EcommerceService } from './_services/ecommerce.service';
-
-import { GridsterModule } from 'angular-gridster2';
-
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFireAuthModule } from 'angularfire2/auth';
-import 'hammerjs';
-import { environment } from '../environments/environment';
-import { RouterModule, Routes } from '@angular/router';
-
 
 // compoenents
 import { AppComponent } from './app.component';
