@@ -79,10 +79,10 @@
     <button mat-raised-button *ngIf="stepperSelectedIndex > 0" (click)="back()">Back</button>
     <button *ngIf="stepperSelectedIndex == 0" mat-raised-button [disabled]="!form.valid" (click)="next()" color="primary">Next, add photos</button>
 
-    <div *ngIf="stepperSelectedIndex == 1" (click)="next()">
-      <button mat-raised-button *ngIf="uploads.length < 1 ">Skip, dont add photos</button>
+    <div *ngIf="stepperSelectedIndex == 1">
+      <button mat-raised-button *ngIf="uploads.length < 1 " (click)="next()">Skip, dont add photos</button>
 
-      <button mat-raised-button color="primary" *ngIf="uploads.length > 0 " [disabled]="uploadsInProgress().length > 0">See Preview</button>
+      <button mat-raised-button color="primary" *ngIf="uploads.length > 0 " (click)="next()" [disabled]="uploadsInProgress().length > 0">See Preview</button>
     </div>
     <!-- Can optionally provide a result for the closing dialog. -->
     <button *ngIf="form.valid && uploadsInProgress().length < 1 && seenPreview" mat-raised-button color="primary" (click)="createListItem()">Done</button>

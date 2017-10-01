@@ -5,7 +5,7 @@
   </p>
   <button mat-button (click)="fileInput.click()">Or Select Files to Upload</button>
 
-  <input hidden multiple type="file" #fileInput (change)="addFiles($event.target.files); $event.target.value = null;" />
+  <input accept="image/*" hidden multiple type="file" #fileInput (change)="addFiles($event.target.files); $event.target.value = null;" />
 </div>
 
 <div dnd-sortable-container [sortableData]="uploads">
