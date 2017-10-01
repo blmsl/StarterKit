@@ -2,7 +2,7 @@
   <div class="img" *ngIf="item.images?.length > 0" [style.backgroundImage]="'url('+item.images[currentThumbnail]+')'"></div>
   <div class="img" *ngIf="!item.images" [style.backgroundImage]="'url(\'/assets/no-image.svg\')'"> </div>
 
-  <div class="thumbnail-ctrl" fxLayout fxLayoutAlign="center center" *ngIf="item.images?.length > 0">
+  <div class="thumbnail-ctrl" fxLayout fxLayoutAlign="center center" *ngIf="item.images?.length > 1">
     <button disableRipple fxFlex mat-icon-button (click)="thumbnailPrev($event)"><mat-icon>keyboard_arrow_left</mat-icon></button>
     <span fxFlex>{{currentThumbnail+1}}/{{item.images?.length}}</span>
     <button disableRipple fxFlex mat-icon-button (click)="thumbnailNext($event)"><mat-icon>keyboard_arrow_right</mat-icon></button>
