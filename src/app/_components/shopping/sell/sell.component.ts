@@ -3,15 +3,14 @@ import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MatHorizontalStepper } from '@angular/material'
 import { EcommerceService } from "../../../_services/ecommerce.service";
 import { SnackBarService } from '../../../_services/snack-bar-service.service';
-import { Upload } from '../../../_classes/upload'
-
-import {  } from '@angular/material';
+import { Upload } from '../../../_classes/upload';
 
 @Component({
   selector: 'app-sell',
   templateUrl: './sell.component.html',
   styleUrls: ['./sell.component.css']
 })
+
 export class SellComponent implements OnInit {
   @ViewChild(MatHorizontalStepper) stepper: MatHorizontalStepper;
 
@@ -5704,6 +5703,8 @@ export class SellComponent implements OnInit {
   models: Array<any> = [];
   uploads: Array<Upload> = [];
   form: FormGroup;
+
+  currentYear: number = new Date().getFullYear();
   constructor(
     public dialogRef: MatDialogRef<SellComponent>,
     private fb: FormBuilder,
@@ -5714,10 +5715,10 @@ export class SellComponent implements OnInit {
     this.form = this.fb.group({
       make: ['', [Validators.required]],
       model: ['', [Validators.required]],
-      mileage: ['', [Validators.required]],
-      year: ['', [Validators.required]],
+      mileage: ['', [Validators.required, Validators.max(1000000), Validators.min(0)]],
+      year: ['', [Validators.required, Validators.max(this.currentYear + 1), Validators.min(this.currentYear - 100)]],
       description: ['', [Validators.required]],
-      price: ['', [Validators.required]]
+      price: ['', [Validators.required, Validators.min(5), Validators.max(10000000)]]
 
     });
   }
