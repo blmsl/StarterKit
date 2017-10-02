@@ -101,6 +101,4 @@
   </mat-sidenav-container>
 </div>
 
-<div fxFlexFill fxLayout fxLayoutAlign="center center" *ngIf="!(auth.user | async)?.uid">
-  <app-login-page></app-login-page>
-</div>
+<app-login-page *ngIf="!(auth.user | async)?.uid"></app-login-page>

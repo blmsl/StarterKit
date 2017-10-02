@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Layer_1"
+xmlns="http://www.w3.org/2000/svg"
+xmlns:xlink="http://www.w3.org/1999/xlink"
+width="106px" height="174px"
+xml:space="preserve">
+<g id="PathID_1" transform="matrix(2.01842, 0, 0, 2.01842, -430.7, -310.8)" opacity="1">
+<linearGradient
+id="LinearGradID_1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(0.0103302, 0, -0, 0.0103302, 222, 197.05)" spreadMethod ="pad" x1="-819.2" y1="0" x2="819.2" y2="0" >
+<stop  offset="0.0745098" style="stop-color:#0249B1;stop-opacity:1" />
+<stop  offset="1" style="stop-color:#19B4EA;stop-opacity:1" />
+</linearGradient>
+<path style="fill:url(#LinearGradID_1) " d="M213.55 170.95L230.45 154.1L230.45 223.3L213.55 240L213.55 170.95" />
+</g>
+<g id="PathID_2" transform="matrix(2.01842, 0, 0, 2.01842, -430.7, -310.8)" opacity="1">
+</g>
+<g id="PathID_3" transform="matrix(2.01842, 0, 0, 2.01842, -430.7, -310.8)" opacity="1">
+<linearGradient
+id="LinearGradID_2" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-4.5088e-010, -0.0103149, 0.0103149, -4.5088e-010, 222, 166.25)" spreadMethod ="pad" x1="-819.2" y1="0" x2="819.2" y2="0" >
+<stop  offset="0.235294" style="stop-color:#74DBFC;stop-opacity:0" />
+<stop  offset="0.996078" style="stop-color:#7BDDFC;stop-opacity:1" />
+</linearGradient>
+<path style="fill:url(#LinearGradID_2) " d="M213.55 170.95L230.45 154.1L230.45 178.35L213.55 178.4L213.55 170.95" />
+</g>
+<g id="PathID_4" transform="matrix(2.01842, 0, 0, 2.01842, -430.7, -310.8)" opacity="1">
+</g>
+<g id="PathID_5" transform="matrix(2.01842, 0, 0, 2.01842, -430.7, -310.8)" opacity="1">
+<linearGradient
+id="LinearGradID_3" gradientUnits="userSpaceOnUse" gradientTransform="matrix(0.0148896, 0.0148896, -0.0148896, 0.0148896, 247.75, 162.55)" spreadMethod ="pad" x1="-819.2" y1="0" x2="819.2" y2="0" >
+<stop  offset="0.0588235" style="stop-color:#0249B1;stop-opacity:1" />
+<stop  offset="0.580392" style="stop-color:#19B4EA;stop-opacity:1" />
+</linearGradient>
+<path style="fill:url(#LinearGradID_3) " d="M248.35 154.2L265 170.85L230.5 170.95L230.5 154.2L248.35 154.2" />
+</g>
+<g id="PathID_6" transform="matrix(2.01842, 0, 0, 2.01842, -430.7, -310.8)" opacity="1">
+</g>
+<g id="PathID_7" transform="matrix(2.01842, 0, 0, 2.01842, 70.6, 0)" opacity="1">
+<linearGradient
+id="LinearGradID_4" gradientUnits="userSpaceOnUse" gradientTransform="matrix(0.0102234, 0, -0, 0.0102234, 8.35, 25.6)" spreadMethod ="pad" x1="-819.2" y1="0" x2="819.2" y2="0" >
+<stop  offset="0.054902" style="stop-color:#0249B1;stop-opacity:0.8" />
+<stop  offset="0.741176" style="stop-color:#19B4EA;stop-opacity:0.8" />
+</linearGradient>
+<path style="fill:url(#LinearGradID_4) " d="M16.75 34.5L0 51.25L0 0L16.75 16.45L16.75 34.5" />
+</g>
+<g id="PathID_8" transform="matrix(2.01842, 0, 0, 2.01842, 70.6, 0)" opacity="1">
+</g>
+<g id="PathID_9" transform="matrix(2.01842, 0, 0, 2.01842, 0.95, 69.35)" opacity="1">
+<linearGradient
+id="LinearGradID_5" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-1.38599e-009, -0.0317078, 0.0317078, -1.38599e-009, 25.5, 8.35)" spreadMethod ="pad" x1="-819.2" y1="0" x2="819.2" y2="0" >
+<stop  offset="0.298039" style="stop-color:#0249B1;stop-opacity:1" />
+<stop  offset="0.701961" style="stop-color:#19B4EA;stop-opacity:0.8" />
+</linearGradient>
+<path style="fill:url(#LinearGradID_5) " d="M-0.45 16.75L-0.45 0L51.5 0L34.75 16.75L-0.45 16.75" />
+</g>
+<g id="PathID_10" transform="matrix(2.01842, 0, 0, 2.01842, 0.95, 69.35)" opacity="1">
+</g>
+<g id="PathID_11" transform="matrix(2.01842, 0, 0, 2.01842, -428.6, -310.9)" opacity="1">
+<linearGradient
+id="LinearGradID_6" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-0.015409, -0.000268963, 0.000268963, -0.015409, 251.85, 197.05)" spreadMethod ="pad" x1="-819.2" y1="0" x2="819.2" y2="0" >
+<stop  offset="0.0470588" style="stop-color:#83DFFC;stop-opacity:1" />
+<stop  offset="0.686275" style="stop-color:#74DBFC;stop-opacity:0" />
+</linearGradient>
+<path style="fill:url(#LinearGradID_6) " d="M264.5 188.8L247.7 205.35L239.4 205.35L239.25 188.8L264.5 188.8" />
+</g>
+<g id="PathID_12" transform="matrix(2.01842, 0, 0, 2.01842, -428.6, -310.9)" opacity="1">
+</g>
+</svg>

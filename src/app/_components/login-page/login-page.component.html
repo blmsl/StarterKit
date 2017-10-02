@@ -1,15 +1,27 @@
-<div fxFlex id="particles-js">
+<div fxFlexFill fxLayout>
+
+  <div fxFlex id="particles-js" fxHide.xs>
+  </div>
+
+  <div class="login-wrapper mat-elevation-z2" fxLayout="column">
+
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <img src="/assets/app-logo.svg" />
+      <span class="mat-display-2">Application Demo</span>
+    </div>
+
+    <mat-tab-group>
+      <mat-tab label="Log in">
+        <app-login></app-login>
+      </mat-tab>
+      <mat-tab label="Register">
+        <app-sign-up></app-sign-up>
+      </mat-tab>
+    </mat-tab-group>
+
+    <span fxFlex></span>
+
+    <a class="github-button" href="https://github.com/MurWade/app-demo" data-size="large" data-show-count="true" aria-label="Star MurWade/app-demo on GitHub">Star</a>
+  </div>
 
 </div>
- <div class="login-wrapper mat-elevation-z3">
-
-   <mat-tab-group >
-     <mat-tab label="Log in">
-       <app-login></app-login>
-     </mat-tab>
-     <mat-tab label="Sign Up">
-       <app-sign-up></app-sign-up>
-     </mat-tab>
-   </mat-tab-group>
-
- </div>
