@@ -207,7 +207,8 @@ const appRoutes: Routes = [
     UploadComponent,
     ListItemComponent,
     SellComponent,
-    ItemDetailsComponent
+    ItemDetailsComponent,
+    LoginPageComponent
   ],
   imports: [
     MomentModule,

@@ -1,32 +1,37 @@
-<form [formGroup]="form" (ngSubmit)="submit()" fxLayout="column">
+<form [formGroup]="form" (ngSubmit)="submit()" fxLayout="column" fxLayoutAlign="center center">
+
   <mat-form-field>
+
     <input matInput type="email" placeholder="Email address" formControlName="email">
+
     <mat-error *ngIf="form.controls['email'].hasError('userNotFound')">
       No user with this email address
     </mat-error>
+
     <mat-error *ngIf="form.controls['email'].hasError('invalidEmail')">
       This email address is not valid
     </mat-error>
+
   </mat-form-field>
 
   <mat-form-field>
+
     <input matInput type="password" placeholder="Password" formControlName="password">
+
     <mat-error *ngIf="form.controls['password'].hasError('wrongPassword')">
       This password is wrong
     </mat-error>
+
   </mat-form-field>
 
-  <div fxLayout.xs="column-reverse">
-    <!-- You need to add type button to any button on a form that is not submit.
+  <button type="submit" [disabled]="!form.valid" mat-raised-button color="primary">Login</button>
+
+  <!-- You need to add type button to any button on a form that is not submit.
         Else it is going to call submit on the form.
         for more info
         https://github.com/angular/angular.js/issues/6017
         https://stackoverflow.com/questions/38786995/avoid-angular2-to-systematically-submit-form-on-button-click
       -->
-    <button type="button" tabindex="-1" (click)="showPasswordResetDialog()" mat-button>Forgot your password?</button>
-    <span fxFlex></span>
-    <button type="submit" [disabled]="!form.valid" mat-raised-button color="primary">Login</button>
-
-  </div>
+  <button type="button" tabindex="-1" (click)="showPasswordResetDialog()" mat-button>Forgot your password?</button>
 
 </form>

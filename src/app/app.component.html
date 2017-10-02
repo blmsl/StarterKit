@@ -47,7 +47,7 @@
   </mat-toolbar>
 
   <mat-sidenav-container fxFlex>
-    <mat-sidenav #sidenav [disableClose]="media.isActive('gt-xs')" [mode]="media.isActive('gt-xs') ? 'side' : 'over'" [opened]="media.isActive('gt-xs')">
+    <mat-sidenav class="mat-elevation-z2" #sidenav [disableClose]="media.isActive('gt-xs')" [mode]="media.isActive('gt-xs') ? 'side' : 'over'" [opened]="media.isActive('gt-xs')">
       <div fxLayout="column" fxFlexFill>
         <mat-nav-list>
 
@@ -101,17 +101,6 @@
   </mat-sidenav-container>
 </div>
 
-<div fxFlexFill fxLayout fxLayoutAlign.gt-xs="center center" *ngIf="!(auth.user | async)?.uid">
-
-  <mat-card class="login-wrapper">
-    <mat-tab-group>
-      <mat-tab label="Log in">
-        <app-login></app-login>
-      </mat-tab>
-      <mat-tab label="Sign Up">
-        <app-sign-up></app-sign-up>
-      </mat-tab>
-    </mat-tab-group>
-  </mat-card>
-
+<div fxFlexFill fxLayout fxLayoutAlign="center center" *ngIf="!(auth.user | async)?.uid">
+  <app-login-page></app-login-page>
 </div>
