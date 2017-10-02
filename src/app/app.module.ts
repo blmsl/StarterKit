@@ -73,6 +73,7 @@ import { UploadComponent } from './_components/shopping/upload/upload.component'
 import { ListItemComponent } from './_components/shopping/list-item/list-item.component';
 import { SellComponent } from './_components/shopping/sell/sell.component';
 import { ItemDetailsComponent } from './_components/shopping/item-details/item-details.component';
+import { LoginPageComponent } from './_components/login-page/login-page.component';
 
 //pipes
 import { FileSizePipe } from './_pipes/file-size.pipe';
