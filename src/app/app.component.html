@@ -1,4 +1,4 @@
-<div fxFlexFill fxLayout="column" *ngIf="(auth.user | async)?.uid">
+<div fxFlexFill fxLayout="column">
   <mat-toolbar color="primary">
     <div fxHide.gt-xs="true" fxFlex>
       <button mat-icon-button (click)="sidenav.toggle()">
@@ -101,5 +101,3 @@
 
   </mat-sidenav-container>
 </div>
-
-<app-login-page *ngIf="!(auth.user | async)?.uid"></app-login-page>
