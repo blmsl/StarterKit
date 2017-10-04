@@ -7,6 +7,11 @@ mat-sidenav {
   text-overflow: ellipsis;
 }
 
+.app-logo {
+  height: 2em;
+  margin-right: .5em;
+}
+
 mat-nav-list a {
   color: rgba(0, 0, 0, 0.54);
 }
