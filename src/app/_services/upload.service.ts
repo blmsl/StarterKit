@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Upload } from '../_classes/upload';
 import * as firebase from 'firebase/app';
@@ -12,7 +12,6 @@ export class UploadService {
   constructor(private authService: AuthService, private db: AngularFireDatabase, private utilsService: UtilsService) { }
 
   private basePath: string = '/users';
-  uploads: FirebaseListObservable<Upload[]>;
 
   pushUpload(upload: Upload) {
     let storageRef = firebase.storage().ref();

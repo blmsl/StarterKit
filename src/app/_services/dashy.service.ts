@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from "angularfire2/database";
+import { AngularFireDatabase,AngularFireList } from "angularfire2/database";
 
 import { Dashboard } from '../_classes/dashboard';
 
@@ -7,14 +7,12 @@ import { Dashboard } from '../_classes/dashboard';
 export class DashyService {
 
   private basePath: string = '/dashboards';
-  dashboards: FirebaseListObservable<Dashboard[]> = null;
+  dashboards: AngularFireList<Dashboard>;
 
   constructor(private af: AngularFireDatabase) { }
 
-  getPostsList(query = {}): FirebaseListObservable<Dashboard[]> {
-    this.dashboards = this.af.list(this.basePath, {
-      query: query
-    });
+  getPostsList(): AngularFireList<Dashboard> {
+    this.dashboards = this.af.list<Dashboard>(this.basePath);
 
     return this.dashboards
   }

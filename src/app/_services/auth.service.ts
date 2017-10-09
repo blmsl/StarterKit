@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
@@ -25,7 +25,6 @@ export class AuthService {
           this._user = user;
           this.userId = user.uid;
           this.updateOnConnect()
-          this.updateOnDisconnect()
           this.updateOnIdle()
         }
       }).subscribe();
@@ -57,12 +56,30 @@ export class AuthService {
   }
 
   private updateOnConnect() {
-    return this.db.object('.info/connected')
-      .do(connected => {
-        let status = connected.$value ? 'online' : 'offline'
-        this.updateStatus(status)
-      })
-      .subscribe()
+
+    // Create a reference to the special ".info/connected" path in
+    // Realtime Database. This path returns `true` when connected
+    // and `false` when disconnected.
+    firebase.database().ref(".info/connected").on("value", function(snapshot) {
+      // If we're not currently connected, don't do anything.
+      if (snapshot.val() == false) {
+        return;
+      };
+
+      // If we are currently connected, then use the 'onDisconnect()'
+      // method to add a set which will only trigger once this
+      // client has disconnected by closing the app,
+      // losing internet, or any other means.
+      this.updateOnDisconnect();
+      // The promise returned from .onDisconnect().set() will
+      // resolve as soon as the server acknowledges the onDisconnect()
+      // request, NOT once we've actually disconnected:
+      // https://firebase.google.com/docs/reference/js/firebase.database.OnDisconnect
+
+      // We can now safely set ourselves as "online" knowing that the
+      // server will mark us as offline once we lose connection.
+      this.updateStatus('online')
+    });
   }
 
   private updateOnDisconnect() {
@@ -71,7 +88,17 @@ export class AuthService {
       .update({ status: 'offline' })
   }
   signUpWithEmailAndPass(email: string, pass: string) {
-    return this.afAuth.auth.createUserWithEmailAndPassword(email, pass);
+    let promise = this.afAuth.auth.createUserWithEmailAndPassword(email, pass)
+
+
+    promise.then( (result) => {
+      // create new user object
+      
+    })
+    .catch((err) => {
+      debugger;
+    })
+    return promise; ;
   }
 
   signInWithEmailAndPass(email: string, pass: string) {

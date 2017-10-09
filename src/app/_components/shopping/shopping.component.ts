@@ -36,25 +36,25 @@ export class ShoppingComponent implements OnInit {
       return;
     }
 
-    this.ecommerceService
-      .getItems(this.batch + 1, this.lastKey)
-      .do(items => {
-
-        /// set the lastKey in preparation for next query
-        this.lastKey = _.last(items)['$key']
-
-        const newItems = _.slice(items, 0, this.batch)
-        /// Get current movies in BehaviorSubject
-        const currentItems = this.items.getValue()
-        /// If data is identical, stop making queries
-        if (this.lastKey == _.last(newItems)['$key']) {
-          this.finished = true
-        }
-        /// Concatenate new movies to current movies
-        this.items.next(_.concat(currentItems, newItems))
-      })
-      .take(1)
-      .subscribe()
+    // this.ecommerceService
+    //   .getItems(this.batch + 1, this.lastKey)
+    //   .do(items => {
+    //
+    //     /// set the lastKey in preparation for next query
+    //     this.lastKey = _.last(items)['$key']
+    //
+    //     const newItems = _.slice(items, 0, this.batch)
+    //     /// Get current movies in BehaviorSubject
+    //     const currentItems = this.items.getValue()
+    //     /// If data is identical, stop making queries
+    //     if (this.lastKey == _.last(newItems)['$key']) {
+    //       this.finished = true
+    //     }
+    //     /// Concatenate new movies to current movies
+    //     this.items.next(_.concat(currentItems, newItems))
+    //   })
+    //   .take(1)
+    //   .subscribe()
   }
 
   showSellDialog() {

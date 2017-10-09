@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase,AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
 import { NgForm } from '@angular/forms';
@@ -25,7 +25,7 @@ import 'rxjs/add/operator/mergeMap';
 })
 export class AppComponent implements OnInit {
   @ViewChild('sidenav') sidenav: MatSidenav;
-  users: FirebaseListObservable<any[]>;
+  users: AngularFireList<any[]>;
 
   constructor(
     private router: Router,
@@ -50,7 +50,7 @@ export class AppComponent implements OnInit {
     // this peace of code changes the title of the page
     // if you want to know why the code is what it is
     // then have a look at https://toddmotto.com/dynamic-page-titles-angular-2-router-events
-    
+
     this.router.events
       .filter((event) => event instanceof NavigationEnd)
       .map(() => this.activatedRoute)

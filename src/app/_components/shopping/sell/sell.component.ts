@@ -5734,9 +5734,9 @@ export class SellComponent implements OnInit {
 
         this.dialogRef.close();
       })
-      .catch(() => {
-        this.snackBar.showMessage('Something went wrong while creating your list');
-      })
+      // .catch(() => {
+      //   this.snackBar.showMessage('Something went wrong while creating your list');
+      // })
   }
 
   getModelsByMake(make: string) {
