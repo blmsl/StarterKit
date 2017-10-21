@@ -4,7 +4,7 @@
   </div>
 
   <div fxFlex fxLayout class="body" fxLayoutWrap fxLayoutAlign="center start">
-    <a fxFlex *ngFor="let item of items | async" class="list-item " [routerLink]="item.$key">      <app-list-item [item]="item"></app-list-item>
+    <a fxFlex *ngFor="let item of items | async" class="list-item " [routerLink]="">      <app-list-item [item]="item"></app-list-item>
     </a>
   </div>
 
