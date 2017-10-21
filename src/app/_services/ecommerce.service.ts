@@ -3,27 +3,26 @@ import { AngularFireDatabase } from "angularfire2/database";
 import { AuthService } from "../_services/auth.service";
 import * as firebase from 'firebase';
 
+import { MatSnackBar } from '@angular/material';
+import { AngularFirestore, AngularFirestoreDocument ,AngularFirestoreCollection} from 'angularfire2/firestore';
+
+
 @Injectable()
 export class EcommerceService {
-  private basePath: string = '/list-items';
+  private products: AngularFirestoreCollection<any>;
 
-  constructor(private af: AngularFireDatabase, private authService: AuthService) { }
-
-
-  createItem(item: any) {
-    // add user and item
-    item.createdAt = firebase.database['ServerValue']['TIMESTAMP'];
-    item.creatorId = this.authService._user.uid;
-
-    return firebase.database().ref().child(this.basePath).push(item);
+  constructor(
+    private af: AngularFireDatabase,
+    private authService: AuthService,
+    private afs: AngularFirestore,
+    public auth: AuthService) {
+    this.products = this.afs.collection('products')
   }
 
-  getItems(batch, lastKey?) {
-    let query = {
-      orderByKey: true,
-      limitToFirst: batch,
-    }
-    if (lastKey) query['startAt'] = lastKey
-    return this.af.list(this.basePath)
+  createProduct(product: any) {
+
+    product.createdAt = firebase.firestore.FieldValue.serverTimestamp();
+    product.creatorId = this.authService._user.uid;
+    return this.products.add(product);
   }
 }

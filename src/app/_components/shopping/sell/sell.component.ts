@@ -5724,19 +5724,16 @@ export class SellComponent implements OnInit {
   }
 
   createListItem() {
-    let snackBarRef = this.snackBar.showProgress('Creating your post...');
-    var item = this.form.value;
-    item.images = this.uploads.map(upload => { return upload.url });
+    let snackBarRef = this.snackBar.showProgress('Creating your product...');
+    var product = this.form.value;
+    product.images = this.uploads.map(upload => { return upload.url });
 
-    this.ecommerceService.createItem(item)
+    this.ecommerceService.createProduct(product)
       .then(() => {
-        this.snackBar.showMessage('Created your listing');
+        this.snackBar.showMessage('Created your product');
 
         this.dialogRef.close();
       })
-      // .catch(() => {
-      //   this.snackBar.showMessage('Something went wrong while creating your list');
-      // })
   }
 
   getModelsByMake(make: string) {
