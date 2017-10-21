@@ -42,7 +42,7 @@
   </mat-toolbar>
 
   <mat-sidenav-container fxFlex>
-    <mat-sidenav  #sidenav [disableClose]="media.isActive('gt-xs')" [mode]="media.isActive('gt-xs') ? 'side' : 'over'" [opened]="media.isActive('gt-xs')">
+    <mat-sidenav #sidenav [disableClose]="media.isActive('gt-xs')" [mode]="media.isActive('gt-xs') ? 'side' : 'over'" [opened]="media.isActive('gt-xs')">
       <div fxLayout="column" fxFlexFill>
         <mat-nav-list>
 
@@ -79,10 +79,9 @@
       </div>
     </mat-sidenav>
 
-<div style="padding: 0 1em;">
-  <router-outlet></router-outlet>
-
-</div>
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
 
   </mat-sidenav-container>
 </div>

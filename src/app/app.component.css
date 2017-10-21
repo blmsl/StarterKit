@@ -19,3 +19,9 @@ mat-nav-list a {
 .active-link {
   color: #3F51B5 !important;
 }
+
+.main-content {
+  padding: 0 1em;
+  height: 100%;
+  position: relative;
+}
