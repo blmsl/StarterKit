@@ -1,6 +1,6 @@
 [![Join the chat at https://gitter.im/app-demo-chat/Lobby](https://badges.gitter.im/app-demo-chat/Lobby.svg)](https://gitter.im/app-demo-chat/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://travis-ci.org/MurWade/app-demo.svg?branch=master)](https://travis-ci.org/MurWade/app-demo)
-# Angular/Firebase/Material - Demo
+# Best Starter Kit
 ## Table of Contents
  * [What is this](#what-is-this)
  * [Demo](#demo)
@@ -11,8 +11,8 @@
  * [License](#license)
 
 ## What is this
-Just a small demo to show how to use [Angular4](https://angular.io/) + [Firebase](https://firebase.google.com/) +
-[Google Material Design](https://www.google.com/design/spec/material-design/introduction.html) together. Currently
+This is a starter kit which uses [Angular4](https://angular.io/) + [Firebase/Firestore](https://firebase.google.com/) +
+[Google Material Design](https://www.google.com/design/spec/material-design/introduction.html) and continues integration with [Travis CI](https://travis-ci.org/). Currently
 this demo application contains following features:
  * Authentication with email and password
    * Sign in
@@ -23,8 +23,7 @@ this demo application contains following features:
    * User presence(Online, Away, Offline)
    * Welcome emails(using firebase functions)
    * Good bye emails(using firebase functions)
- * Routing
- * Dynamic Page titles based on route
+ * Routing(Dynamic Page titles, etc)
  * Progressive Web Application
  * Material Design
  * Responsive layout using [fxLayout](https://github.com/angular/flex-layout)
