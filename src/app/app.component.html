@@ -87,3 +87,33 @@
 </div>
 
 <app-login-page *ngIf="!(auth.user | async)"></app-login-page>
+
+<div class="app-loading" *ngIf="isLoading">
+  <style>
+    .app-loading {
+      display: flex;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      color: #C8E6C9;
+      text-transform: uppercase;
+      font: 400 35px/20px -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      Oxygen-Sans,
+      Ubuntu,
+      Cantarell,
+      Helvetica,
+      sans-serif !important;
+      background: #795548;
+    }
+  </style>
+
+  Loading
+
+</div>

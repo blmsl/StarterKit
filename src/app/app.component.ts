@@ -25,6 +25,7 @@ import 'rxjs/add/operator/mergeMap';
 })
 export class AppComponent implements OnInit {
   @ViewChild('sidenav') sidenav: MatSidenav;
+  isLoading: boolean = true;
 
   constructor(
     private router: Router,
@@ -36,7 +37,12 @@ export class AppComponent implements OnInit {
     public snackBar: MatSnackBar,
     public auth: AuthService,
     public dialog: MatDialog,
-    public media: ObservableMedia) {}
+    public media: ObservableMedia) {
+
+      this.auth.user.subscribe(result => {
+        this.isLoading = false;
+      })
+    }
 
   ngOnInit() {
 
