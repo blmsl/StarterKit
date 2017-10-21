@@ -1,5 +1,5 @@
 <div fxFlexFill fxLayout="column" *ngIf="(auth.user | async)">
-  <mat-toolbar color="primary">
+  <mat-toolbar>
     <div fxHide.gt-xs="true" fxFlex>
       <button mat-icon-button (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
@@ -42,7 +42,7 @@
   </mat-toolbar>
 
   <mat-sidenav-container fxFlex>
-    <mat-sidenav class="mat-elevation-z2" #sidenav [disableClose]="media.isActive('gt-xs')" [mode]="media.isActive('gt-xs') ? 'side' : 'over'" [opened]="media.isActive('gt-xs')">
+    <mat-sidenav  #sidenav [disableClose]="media.isActive('gt-xs')" [mode]="media.isActive('gt-xs') ? 'side' : 'over'" [opened]="media.isActive('gt-xs')">
       <div fxLayout="column" fxFlexFill>
         <mat-nav-list>
 
