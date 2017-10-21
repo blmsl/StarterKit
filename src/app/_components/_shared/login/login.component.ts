@@ -23,8 +23,6 @@ export class LoginComponent implements OnInit {
   }
 
   submit() {
-    let snackBarRefff = this.snackBar.openFromComponent(SnackbarProgressComponent,
-      { data: 'Signing you in...' });
     let snackBarRef = this.snackBar.openFromComponent(SnackbarProgressComponent,
       { data: 'Signing you in...' });
 
@@ -35,6 +33,7 @@ export class LoginComponent implements OnInit {
         });
       })
       .catch(err => {
+        snackBarRef.dismiss();
 
         switch (err['code']) {
           case 'auth/user-not-found':
