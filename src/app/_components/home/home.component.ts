@@ -13,31 +13,13 @@ import 'rxjs/add/operator/map'
   providers: [PostService]
 })
 export class HomeComponent implements OnInit {
-  posts: any;
-  message: string = "";
   constructor(
     private postService: PostService,
     public auth: AuthService
   ) { }
 
   ngOnInit() {
-
-    this.posts = this.postService.getPostsList({
-      orderByChild: 'createdAt'
-    });
-
-  }
-  sendMessage() {
-
-    if (this.message.length > 0) {
-      this.postService.createPost(this.message);
-      this.message = ""
-    }
-
-  }
-
-  deletePost(key: string) {
-    this.postService.deletePost(key);
+    
   }
 
 }
