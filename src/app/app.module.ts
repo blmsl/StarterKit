@@ -37,8 +37,10 @@ import { GridsterModule } from 'angular-gridster2';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 import 'hammerjs';
 import { environment } from '../environments/environment';
+import { MarkdownModule } from 'angular2-markdown';
 
 // services
 import { MessagingService } from "./_services/messaging.service";
@@ -240,6 +242,7 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    AngularFirestoreModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
     GridsterModule,
@@ -247,6 +250,7 @@ const appRoutes: Routes = [
     ChartModule,
     SwingModule,
     DndModule.forRoot(),
+    MarkdownModule.forRoot(),
     InfiniteScrollModule
   ],
   providers: [

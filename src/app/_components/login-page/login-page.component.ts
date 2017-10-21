@@ -10,8 +10,6 @@ export class LoginPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    particlesJS.load('particles-js', 'assets/particlesjs-config.json', null);
-
   }
 
 }

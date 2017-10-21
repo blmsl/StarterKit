@@ -1,4 +1,4 @@
-<div fxFlexFill fxLayout="column" *ngIf="(auth.user | async)?.uid">
+<div fxFlexFill fxLayout="column" *ngIf="(auth.user | async)">
   <mat-toolbar color="primary">
     <div fxHide.gt-xs="true" fxFlex>
       <button mat-icon-button (click)="sidenav.toggle()">
@@ -7,15 +7,10 @@
     </div>
 
     <img src="assets/app-logo-icon.svg" class="app-logo" />
-    <span class="app-title">App demo</span>
 
     <span fxFlex></span>
 
     <div fxHide.xs>
-      <a mat-button target="_blank" href="https://github.com/MurWade/app-demo">
-        <mat-icon svgIcon="github"></mat-icon>
-        <span>GITHUB</span>
-      </a>
 
       <a mat-button routerLink="/profile">
       Hello {{(auth.user | async)?.email}}
@@ -34,7 +29,6 @@
           <span> {{(auth.user | async)?.email}} </span>
         </a>
         <a mat-menu-item target="_blank" href="https://github.com/MurWade/app-demo">
-          <mat-icon svgIcon="github"></mat-icon>
           <span>GITHUB</span>
         </a>
         <mat-divider></mat-divider>
@@ -82,24 +76,15 @@
           </a>
 
         </mat-nav-list>
-
-        <mat-divider></mat-divider>
-        <mat-list dense fxFlex style="overflow: auto;">
-          <h3 matSubheader>Users</h3>
-          <mat-list-item *ngFor="let user of users | async">
-            <img matListAvatar src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/ce54bf11889067.562541ef7cde4.png" alt="...">
-            <h3 matLine> {{user.email}} </h3>
-            <app-user-status [status]="user.status"></app-user-status>
-
-          </mat-list-item>
-        </mat-list>
       </div>
     </mat-sidenav>
 
-    <router-outlet></router-outlet>
+<div style="padding: 0 1em;">
+  <router-outlet></router-outlet>
 
+</div>
 
   </mat-sidenav-container>
 </div>
 
-<app-login-page *ngIf="!(auth.user | async)?.uid"></app-login-page>
+<app-login-page *ngIf="!(auth.user | async)"></app-login-page>

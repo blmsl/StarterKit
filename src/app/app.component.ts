@@ -25,7 +25,6 @@ import 'rxjs/add/operator/mergeMap';
 })
 export class AppComponent implements OnInit {
   @ViewChild('sidenav') sidenav: MatSidenav;
-  users: AngularFireList<any[]>;
 
   constructor(
     private router: Router,
@@ -37,20 +36,13 @@ export class AppComponent implements OnInit {
     public snackBar: MatSnackBar,
     public auth: AuthService,
     public dialog: MatDialog,
-    public media: ObservableMedia) {
-
-    this.users = af.list('/users');
-
-    iconRegistry.addSvgIcon('github', sanitizer.bypassSecurityTrustResourceUrl('assets/github-icon.svg'));
-
-  }
+    public media: ObservableMedia) {}
 
   ngOnInit() {
 
     // this peace of code changes the title of the page
     // if you want to know why the code is what it is
     // then have a look at https://toddmotto.com/dynamic-page-titles-angular-2-router-events
-
     this.router.events
       .filter((event) => event instanceof NavigationEnd)
       .map(() => this.activatedRoute)
@@ -73,6 +65,5 @@ export class AppComponent implements OnInit {
       this.sidenav.toggle();
     }
   }
-
 
 }
