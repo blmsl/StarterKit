@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AngularFireDatabase,AngularFireList } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
 import { NgForm } from '@angular/forms';
@@ -39,10 +39,21 @@ export class AppComponent implements OnInit {
     public dialog: MatDialog,
     public media: ObservableMedia) {
 
-      this.auth.user.subscribe(result => {
-        this.isLoading = false;
-      })
-    }
+    this.auth.user.subscribe(result => {
+      this.isLoading = false;
+    })
+
+    let initLoadUser = this.auth.user.subscribe(user => {
+
+      if (user) {
+        if (user)
+          this.snackBar.open(`Welcome back ${user.email}!`, null, {
+            duration: 3000
+          });
+      }
+      initLoadUser.unsubscribe();
+    });
+  }
 
   ngOnInit() {
 

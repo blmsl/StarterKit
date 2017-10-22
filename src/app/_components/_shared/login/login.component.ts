@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
 
     this.auth.signInWithEmailAndPass(this.form.value.email, this.form.value.password)
       .then(value => {
-        this.snackBar.open('Welcome back mate!', null, {
+        this.snackBar.open(`Welcome back ${value.email}!`, null, {
           duration: 3000
         });
       })

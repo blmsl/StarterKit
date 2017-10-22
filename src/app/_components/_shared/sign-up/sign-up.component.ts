@@ -24,11 +24,11 @@ export class SignUpComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(12)]],
       termAndConditions: ['', [Validators.requiredTrue]]
     });
-    }
+  }
 
-// Creates a user object in firestore
-// this is called after a user successfully signs up
-// before the email is verified
+  // Creates a user object in firestore
+  // this is called after a user successfully signs up
+  // before the email is verified
   private createUser(user, verified: boolean = false) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`)
 
@@ -46,11 +46,12 @@ export class SignUpComponent implements OnInit {
 
     this.auth.signUpWithEmailAndPass(this.form.value.email, this.form.value.password)
       .then(result => {
-        this.createUser(result, false);
-
-        this.snackBar.open('Welcome  mate!', null, {
-          duration: 3000
-        });
+        this.createUser(result, false)
+          .then(result => {
+            this.snackBar.open(`Welcome ${this.form.value.email}!`, null, {
+              duration: 3000
+            });
+          })
       })
       .catch(err => {
         snackBarRef.dismiss();
