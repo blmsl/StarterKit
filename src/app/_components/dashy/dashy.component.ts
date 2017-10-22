@@ -99,7 +99,13 @@ export class DashyComponent implements OnInit {
   @ViewChild('widgetEdit') widgetEditSideNav: MatSidenav;
 
 
-  constructor(public snackBarService: SnackBarService, public auth: AuthService, public dialog: MatDialog) { }
+  constructor(public snackBarService: SnackBarService, public auth: AuthService, public dialog: MatDialog) {
+    this.dashboards = [
+      new Dashboard('demo dashboard'),
+      new Dashboard('sales dashboard')
+    ]
+    
+   }
 
   selectWidget(widget: Widget) {
     this.selectedWidget = widget;
@@ -147,14 +153,6 @@ export class DashyComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    this.dashboards = [
-      new Dashboard('demo dashboard'),
-      new Dashboard('sales dashboard')
-
-    ]
-
-    this.selectedDashboard = this.dashboards[0];
   }
 
   showNewDashboardDialog(): void {

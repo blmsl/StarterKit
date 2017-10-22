@@ -1,11 +1,14 @@
 <div fxLayout="column" fxFlexFill>
-  <div class="toolbar">
-    <mat-select placeholder="Select dashboard" [(ngModel)]="selectedDashboard">
-      <mat-option *ngFor="let dashboard of dashboards" [value]="dashboard">{{ dashboard.name }}</mat-option>
-    </mat-select>
+
+  <mat-toolbar color="accent">
+    <mat-form-field floatPlaceholder="never">
+      <mat-select placeholder="Select dashboard" [(ngModel)]="selectedDashboard">
+        <mat-option *ngFor="let dashboard of dashboards" [value]="dashboard">{{ dashboard.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
     <button mat-button (click)="addWidget()">New widget</button>
     <button mat-button (click)="showNewDashboardDialog()">New Dashboard</button>
-  </div>
+  </mat-toolbar>
 
 
 
@@ -22,10 +25,9 @@
       <button mat-raised-button color="primary" (click)="closeWidgetEdit()">Done</button>
     </mat-sidenav>
 
-    <gridster fxFlex [options]="options" class="dashboard">
-
-      <gridster-item [item]="widget.gridSterItemOptions" class="pane" [ngClass]="{'pane-selected': selectedWidget == widget}" *ngFor="let widget of selectedDashboard.widgets; let i = index">
-        <app-widget (onRemove)="selectedDashboard.widgets.splice(i, 1)" (onSelect)="selectWidget(widget)" [widget]="widget"></app-widget>
+    <gridster fxFlex [options]="options" class="dashboard" *ngIf="selectedDashboard as dashboard">
+      <gridster-item [item]="widget.gridSterItemOptions" class="pane" [ngClass]="{'pane-selected': selectedWidget == widget}" *ngFor="let widget of dashboard.widgets; let i = index">
+        <app-widget (onRemove)="dashboard.widgets.splice(i, 1)" (onSelect)="selectWidget(widget)" [widget]="widget"></app-widget>
       </gridster-item>
 
     </gridster>
