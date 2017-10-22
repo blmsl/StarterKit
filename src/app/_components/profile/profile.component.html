@@ -1,3 +1,10 @@
+<mat-toolbar color="accent">
+  <button mat-icon-button (click)="winRef.nativeWindow.history.back()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+
+  <span>My Profile</span>
+</mat-toolbar>
 <h4>You joined {{(auth.user| async)?.joined | amTimeAgo}}</h4>
 <mat-card>
   <mat-card-title>

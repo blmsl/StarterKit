@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../_services/auth.service';
 import { SnackBarService } from '../../_services/snack-bar-service.service';
 import { DialogService } from '../../_services/dialog.service';
+import { WindowRefService } from '../../_services/window-ref.service';
 import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import * as firebase from 'firebase/app';
@@ -16,7 +17,8 @@ export class ProfileComponent implements OnInit {
   constructor(public auth: AuthService,
     public snackBar: SnackBarService,
     public dialogService: DialogService,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder,
+    public winRef: WindowRefService) { }
 
   ngOnInit() {
     let passwordValidators = [Validators.required, Validators.minLength(6), Validators.maxLength(12)];
