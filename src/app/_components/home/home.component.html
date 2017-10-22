@@ -1,1 +1,10 @@
-<h1>Hello {{(auth.user| async)?.email }}</h1>
+<mat-nav-list>
+  <h3 matSubheader>Things to do</h3>
+  <a mat-list-item routerLink="change-my-display-photo">
+
+    <p matLine>
+      Change Display Photo
+    </p>
+    <mat-icon>arrow_forward</mat-icon>
+  </a>
+</mat-nav-list>

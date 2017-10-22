@@ -51,6 +51,7 @@ import { SnackBarService } from './_services/snack-bar-service.service';
 import { DashyService } from './_services/dashy.service';
 import { DialogService } from './_services/dialog.service';
 import { EcommerceService } from './_services/ecommerce.service';
+import { WindowRefService } from './_services/window-ref.service';
 
 // compoenents
 import { AppComponent } from './app.component';
@@ -86,6 +87,7 @@ import * as brokenAxis from 'highcharts/js/modules/broken-axis';
 import * as highmaps from 'highcharts/js/modules/map';
 import { ChartModule } from 'angular2-highcharts';
 import { SwingModule } from 'angular2-swing';
+import { UploadMyPhotoComponent } from './_components/profile/upload-my-photo/upload-my-photo.component';
 
 
 export function highchartsFactory() {
@@ -146,6 +148,9 @@ export function highchartsFactory() {
   return highcharts;
 }
 
+// this is where you create all the Routes
+// at the moments we only have 1 layout
+// and each route can have its own title
 const appRoutes: Routes = [
   {
     path: '', component: HomeComponent,
@@ -182,6 +187,13 @@ const appRoutes: Routes = [
     path: 'shopping/:key', component: ItemDetailsComponent, data: {
       title: 'Product info'
     }
+  },
+  {
+    path: 'change-my-display-photo',
+    component: UploadMyPhotoComponent,
+    data:{
+      title: 'Create,Edit or Delete Your Display Photo'
+    }
   }
 
 ];
@@ -211,7 +223,8 @@ const appRoutes: Routes = [
     ListItemComponent,
     SellComponent,
     ItemDetailsComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    UploadMyPhotoComponent
   ],
   imports: [
     MomentModule,
@@ -262,6 +275,7 @@ const appRoutes: Routes = [
     DashyService,
     DialogService,
     EcommerceService,
+    WindowRefService,
     {
       provide: HighchartsStatic,
       useFactory: highchartsFactory
