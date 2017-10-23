@@ -14,7 +14,7 @@ before_script:
   - cd ..
 
 script:
-  - npm run pwa
+  - npm run build
 
 after_success:
   - firebase deploy --token $FIREBASE_TOKEN
