@@ -2,7 +2,7 @@
 
   <mat-form-field>
 
-    <input matInput type="email" placeholder="Email address" formControlName="email">
+    <input matInput type="email" placeholder="Email" formControlName="email">
 
     <mat-error *ngIf="form.controls['email'].hasError('userNotFound')">
       No user with this email address
