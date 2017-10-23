@@ -1,11 +1,23 @@
-<div fxLayout fxLayoutAlign="center center">
+<div fxLayout fxFlexFill>
+  <!-- weird thing going on here with fxFlexFill and MatTabsModule
+ the tabs component is nice. When you have a 100% hegiht it will keep the
+tab labels on top and scrol the content.  -->
 
   <mat-tab-group>
+    <mat-tab label="Register">
+      <div fxLayout="column" fxLayoutAlign="center center">
+
+        <div style="text-align:center">
+          <br />
+          <h1>Appliation Demo</h1>
+          <h3>Sign up to see photos and videos from your friends.</h3>
+        </div>
+
+        <app-sign-up></app-sign-up>
+      </div>
+    </mat-tab>
     <mat-tab label="Log in">
       <app-login></app-login>
-    </mat-tab>
-    <mat-tab label="Register">
-      <app-sign-up></app-sign-up>
     </mat-tab>
   </mat-tab-group>
 
