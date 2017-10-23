@@ -25,7 +25,8 @@ import {
   MatToolbarModule,
   MatGridListModule,
   MatFormFieldModule,
-  MatStepperModule
+  MatStepperModule,
+  MatRippleModule
 } from '@angular/material';
 
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
@@ -250,8 +251,9 @@ const appRoutes: Routes = [
     MatToolbarModule,
     MatFormFieldModule,
     MatStepperModule,
-    FlexLayoutModule,
     MatGridListModule,
+    MatRippleModule,
+    FlexLayoutModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,

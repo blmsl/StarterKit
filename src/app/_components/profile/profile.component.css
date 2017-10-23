@@ -1,0 +1,25 @@
+.cover-photo {
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  background-image: url("https://spark.adobe.com/images/landing/examples/hiking-fb-cover.jpg");
+  position: relative;
+  cursor: pointer;
+  box-sizing: border-box;
+
+}
+
+.display-photo {
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  background-image: url("https://i.pinimg.com/736x/d0/b1/c1/d0b1c100c871ee188bfb7e6357c61a38--profile-photography-white-photography.jpg");
+  position: relative;
+  top: -3em;
+  border: .25em solid white;
+  border-radius: .2em;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+}

@@ -5,26 +5,85 @@
 
   <span>My Profile</span>
 </mat-toolbar>
-<h4>You joined {{(auth.user| async)?.joined | amTimeAgo}}</h4>
-<mat-card>
-  <mat-card-title>
-    Change password
-  </mat-card-title>
-  <form [formGroup]="changePasswordForm" (ngSubmit)="changePassword()" fxLayout="column">
-    <mat-form-field>
-      <input matInput type="password" placeholder="Current password" formControlName="currentPassword">
-      <mat-error *ngIf="changePasswordForm.controls['currentPassword'].hasError('wrongPassword')">
-        This password is wrong
-      </mat-error>
-    </mat-form-field>
-
-    <mat-form-field>
-      <input matInput type="password" placeholder="New password" formControlName="newPassword">
-    </mat-form-field>
-    <button type="submit" [disabled]="!changePasswordForm.valid" mat-raised-button color="primary">Update password</button>
-
-  </form>
-</mat-card>
 
 
-<button mat-button color="warn" (click)="deleteAccountClick()">Delete account</button>
+<div class="cover-photo">
+  <style>
+    .mobile-edit-wrapper {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.79);
+      bottom: 0;
+      right: 0;
+      width: 67px;
+      border-radius: .2em 0 0 0;
+      font-size: 1.3em;
+      /* padding: .1em; */
+      height: 25px;
+    }
+  </style>
+  <!-- visible on mobile -->
+  <div class="mobile-edit-wrapper" fxLayout fxLayoutAlign="center center" fxLayoutGap=".1em">
+    <mat-icon>photo_camera</mat-icon>
+    <span>Edit</span>
+  </div>
+</div>
+
+<div fxLayout fxLayoutAlign="center center">
+  <div class="display-photo" matRipple routerLink="/change-my-display-photo">
+
+    <style>
+      .mobile-edit-wrapper {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.79);
+        bottom: 0;
+        right: 0;
+        width: 67px;
+        border-radius: .2em 0 0 0;
+        font-size: 1.3em;
+        /* padding: .1em; */
+        height: 25px;
+      }
+    </style>
+    <!-- visible on mobile -->
+    <div class="mobile-edit-wrapper" fxLayout fxLayoutAlign="center center" fxLayoutGap=".1em">
+      <mat-icon>photo_camera</mat-icon>
+      <span>Edit</span>
+    </div>
+
+    <!-- visible on desktop hover -->
+  </div>
+</div>
+
+<div fxLayout fxLayoutAlign="center center">
+  <h1 class="display-name">Mustafa Hossaini</h1>
+</div>
+
+<div class="status">
+
+</div>
+
+<div style="padding: 1em;">
+  <h4>You joined {{(auth.user| async)?.joined | amTimeAgo}}</h4>
+  <mat-card>
+    <mat-card-title>
+      Change password
+    </mat-card-title>
+    <form [formGroup]="changePasswordForm" (ngSubmit)="changePassword()" fxLayout="column">
+      <mat-form-field>
+        <input matInput type="password" placeholder="Current password" formControlName="currentPassword">
+        <mat-error *ngIf="changePasswordForm.controls['currentPassword'].hasError('wrongPassword')">
+          This password is wrong
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput type="password" placeholder="New password" formControlName="newPassword">
+      </mat-form-field>
+      <button type="submit" [disabled]="!changePasswordForm.valid" mat-raised-button color="primary">Update password</button>
+
+    </form>
+  </mat-card>
+
+
+  <button mat-button color="warn" (click)="deleteAccountClick()">Delete account</button>
+</div>
