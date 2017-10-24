@@ -78,6 +78,7 @@ import { ListItemComponent } from './_components/shopping/list-item/list-item.co
 import { SellComponent } from './_components/shopping/sell/sell.component';
 import { ItemDetailsComponent } from './_components/shopping/item-details/item-details.component';
 import { LoginPageComponent } from './_components/login-page/login-page.component';
+import { MyBasketComponent } from './_components/shopping/basket/my-basket/my-basket.component';
 
 //pipes
 import { FileSizePipe } from './_pipes/file-size.pipe';
@@ -89,7 +90,6 @@ import * as highmaps from 'highcharts/js/modules/map';
 import { ChartModule } from 'angular2-highcharts';
 import { SwingModule } from 'angular2-swing';
 import { UploadMyPhotoComponent } from './_components/profile/upload-my-photo/upload-my-photo.component';
-import { MyBusketComponent } from './_components/shopping/basket/my-busket/my-busket.component';
 
 
 export function highchartsFactory() {
@@ -234,7 +234,7 @@ const appRoutes: Routes = [
     ItemDetailsComponent,
     LoginPageComponent,
     UploadMyPhotoComponent,
-    MyBusketComponent
+    MyBasketComponent
   ],
   imports: [
     MomentModule,

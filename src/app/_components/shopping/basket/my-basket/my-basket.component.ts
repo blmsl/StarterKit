@@ -3,11 +3,11 @@ import { WindowRefService } from '../../../../_services/window-ref.service';
 import { EcommerceService } from '../../../../_services/ecommerce.service';
 
 @Component({
-  selector: 'app-my-busket',
-  templateUrl: './my-busket.component.html',
-  styleUrls: ['./my-busket.component.css']
+  selector: 'app-my-basket',
+  templateUrl: './my-basket.component.html',
+  styleUrls: ['./my-basket.component.css']
 })
-export class MyBusketComponent implements OnInit {
+export class MyBasketComponent implements OnInit {
   constructor(public winRef: WindowRefService, public ecom: EcommerceService) {
   }
 

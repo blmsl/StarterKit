@@ -11,7 +11,7 @@ import { SnackBarService } from './snack-bar-service.service';
 @Injectable()
 export class EcommerceService {
   private products: AngularFirestoreCollection<any>;
-  public buskets: Observable<any[]>;
+  public baskets: Observable<any[]>;
 
   private user: any;
   constructor(
@@ -24,7 +24,7 @@ export class EcommerceService {
 
     this.auth.user.subscribe(user => {
       this.user = user;
-      this.buskets = this.afs.collection('busket', ref => ref.where('email', '==', `${user.email}`)).valueChanges();
+      this.baskets = this.afs.collection('baskets', ref => ref.where('email', '==', `${user.email}`)).valueChanges();
     })
   }
 
@@ -39,7 +39,7 @@ export class EcommerceService {
 
     if (this.user) {
       product.email = this.user.email;
-      this.afs.collection('busket').add(product)
+      this.afs.collection('baskets').add(product)
         .then(result => {
           this.snackBar.showMessage('Your item has been added to your basket');
         });
