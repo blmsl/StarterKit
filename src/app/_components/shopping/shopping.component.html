@@ -1,6 +1,7 @@
 <div fxLayout="column" fxFlexFill>
   <div class="head" fxLayout>
     <button mat-raised-button color="primary" (click)="showSellDialog()">Sell</button>
+    <span fxFlex></span>
     <a mat-icon-button color="primary" routerLink="/my-basket" dnd-droppable (onDropSuccess)="addToBasket($event.dragData)">
       <mat-icon>shopping_basket</mat-icon>
     </a>
