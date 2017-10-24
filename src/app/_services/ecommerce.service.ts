@@ -10,8 +10,8 @@ import { SnackBarService } from './snack-bar-service.service';
 
 @Injectable()
 export class EcommerceService {
-  private products: AngularFirestoreCollection<any>;
-  public baskets: Observable<any[]>;
+  public products: AngularFirestoreCollection<any>;
+  public baskets: AngularFirestoreCollection<any[]>;
 
   private user: any;
   constructor(
@@ -21,10 +21,11 @@ export class EcommerceService {
     public auth: AuthService,
     public snackBar: SnackBarService) {
     this.products = this.afs.collection('products')
+    this.baskets = this.afs.collection('baskets')
 
     this.auth.user.subscribe(user => {
       this.user = user;
-      this.baskets = this.afs.collection('baskets', ref => ref.where('email', '==', `${user.email}`)).valueChanges();
+      this.baskets = this.afs.collection('baskets', ref => ref.where('email', '==', `${user.email}`))
     })
   }
 

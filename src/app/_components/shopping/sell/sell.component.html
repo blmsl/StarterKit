@@ -4,23 +4,21 @@
     <mat-step [stepControl]="form" label="Details">
 
       <form [formGroup]="form" fxLayout="column" fxLayoutGap="10px">
-        <div fxLayout fxLayoutGap="10px" fxLayoutWrap>
-          <div>
-            <mat-select placeholder="Make" formControlName="make" (change)="models = getModelsByMake($event.value)">
-              <mat-option *ngFor="let make of makes" [value]="make.title">
-                {{make.title}}
-              </mat-option>
-            </mat-select>
-          </div>
+        <mat-form-field>
+          <mat-select placeholder="Make" formControlName="make" (change)="models = getModelsByMake($event.value)">
+            <mat-option *ngFor="let make of makes" [value]="make.title">
+              {{make.title}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
 
-          <div>
-            <mat-select placeholder="Model" formControlName="model">
-              <mat-option *ngFor="let model of models" [value]="model.title">
-                {{ model.title }}
-              </mat-option>
-            </mat-select>
-          </div>
-        </div>
+        <mat-form-field>
+          <mat-select placeholder="Model" formControlName="model">
+            <mat-option *ngFor="let model of models" [value]="model.title">
+              {{ model.title }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
 
         <div fxLayout fxLayoutGap="10px" fxLayoutWrap>
           <div>

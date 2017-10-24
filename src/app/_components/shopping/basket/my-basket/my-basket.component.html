@@ -8,6 +8,32 @@
 
 
 
-<div fxFlex *ngFor="let basket of ecom.baskets | async">
+<!-- <div fxFlex *ngFor="let basket of ecom.baskets | async">
   item in my basket
+</div> -->
+
+<div class="mat-elevation-z8">
+  <mat-table [dataSource]="myBasketDataSource">
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef>name</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="description">
+      <mat-header-cell *matHeaderCellDef>description</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="quantity">
+      <mat-header-cell *matHeaderCellDef>quantity</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.quantity}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <mat-header-cell *matHeaderCellDef>price</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
 </div>
