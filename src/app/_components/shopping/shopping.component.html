@@ -1,11 +1,16 @@
 <div fxLayout="column" fxFlexFill>
-  <div class="head">
+  <div class="head" fxLayout>
     <button mat-raised-button color="primary" (click)="showSellDialog()">Sell</button>
+    <span fxFlex></span>
+    <a mat-icon-button color="primary" routerLink="/my-busket" dnd-droppable (onDropSuccess)="addToBasket($event.dragData)">
+      <mat-icon>shopping_basket</mat-icon>
+    </a>
   </div>
 
   <div fxFlex fxLayout class="body" fxLayoutWrap fxLayoutAlign="center start">
-    <a fxFlex *ngFor="let item of items | async" class="list-item " [routerLink]="">      <app-list-item [item]="item"></app-list-item>
-    </a>
+    <div fxFlex *ngFor="let product of items | async" class="list-item" dnd-draggable [dragData]="product">
+      <app-list-item [item]="product" (addToBasket)="addToBasket($event)"></app-list-item>
+    </div>
   </div>
 
 </div>

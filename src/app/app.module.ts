@@ -89,6 +89,7 @@ import * as highmaps from 'highcharts/js/modules/map';
 import { ChartModule } from 'angular2-highcharts';
 import { SwingModule } from 'angular2-swing';
 import { UploadMyPhotoComponent } from './_components/profile/upload-my-photo/upload-my-photo.component';
+import { MyBusketComponent } from './_components/shopping/basket/my-busket/my-busket.component';
 
 
 export function highchartsFactory() {
@@ -185,6 +186,13 @@ const appRoutes: Routes = [
     }
   },
   {
+    path: 'my-busket',
+    component: MyBusketComponent,
+    data: {
+      title: 'My Busket'
+    }
+  },
+  {
     path: 'shopping/:key', component: ItemDetailsComponent, data: {
       title: 'Product info'
     }
@@ -192,7 +200,7 @@ const appRoutes: Routes = [
   {
     path: 'change-my-display-photo',
     component: UploadMyPhotoComponent,
-    data:{
+    data: {
       title: 'Create,Edit or Delete Your Display Photo'
     }
   }
@@ -225,7 +233,8 @@ const appRoutes: Routes = [
     SellComponent,
     ItemDetailsComponent,
     LoginPageComponent,
-    UploadMyPhotoComponent
+    UploadMyPhotoComponent,
+    MyBusketComponent
   ],
   imports: [
     MomentModule,

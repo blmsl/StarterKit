@@ -2,18 +2,6 @@
   overflow: auto;
 }
 
-.body .list-item {
-  width: 200px;
-  min-width: 200px;
-  height: 300px;
-  background-color: #FAFAFA;
-  margin: 5px;
-  overflow: hidden;
-  position: relative;
-  text-decoration: none;
-  color: #212121;
-}
-
 .head, .body {
   padding: 10px;
 }

@@ -1,4 +1,14 @@
-.list-item {}
+.list-item {
+  min-width: 200px;
+  max-width: 400px;
+  height: 353px;
+  background-color: #EEEEEE;
+  margin: 5px;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  color: #212121;
+}
 
 .list-item .img {
   height: 200px;

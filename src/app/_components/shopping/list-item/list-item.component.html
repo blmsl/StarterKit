@@ -1,4 +1,4 @@
-<div class="list-item">
+<div class="list-item" fxLayout="column">
   <div class="img" *ngIf="item.images?.length > 0" [style.backgroundImage]="'url('+item.images[currentThumbnail]+')'"></div>
   <div class="img" *ngIf="!(item.images?.length > 0)" [style.backgroundImage]="'url(\'/assets/no-image.svg\')'"> </div>
 
@@ -23,5 +23,11 @@
 
   <div class="description">
     {{item.description}}
+  </div>
+
+
+
+  <div fxLayout fxFlex fxLayoutAlign="end end">
+    <button mat-button (click)="addToBasket.emit(item)">Add to Basket</button>
   </div>
 </div>

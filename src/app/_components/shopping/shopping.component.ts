@@ -26,9 +26,9 @@ export class ShoppingComponent implements OnInit {
     private dialog: DialogService,
     public ecommerceService: EcommerceService,
     afs: AngularFirestore) {
-      this.items = afs.collection('products').valueChanges();
+    this.items = afs.collection('products').valueChanges();
 
-    }
+  }
 
   ngOnInit() {
   }
@@ -37,4 +37,7 @@ export class ShoppingComponent implements OnInit {
     let dialogRef = this.dialog.showDialog(SellComponent);
   }
 
+  addToBasket(product: any) {
+    this.ecommerceService.addToBasket(product);
+  }
 }
