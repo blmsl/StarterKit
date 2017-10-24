@@ -9,6 +9,7 @@ mat-sidenav {
 
 .app-logo {
   height: 2em;
+  margin-left: 25px;
 }
 
 mat-nav-list a {

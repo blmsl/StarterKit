@@ -1,12 +1,12 @@
 <div fxFlexFill fxLayout="column" *ngIf="(auth.user | async)">
   <mat-toolbar color="primary">
-    <div fxHide.gt-xs="true" fxFlex>
+    <div>
       <button mat-icon-button (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
     </div>
 
-    <img src="assets/app-logo-icon.svg" class="app-logo" />
+    <img src="assets/app-logo-header.svg" class="app-logo" />
 
     <span fxFlex></span>
 
@@ -28,7 +28,7 @@
           <mat-icon>person</mat-icon>
           <span> {{(auth.user | async)?.email}} </span>
         </a>
-        
+
         <mat-divider></mat-divider>
 
         <button mat-menu-item (click)="logout()">
