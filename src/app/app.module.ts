@@ -187,7 +187,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'my-busket',
-    component: MyBusketComponent,
+    component: MyBasketComponent,
     data: {
       title: 'My Busket'
     }
