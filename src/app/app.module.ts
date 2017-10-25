@@ -91,6 +91,7 @@ import * as highmaps from 'highcharts/js/modules/map';
 import { ChartModule } from 'angular2-highcharts';
 import { SwingModule } from 'angular2-swing';
 import { UploadMyPhotoComponent } from './_components/profile/upload-my-photo/upload-my-photo.component';
+import { ImagePreviewComponent } from './_components/_shared/image-preview/image-preview.component';
 
 
 export function highchartsFactory() {
@@ -235,7 +236,8 @@ const appRoutes: Routes = [
     ItemDetailsComponent,
     LoginPageComponent,
     UploadMyPhotoComponent,
-    MyBasketComponent
+    MyBasketComponent,
+    ImagePreviewComponent
   ],
   imports: [
     MomentModule,

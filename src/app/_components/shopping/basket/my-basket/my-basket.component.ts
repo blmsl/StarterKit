@@ -12,7 +12,7 @@ import 'rxjs/add/observable/of';
   styleUrls: ['./my-basket.component.css']
 })
 export class MyBasketComponent implements OnInit {
-  displayedColumns = ['name', 'description','quantity','price'];
+  displayedColumns = ['images','name', 'description','quantity','price'];
 
   myBasketDataSource;
   constructor(public winRef: WindowRefService, public ecom: EcommerceService) {

@@ -1,0 +1,13 @@
+<div fxFlexFill style="position:relative;">
+
+  <div class="image" fxFlexFill *ngIf="images?.length > 0" [style.backgroundImage]="'url('+images[currentThumbnail]+')'">
+  </div>
+  <div class="image" fxFlexFill *ngIf="!(images?.length > 0)" [style.backgroundImage]="'url(\'/assets/no-image.svg\')'"> </div>
+
+  <div class="thumbnail-ctrl" fxLayout fxLayoutAlign="center center" *ngIf="images?.length > 1">
+    <button disableRipple fxFlex mat-icon-button (click)="thumbnailPrev($event)"><mat-icon>keyboard_arrow_left</mat-icon></button>
+    <span fxFlex>{{currentThumbnail+1}}/{{images?.length}}</span>
+    <button disableRipple fxFlex mat-icon-button (click)="thumbnailNext($event)"><mat-icon>keyboard_arrow_right</mat-icon></button>
+  </div>
+
+</div>

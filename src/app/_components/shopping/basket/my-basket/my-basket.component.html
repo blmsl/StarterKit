@@ -14,7 +14,13 @@
 
 <div class="mat-elevation-z8">
   <mat-table [dataSource]="myBasketDataSource">
+    <ng-container matColumnDef="images">
+      <mat-header-cell *matHeaderCellDef>Images</mat-header-cell>
+      <mat-cell *matCellDef="let element" style="height: 100px;">
+        <app-image-preview [images]="element.images"></app-image-preview>
 
+      </mat-cell>
+    </ng-container>
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef>name</mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>

@@ -16,26 +16,4 @@ export class ListItemComponent implements OnInit {
   ngOnInit() {
   }
 
-  thumbnailNext($event) {
-    this.currentThumbnail += 1;
-
-    if (this.currentThumbnail >= this.item.images.length) {
-      this.currentThumbnail = 0
-    }
-
-    $event.stopPropagation();
-    return false;
-  }
-
-  thumbnailPrev($event) {
-    this.currentThumbnail -= 1;
-
-    if (this.currentThumbnail < 0) {
-      this.currentThumbnail = this.item.images.length - 1;
-    }
-
-    $event.stopPropagation();
-    return false;
-  }
-
 }

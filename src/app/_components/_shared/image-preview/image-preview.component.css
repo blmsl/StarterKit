@@ -1,0 +1,21 @@
+.thumbnail-ctrl {
+  width: 68px;
+  position: absolute;
+  bottom: 0;
+  color: red;
+  font-size: 1em;
+  background: cadetblue;
+  height: 20px;
+  width: 70px;
+  left: 0;
+  margin: 3px;
+  padding: 0 5px;
+  border-radius: 2px 0px 0px 0px;
+  color: hsl(0, 0%, 6.7%);
+  background-color: hsla(0, 0%, 100%, 0.54);
+}
+
+.image {
+  background-size: cover;
+  background-position: center;
+}
