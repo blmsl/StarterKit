@@ -48,6 +48,6 @@ export class EcommerceService {
   }
 
   removeFromBasket(product: any) {
-
+    return this.afs.doc(`baskets/${product.id}`).delete()
   }
 }
