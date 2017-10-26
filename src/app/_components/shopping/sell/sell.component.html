@@ -4,21 +4,23 @@
     <mat-step [stepControl]="form" label="Details">
 
       <form [formGroup]="form" fxLayout="column" fxLayoutGap="10px">
-        <mat-form-field>
-          <mat-select placeholder="Make" formControlName="make" (change)="models = getModelsByMake($event.value)">
-            <mat-option *ngFor="let make of makes" [value]="make.title">
-              {{make.title}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
+        <div fxLayout fxLayoutGap="10px" fxLayoutWrap>
+          <mat-form-field>
+            <mat-select placeholder="Make" formControlName="make" (change)="models = getModelsByMake($event.value)">
+              <mat-option *ngFor="let make of makes" [value]="make.title">
+                {{make.title}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
 
-        <mat-form-field>
-          <mat-select placeholder="Model" formControlName="model">
-            <mat-option *ngFor="let model of models" [value]="model.title">
-              {{ model.title }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
+          <mat-form-field>
+            <mat-select placeholder="Model" formControlName="model">
+              <mat-option *ngFor="let model of models" [value]="model.title">
+                {{ model.title }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
 
         <div fxLayout fxLayoutGap="10px" fxLayoutWrap>
           <div>
@@ -47,22 +49,26 @@
           </div>
         </div>
 
+        <div fxLayout fxLayoutGap="10px" fxLayoutWrap>
+          <mat-form-field>
+            <input matInput type="text" placeholder="Name" formControlName="name" />
+          </mat-form-field>
+          <mat-form-field>
+            <span matPrefix>$</span>
+            <input [max]="10000000" [min]="5" matInput type="number" placeholder="Price" formControlName="price">
+            <mat-error *ngIf="form.controls['price'].hasError('max')">
+              No one can afford that
+            </mat-error>
+            <mat-error *ngIf="form.controls['price'].hasError('min')">
+              just give it away for free for that price
+            </mat-error>
+          </mat-form-field>
+        </div>
         <div fxLayout>
           <mat-form-field fxFlex>
             <textarea matInput matTextareaAutosize matAutosizeMaxRows="5" matAutosizeMinRows="5" placeholder="Description" formControlName="description"></textarea>
           </mat-form-field>
         </div>
-
-        <mat-form-field>
-          <span matPrefix>$</span>
-          <input [max]="10000000" [min]="5" matInput type="number" placeholder="Enter your price" formControlName="price">
-          <mat-error *ngIf="form.controls['price'].hasError('max')">
-            No one can afford that
-          </mat-error>
-          <mat-error *ngIf="form.controls['price'].hasError('min')">
-            just give it away for free.
-          </mat-error>
-        </mat-form-field>
 
 
       </form>

@@ -5717,6 +5717,7 @@ export class SellComponent implements OnInit {
       model: ['', [Validators.required]],
       mileage: ['', [Validators.required, Validators.max(1000000), Validators.min(0)]],
       year: ['', [Validators.required, Validators.max(this.currentYear + 1), Validators.min(this.currentYear - 100)]],
+      name: ['',[Validators.required, Validators.maxLength(100)]],
       description: ['', [Validators.required]],
       price: ['', [Validators.required, Validators.min(5), Validators.max(10000000)]]
 
