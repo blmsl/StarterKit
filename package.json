@@ -6,7 +6,7 @@
   "scripts": {
     "postinstall": "npm run build",
     "ng": "ng",
-    "start": "node server.js",
+    "start": "node express-server.js",
     "build": "ng build --prod && sw-precache --root=dist --config=precache-config.js",
     "test": "ng test",
     "lint": "ng lint",
