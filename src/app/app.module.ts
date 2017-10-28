@@ -272,7 +272,7 @@ const appRoutes: Routes = [
     AngularFireAuthModule,
     AngularFirestoreModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes,{useHash: true}),
     GridsterModule,
     NgPipesModule,
     ChartModule,
