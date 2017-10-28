@@ -1,9 +1,7 @@
 [![Join the chat at https://gitter.im/app-demo-chat/Lobby](https://badges.gitter.im/app-demo-chat/Lobby.svg)](https://gitter.im/app-demo-chat/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Build Status](https://travis-ci.org/MurWade/app-demo.svg?branch=master)](https://travis-ci.org/MurWade/app-demo)
 # Starter Kit
 ## Table of Contents
  * [What is this](#what-is-this)
- * [Why use this](#what-is-this)
  * [Demo](#demo)
  * [Libraries](#libraries)
  * [Installation instructions](#installation)
