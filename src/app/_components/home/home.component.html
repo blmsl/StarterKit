@@ -1,5 +1,15 @@
 <mat-nav-list>
   <h3 matSubheader>Things to do</h3>
+
+  <a mat-list-item *ngIf="!core.isElectron">
+    <p matLine>
+      Download windows client
+    </p>
+
+    <mat-icon>
+      desktop_windows
+    </mat-icon>
+  </a>
   <a mat-list-item routerLink="change-my-display-photo">
 
     <p matLine>

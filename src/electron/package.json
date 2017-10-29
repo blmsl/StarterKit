@@ -1,5 +1,8 @@
 {
   "name": "StartKit",
   "version": "0.0.0",
-  "main": "main.js"
+  "main": "main.js",
+  "dependencies": {
+    "electron-is-dev": "^0.3.0"
+  }
 }

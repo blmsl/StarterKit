@@ -45,6 +45,7 @@ import { environment } from '../environments/environment';
 import { MarkdownModule } from 'angular2-markdown';
 
 // services
+import { CoreService } from './_services/core.service';
 import { MessagingService } from "./_services/messaging.service";
 import { AuthService } from './_services/auth.service';
 import { UploadService } from './_services/upload.service';
@@ -291,6 +292,7 @@ const appRoutes: Routes = [
     DialogService,
     EcommerceService,
     WindowRefService,
+    CoreService,
     {
       provide: HighchartsStatic,
       useFactory: highchartsFactory

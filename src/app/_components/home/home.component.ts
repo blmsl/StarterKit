@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../../_classes/post';
 import { PostService } from '../../_services/post.service'
+import { CoreService } from '../../_services/core.service'
+
 import { AuthService } from '../../_services/auth.service'
 import { AngularFireDatabase  } from 'angularfire2/database';
 import 'rxjs/add/operator/map'
@@ -15,11 +17,12 @@ import 'rxjs/add/operator/map'
 export class HomeComponent implements OnInit {
   constructor(
     private postService: PostService,
-    public auth: AuthService
+    public auth: AuthService,
+    public core: CoreService
   ) { }
 
   ngOnInit() {
-    
+
   }
 
 }
