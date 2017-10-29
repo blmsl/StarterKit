@@ -159,7 +159,7 @@ const appRoutes: Routes = [
   {
     path: '', component: HomeComponent,
     data: {
-      title: 'App Demo - Home'
+      title: 'Start kit - Mustafa Hossaini'
     }
   },
   {
